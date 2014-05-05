@@ -1,7 +1,7 @@
 # Summary
 
 This is Code Fellows' textbook for The Full-Stack JavaScript Development
-Acellerator.
+Accelerator.
 
 * [Prework](prework/README.md)
 * [Connect to IRC](communication/connect_to_irc.md)

@@ -7,9 +7,12 @@
  
   * Connect to the class IRC channel #[codefellows](http://webchat.freenode.net/?channels=%23codefellows&uio=d4)
   on freenode.net and say hello.
-  * If you want to be able to talk on the ##[javascript](http://webchat.freenode.net/?channels=%23%23javascript&uio=d4) channel, you need to register a nickname with Freenode. Type `/msg NickServ help` to get started from your IRC client.
+  * If you want to be able to talk on the ##[javascript](http://webchat.freenode.net/?channels=%23%23javascript&uio=d4)
+   channel, you need to register a nickname with Freenode. Type
+    `/msg NickServ help` to get started from your IRC client.
   * Mac, best free client is [LimeChat](http://limechat.net/mac/). 
-  * Unix, your package manager should have [XChat](http://xchat.org/) or [Pidgin](http://www.pidgin.im/). 
+  * Unix, your package manager should have [XChat](http://xchat.org/) or
+   [Pidgin](http://www.pidgin.im/). 
   * [http://www.irchelp.org/](http://www.irchelp.org/) is a great intro site if
  you're new to IRC.
   * A short article on irc etiquette: [http://geoff.greer.fm/2012/05/19/programmer-irc-etiquette/](http://geoff.greer.fm/2012/05/19/programmer-irc-etiquette/) Also see
