@@ -1,4 +1,4 @@
-  * Inernet Relay Chat (IRC) despite being an ancient chat protocol, is highly
+Internet Relay Chat (IRC) despite being an ancient chat protocol, is highly
  used in the JavaScript, Node.js, and general web development community. It's
  __important__ that you're familiar with it and can utilize it for help and to 
  connect with others in the community. We have our own channel to model this 

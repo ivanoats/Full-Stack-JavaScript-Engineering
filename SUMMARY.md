@@ -5,4 +5,4 @@
 * [Day One](day1/README.md)
     * [Github Pull Request Practice](day1/pull_request_practice.md)
     * [Computer Setup](day1/computer_setup.md)
-    * [Make sure grunt works](day/initial_toolchain_practice.md)
+    * [Make sure grunt works](day1/initial_toolchain_practice.md)
