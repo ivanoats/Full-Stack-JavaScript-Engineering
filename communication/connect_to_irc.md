@@ -1,3 +1,5 @@
+# Connect to IRC
+
 Internet Relay Chat (IRC) despite being an ancient chat protocol, is highly
  used in the JavaScript, Node.js, and general web development community. It's
  __important__ that you're familiar with it and can utilize it for help and to 
