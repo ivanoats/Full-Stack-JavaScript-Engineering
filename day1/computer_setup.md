@@ -43,6 +43,7 @@ customize your editor in JavaScript, there are two great free editors:
     * `nvm install 0.10`
     * `nvm alias default 0.10`
     * add `source $(brew --prefix nvm)/nvm.sh` to your .bash_profile or .zshrc
+    * Install some commonly used packages with npm: `npm -g install grunt-cli jshint`
 	* Reference the [NVM README](https://github.com/creationix/nvm/blob/master/README.markdown) if you get stuck
 
 * PostgreSQL
@@ -80,9 +81,11 @@ customize your editor in JavaScript, there are two great free editors:
     *  NOTE you __DO NOT__ have to _buy_ a digital ocean server, this is instructions for how to install __LOCALLY__. __Ignore__ the create a server droplet step
     * NOTE replace 1.9.3 with the latest version of ruby: 2.1.1
   * gem install sass // DO NOT use sudo to install gems
-  * node.js: <https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager>
+  * node.js: <https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager> It's probably best to use Chris Lea's repository, as it is the most up-to-date.
+  * Install Grunt-CLI (command line interface)  `npm -g install grunt-cli`
   * PostgreSQL
     * Follow Ivan's blog post: <https://www.codefellows.org/blogs/how-to-install-postgresql>
+    * no need to install the pg gem - you won't be connecting to Postgres from ruby here.
   * Sublime Text 3
     * <http://docs.sublimetext.info/en/latest/getting_started/install.html>
   * MongoDB - <https://www.digitalocean.com/community/articles/how-to-install-mongodb-on-ubuntu-12-04> NOTE you DO NOT have to buy a digital ocean server, this is instructions for how to install LOCALLY. Ignore the create a server droplet step
