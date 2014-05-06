@@ -8,14 +8,14 @@ It's a [GitBook](http://gitbook.io) project.
 ## Installation
 
 ```
-npm -g install gitbook -g
-git clone [THIS REPO]
+npm -g install gitbook
+git clone https://github.com/codefellows/Full-Stack-JavaScript-Engineering.git
 ```
 
 ## Usage
 
 ```
-cd [THIS REPO]
+cd Full-Stack-JavaScript-Engineering
 gitbook serve .
 ```
 

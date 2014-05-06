@@ -80,6 +80,7 @@ customize your editor in JavaScript, there are two great free editors:
   * rbenv, ruby-build, and ruby: <https://www.digitalocean.com/community/articles/how-to-install-ruby-on-rails-on-ubuntu-12-04-lts-with-rbenv--2>
     *  NOTE you __DO NOT__ have to _buy_ a digital ocean server, this is instructions for how to install __LOCALLY__. __Ignore__ the create a server droplet step
     * NOTE replace 1.9.3 with the latest version of ruby: 2.1.1
+    * Another alternative way to install rbenv: https://github.com/sstephenson/rbenv#basic-github-checkout
   * gem install sass // DO NOT use sudo to install gems
   * node.js: <https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager> It's probably best to use Chris Lea's repository, as it is the most up-to-date.
   * Install Grunt-CLI (command line interface)  `npm -g install grunt-cli`
