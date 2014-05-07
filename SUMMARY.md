@@ -9,3 +9,6 @@
 * [Day Two](day2/README.md)
     * [Async Demo](day2/async_demo.md)
     * [Hello Express](day2/hello_express.md)
+* [Day Three](day3/README.md)
+    * [Grunt](day3/Grunt.md)
+
