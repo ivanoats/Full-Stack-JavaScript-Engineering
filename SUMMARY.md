@@ -6,3 +6,6 @@
     * [Github Pull Request Practice](day1/pull_request_practice.md)
     * [Computer Setup](day1/computer_setup.md)
     * [Make sure grunt works](day1/initial_toolchain_practice.md)
+* [Day Two](day2/README.md)
+    * [Async Demo](day2/async_demo.md)
+    * [Hello Express](day2/hello_express.md)

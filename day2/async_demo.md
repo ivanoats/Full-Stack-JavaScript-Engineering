@@ -22,3 +22,5 @@ it would be false, right? It's like the statements are having out of order.
 
 It's because we are placing our function with conosole.log on the event queue. 
 
+
+
