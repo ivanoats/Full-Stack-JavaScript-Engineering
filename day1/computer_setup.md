@@ -82,7 +82,7 @@ customize your editor in JavaScript, there are two great free editors:
     * NOTE replace 1.9.3 with the latest version of ruby: 2.1.1
     * Another alternative way to install rbenv: https://github.com/sstephenson/rbenv#basic-github-checkout
   * gem install sass // DO NOT use sudo to install gems
-  * node.js: <https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager> It's probably best to use Chris Lea's repository, as it is the most up-to-date.
+  * node.js: compile node from source, following the directions here: <https://gist.github.com/tylermorgan86/e1c9df76cb71a0a007d3>
   * Install Grunt-CLI (command line interface)  `npm -g install grunt-cli`
   * PostgreSQL
     * Follow Ivan's blog post: <https://www.codefellows.org/blogs/how-to-install-postgresql>
