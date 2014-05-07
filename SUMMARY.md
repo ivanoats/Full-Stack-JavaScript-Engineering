@@ -11,4 +11,5 @@
     * [Hello Express](day2/hello_express.md)
 * [Day Three](day3/README.md)
     * [Grunt](day3/Grunt.md)
+    * [Personal Blog Site Tutorial with Yeoman and Zurb](day3/Personal_Blog_Site_Tutorial_with_Yeoman_and_Zurb.md)
 
