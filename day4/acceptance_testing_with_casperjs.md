@@ -1,0 +1,2 @@
+# Acceptance Testing with CasperJS
+
