@@ -73,7 +73,7 @@ drwxr-xr-x   32 ivan  staff   1088 Apr 17 12:40 node_modules
 -rw-r--r--    1 ivan  staff   1277 Apr 17 12:40 package.json
 ```
 
-Now type `grunt server` to launch the app in a web browser. You should see something
+Now type `grunt serve` to launch the app in a web browser. You should see something
 like this:
 
 ![Foundation Default Screen](images/foundation_default.png)
