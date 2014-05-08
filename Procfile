@@ -1,1 +1,1 @@
-web: static public
+web: node server.js

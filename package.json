@@ -2,10 +2,10 @@
   "name": "Full-Stack-JavaScript-Engineering",
   "version": "0.0.1",
   "description": "Textbook in gitbook format for Code Fellows Full Stack JavaScript Engineering Development Accelerator",
-  "main": "static public",
+  "main": "node server.js",
   "dependencies": {
-    "grunt-cli": "^0.1.13",
-    "node-static": "^0.7.3"
+    "express": "^4.1.1",
+    "grunt-cli": "^0.1.13"
   },
   "devDependencies": {},
   "scripts": {
