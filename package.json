@@ -1,0 +1,29 @@
+{
+  "name": "Full-Stack-JavaScript-Engineering",
+  "version": "0.0.1",
+  "description": "Textbook in gitbook format for Code Fellows Full Stack JavaScript Engineering Development Accelerator",
+  "main": "static public",
+  "dependencies": {
+    "grunt-cli": "^0.1.13",
+    "node-static": "^0.7.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ivanoats/Full-Stack-JavaScript-Engineering.git"
+  },
+  "keywords": [
+    "javascript",
+    "book",
+    "gitbook"
+  ],
+  "author": "Ivan Storck",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ivanoats/Full-Stack-JavaScript-Engineering/issues"
+  },
+  "homepage": "https://github.com/ivanoats/Full-Stack-JavaScript-Engineering"
+}
