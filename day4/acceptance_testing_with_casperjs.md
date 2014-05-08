@@ -13,7 +13,11 @@ There are many options for acceptance testing, but we will be using one called
 ## Write our first acceptance test
 
 Let's just test to see if the home page is loading o.k., and that the title tag
-and H1 tags are what we expect. Here's the code:
+and H1 tags are what we expect. Here's the code, it goes in
+`test/acceptance/home_page_test.js`:
+
+BTW, if you want to make a new directory multiple levels deep, you can use:
+`mkdir -p test/acceptance` from your project's home directory.
 
 ```javascript
 'use strict';
@@ -66,6 +70,7 @@ Install Casper and PhantomJS globally, and Grunt integration locally
 ```
 npm install -g phantomjs casperjs
 npm install grunt-casper --save-dev
+npm install grunt-express-server --save-dev
 ```
 
 Edit your `Gruntfile.js` to include tasks like these below:
@@ -125,6 +130,9 @@ module.exports = function(grunt) {
 the casper tests.
 * I set the default task to run JSHint and then the test task.
 
+## Try it out
+
+Now try `grunt test` from the command line and see what happens&hellip;
 
 
 
