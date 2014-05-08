@@ -42,7 +42,7 @@
 
 
         
-    <div class="book" data-github="ivanoats/Full-Stack-JavaScript-Engineering" data-level="6.1" data-basepath=".." data-revision="1399577037340">
+    <div class="book" data-github="ivanoats/Full-Stack-JavaScript-Engineering" data-level="6.1" data-basepath=".." data-revision="1399579088564">
     <div class="book-header">
     <!-- Actions Left -->
     
@@ -342,7 +342,10 @@ behind the scenes. </p>
 <a href="http://casperjs.org" target="_blank">CasperJS</a>.</p>
 <h2 id="write-our-first-acceptance-test">Write our first acceptance test</h2>
 <p>Let&#39;s just test to see if the home page is loading o.k., and that the title tag
-and H1 tags are what we expect. Here&#39;s the code:</p>
+and H1 tags are what we expect. Here&#39;s the code, it goes in
+<code>test/acceptance/home_page_test.js</code>:</p>
+<p>BTW, if you want to make a new directory multiple levels deep, you can use:
+<code>mkdir -p test/acceptance</code> from your project&#39;s home directory.</p>
 <pre><code class="lang-javascript"><span class="hljs-pi">'use strict'</span>;
 <span class="hljs-comment">/*global casper*/</span>
 
@@ -382,6 +385,7 @@ We will use a grunt plugin to automate this.</p>
 <p>Install Casper and PhantomJS globally, and Grunt integration locally</p>
 <pre><code>npm install -g phantomjs casperjs
 npm install grunt-casper --save-dev
+npm install grunt-express-server --save-dev
 </code></pre><p>Edit your <code>Gruntfile.js</code> to include tasks like these below:</p>
 <pre><code class="lang-javascript"><span class="hljs-pi">'use strict'</span>;
 module.exports = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(grunt)</span> {</span>
@@ -436,6 +440,8 @@ module.exports = <span class="hljs-function"><span class="hljs-keyword">function
 the casper tests.</li>
 <li>I set the default task to run JSHint and then the test task.</li>
 </ul>
+<h2 id="try-it-out">Try it out</h2>
+<p>Now try <code>grunt test</code> from the command line and see what happens&hellip;</p>
 
                     
                     </section>

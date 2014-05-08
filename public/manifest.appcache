@@ -1,11 +1,11 @@
 CACHE MANIFEST
-# Revision 1399577037341
+# Revision 1399579088564
 
 CACHE:
 day1/README.html
+day1/computer_setup.html
 day1/initial_toolchain_practice.html
 day1/pull_request_practice.html
-day1/computer_setup.html
 index.html
 communication/connect_to_irc.html
 day2/README.html
