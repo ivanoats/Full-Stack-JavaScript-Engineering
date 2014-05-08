@@ -15,4 +15,5 @@
 * [Day Four](day4/README.md)
     * [Acceptance Testing with CasperJS](day4/acceptance_testing_with_casperjs.md)
     * [Sass](day4/Sass.md)
+    * [Heroku](day4/Heroku.md)
 
