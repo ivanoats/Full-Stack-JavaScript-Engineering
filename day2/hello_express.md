@@ -76,7 +76,8 @@ Express 4, static. Modify your server.js file to look like this:
 
     app.use(express.static(__dirname + '/public'));
 
-    app.server.listen(3000, function() {
+    var server = http.createServer(app);
+    server.listen(3000, function() {
       console.log('the server is listening on port 3000');
     });
 
