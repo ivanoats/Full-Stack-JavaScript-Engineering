@@ -7,7 +7,7 @@ Use your modules, plus already existing node core modules, in the browser
 
 ## What Code is a Good Candidate for Browserify?
 
-![Browserify](images/browserify.png)
+<img src="images/browserify.svg" onerror="this.src=browserify.png">
 
 Anything you want to use on the server and in the browser.
 
@@ -15,11 +15,13 @@ Anything you want to use on the server and in the browser.
 
 ## Alternatives to Browserify
 
-* RequireJS
-* ECMAScript 6 built in modules
+* RequireJS ![RequireJS](images/requirejs.png)
+* ECMAScript 6 built in modules ![ES6](images/es6.png)
 * Others
 
 ## Automation and Distribution
+
+![Grunt](images/grunt.png)
 
 * grunt-contrib-concat
   * For JS
@@ -30,6 +32,8 @@ Anything you want to use on the server and in the browser.
 * grunt-contrib-watch
 
 ##  But wait, what about Bower?
+
+![Bower](images/bower.png)
 
 * `bower install` does not modify package.json
 * You could still use `<script>` tags, but that’s missing out on the good stuff
