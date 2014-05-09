@@ -3,7 +3,7 @@
     <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
         
         <meta charset="UTF-8">
-        <title>Heroku | Full Stack JavaScript Engineering</title>
+        <title>Browserify | Full Stack JavaScript Engineering</title>
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="robots" content="index, follow">
@@ -13,13 +13,11 @@
         <meta name="generator" content="www.gitbook.io">
 
         
-        <link rel="next" href="../day5/README.html" />
         
-        
-        <link rel="prev" href="../day4/Sass.html" />
+        <link rel="prev" href="../day6/README.html" />
         
 
-        <meta property="og:title" content="Heroku | Full Stack JavaScript Engineering">
+        <meta property="og:title" content="Browserify | Full Stack JavaScript Engineering">
         <meta property="og:site_name" content="Full Stack JavaScript Engineering">
         <meta property="og:type" content="book">
         <meta property="og:locale" content="en_US">
@@ -42,7 +40,7 @@
 
 
         
-    <div class="book" data-github="ivanoats/Full-Stack-JavaScript-Engineering" data-level="6.3" data-basepath=".." data-revision="1399647747192">
+    <div class="book" data-github="ivanoats/Full-Stack-JavaScript-Engineering" data-level="8.1" data-basepath=".." data-revision="1399647747192">
     <div class="book-header">
     <!-- Actions Left -->
     
@@ -120,7 +118,7 @@
 
         
         <li>
-            <a href="https://github.com/ivanoats/Full-Stack-JavaScript-Engineering/edit/master/day4/Heroku.md" target="blank">Edit and Contribute</a>
+            <a href="https://github.com/ivanoats/Full-Stack-JavaScript-Engineering/edit/master/day6/Browserify.md" target="blank">Edit and Contribute</a>
         </li>
         
 
@@ -327,7 +325,7 @@
             <div class="page-wrapper" tabindex="-1">
                 <div class="book-progress">
     <div class="bar">
-        <div class="inner" style="width: 84.21052631578948%;min-width: 78.94736842105263%;"></div>
+        <div class="inner" style="width: 100%;min-width: 94.73684210526316%;"></div>
     </div>
     <div class="chapters">
     
@@ -365,97 +363,71 @@
     
         <a href="../day4/Heroku.html" title="Heroku" class="chapter done " data-progress="6.3" style="left: 84.21052631578948%;"></a>
     
-        <a href="../day5/README.html" title="Day Five" class="chapter  new-chapter" data-progress="7" style="left: 89.47368421052632%;"></a>
+        <a href="../day5/README.html" title="Day Five" class="chapter done new-chapter" data-progress="7" style="left: 89.47368421052632%;"></a>
     
-        <a href="../day6/README.html" title="Day Six" class="chapter  new-chapter" data-progress="8" style="left: 94.73684210526316%;"></a>
+        <a href="../day6/README.html" title="Day Six" class="chapter done new-chapter" data-progress="8" style="left: 94.73684210526316%;"></a>
     
-        <a href="../day6/Browserify.html" title="Browserify" class="chapter  " data-progress="8.1" style="left: 100%;"></a>
+        <a href="../day6/Browserify.html" title="Browserify" class="chapter done " data-progress="8.1" style="left: 100%;"></a>
     
     </div>
 </div>
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_13">
+                    <section class="normal" id="section-gitbook_18">
                     
-                        <h1 id="heroku">Heroku</h1>
-<p>Let&#39;s get our site LIVE ON THE WEB!! This process is called <strong>deployment</strong>.</p>
-<h2 id="slides">Slides</h2>
-<p><a href="pdf/cf_heroku.pdf">Slides</a> from class introducing Heroku.</p>
-<h2 id="installation">Installation</h2>
-<p>Make sure you have the <a href="https://toolbelt.heroku.com" target="_blank">Heroku Toolbelt</a> installed.</p>
-<p>You can usually <code>brew install heroku-toolbelt</code> or <code>sudo apt-get install heroku-toolbelt</code>. If those don&#39;t work you may need to donwload it.</p>
-<p>Also, if you haven&#39;t already, sign up for an account on <a href="http://heroku.com" target="_blank">Heroku.com</a>.</p>
-<h2 id="login">Login</h2>
-<p>Use <code>heroku login</code> to log in to heroku from the command line.</p>
-<p>If you&#39;re already logged in, you can use <code>heroku auth:whoami</code> to see who you are logged in as.</p>
-<h2 id="create-a-heroku-app">Create a heroku app</h2>
-<p>You&#39;ll want a nice name for your app instead of the random ones Heroku gives you.</p>
-<p>E.g. <code>heroku create ivan-hello-world-express</code></p>
-<h2 id="create-the-procfile">Create the Procfile</h2>
-<p>You need a file to tell heroku how to launch your app.</p>
-<p>Edit <code>Procfile</code> which should be in the root directory of your project. No file extension on this file, and it needs to start with a Capital letter. The procfile is simply:</p>
-<pre><code>web: node server.js
-</code></pre><p>This tells heroku that to start your web server, it needs to run the command <code>node server.js</code></p>
-<h2 id="test-it-out-locally-with-node-foreman">Test it out locally with node-foreman</h2>
-<p>You can use a npm package called foreman to test that your Procfile works as expected. Install this globally.</p>
-<p><code>npm install -g foreman</code></p>
-<p>This will give you the <code>nf</code> command. Try it out.</p>
-<p><code>nf --help</code></p>
-<p>And, now, try starting your server via foreman.</p>
-<p><code>nf start</code></p>
-<p>It should start up your server on port 5000 as a default.</p>
-<p>This means that your server should not have any port &#39;hard-coded&#39; as a default (like 3000). Make sure your server code looks something like this:</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> server = http.createServer(app);
-app.set(<span class="hljs-string">'port'</span>, process.env.PORT || <span class="hljs-number">3000</span>);
-
-server.listen(app.get(<span class="hljs-string">'port'</span>), <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
-  console.log(<span class="hljs-string">'the server is NOW running on port'</span>, app.get(<span class="hljs-string">'port'</span>));
-});
-</code></pre>
-<h2 id="commit-any-changes-and-push-to-heroku">Commit any changes and push to Heroku</h2>
-<p>Make sure to commit any changes you made to your app, like adding the Procfile, etc.</p>
-<p><code>git add .</code></p>
-<p><code>git commit -m &#39;preparing for heroku&#39;</code></p>
-<p>Make sure you&#39;re on the master branch or that you merge you changes back to master.</p>
-<p>And now, to deploy your app to the web on Heroku:</p>
-<p><code>git push heroku master</code></p>
-<p>You&#39;ll see a bunch of info scroll by from Heroku, but it should look something like this:</p>
-<pre><code>$ git push heroku master
-Fetching repository, done.
-Counting objects: 7, done.
-Delta compression using up to 8 threads.
-Compressing objects: 100% (3/3), done.
-Writing objects: 100% (4/4), 343 bytes | 0 bytes/s, done.
-Total 4 (delta 2), reused 0 (delta 0)
-
------&gt; Node.js app detected
-
-       PRO TIP: Specify a node version in package.json
-       See https://devcenter.heroku.com/articles/nodejs-support
-
------&gt; Defaulting to latest stable node: 0.10.28
------&gt; Downloading and installing node
------&gt; Restoring node_modules directory from cache
------&gt; Pruning cached dependencies not specified in package.json
-       npm WARN package.json hello-express@ No repository field.
------&gt; Writing a custom .npmrc to circumvent npm bugs
------&gt; Exporting config vars to environment
------&gt; Installing dependencies
-       npm WARN package.json hello-express@ No repository field.
------&gt; Caching node_modules directory for future builds
------&gt; Cleaning up node-gyp and npm artifacts
------&gt; Building runtime environment
------&gt; Discovering process types
-       Procfile declares types -&gt; web
-
------&gt; Compressing... done, 5.3MB
------&gt; Launching... done, v4
-       http://ivan-hello-world-express.herokuapp.com/ deployed to Heroku
-
-To git@heroku.com:ivan-hello-world-express.git
-   3d47745..3f34feb  master -&gt; master
-</code></pre><p>And you can open your browser, and visit your app on the web!</p>
+                        <h1 id="browserify">Browserify</h1>
+<p>Use your modules, plus already existing node core modules, in the browser</p>
+<ul>
+<li>includes assert, path, url, crypto, domain, events, querystring, util, buffer, etc&hellip;</li>
+<li>bundles up modules into one file, increasing performance</li>
+</ul>
+<h2 id="what-code-is-a-good-candidate-for-browserify-">What Code is a Good Candidate for Browserify?</h2>
+<p><img src="images/browserify.png" alt="Browserify"></p>
+<p>Anything you want to use on the server and in the browser.</p>
+<ul>
+<li>Validation - ensuring data from the user is in an acceptable format. For example, an email must have an @ sign and a &quot;.&quot;</li>
+</ul>
+<h2 id="alternatives-to-browserify">Alternatives to Browserify</h2>
+<ul>
+<li>RequireJS</li>
+<li>ECMAScript 6 built in modules</li>
+<li>Others</li>
+</ul>
+<h2 id="automation-and-distribution">Automation and Distribution</h2>
+<ul>
+<li>grunt-contrib-concat<ul>
+<li>For JS</li>
+<li>can be replaced by Browserify</li>
+</ul>
+</li>
+<li>grunt-contrib-copy<ul>
+<li>For HTML, Images, plain CSS</li>
+</ul>
+</li>
+<li>grunt-contrib-connect</li>
+<li>grunt-contrib-watch</li>
+</ul>
+<h2 id="but-wait-what-about-bower-">But wait, what about Bower?</h2>
+<ul>
+<li><code>bower install</code> does not modify package.json</li>
+<li>You could still use <code>&lt;script&gt;</code> tags, but that’s missing out on the good stuff</li>
+<li>Use the <a href="https://github.com/eugeneware/debowerify" target="_blank">debowerify</a> transform package from npm to link bower+browserify</li>
+</ul>
+<h2 id="more-resources">More Resources</h2>
+<ul>
+<li><a href="http://learnjs.io/blog/2013/12/22/express-and-browserify/" target="_blank">http://learnjs.io/blog/2013/12/22/express-and-browserify/</a></li>
+<li><a href="http://superbigtree.tumblr.com/post/54873453939/introduction-to-browserify" target="_blank">http://superbigtree.tumblr.com/post/54873453939/introduction-to-browserify</a></li>
+<li>Read about the use case for browserify:<ul>
+<li><a href="http://lincolnloop.com/blog/untangle-your-javascript-browserify" target="_blank">http://lincolnloop.com/blog/untangle-your-javascript-browserify</a></li>
+</ul>
+</li>
+<li>How to make node and browserify talk to one another:<ul>
+<li><a href="https://blog.codecentric.de/en/2014/02/cross-platform-javascript" target="_blank">https://blog.codecentric.de/en/2014/02/cross-platform-javascript</a>
+￼￼</li>
+</ul>
+</li>
+</ul>
 
                     
                     </section>
@@ -465,10 +437,8 @@ To git@heroku.com:ivan-hello-world-express.git
         </div>
 
         
-        <a href="../day4/Sass.html" class="navigation navigation-prev "><i class="fa fa-angle-left"></i></a>
+        <a href="../day6/README.html" class="navigation navigation-prev navigation-unique"><i class="fa fa-angle-left"></i></a>
         
-        
-        <a href="../day5/README.html" class="navigation navigation-next "><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
