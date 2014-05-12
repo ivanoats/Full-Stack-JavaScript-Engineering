@@ -20,5 +20,6 @@
 * [Day Six](day6/README.md)
     * [Readings](day6/day6_readings.md)
     * [Browserify](day6/Browserify.md)
+    * [Browserify lab](day6/Browserify_lab.md)
     * [Require.js](day6/requirejs.md)
 

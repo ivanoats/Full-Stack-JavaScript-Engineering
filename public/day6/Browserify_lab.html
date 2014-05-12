@@ -3,7 +3,7 @@
     <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
         
         <meta charset="UTF-8">
-        <title>Acceptance Testing with CasperJS | Full Stack JavaScript Engineering</title>
+        <title>Browserify lab | Full Stack JavaScript Engineering</title>
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="robots" content="index, follow">
@@ -13,13 +13,13 @@
         <meta name="generator" content="www.gitbook.io">
 
         
-        <link rel="next" href="../day4/Sass.html" />
+        <link rel="next" href="../day6/requirejs.html" />
         
         
-        <link rel="prev" href="../day4/README.html" />
+        <link rel="prev" href="../day6/Browserify.html" />
         
 
-        <meta property="og:title" content="Acceptance Testing with CasperJS | Full Stack JavaScript Engineering">
+        <meta property="og:title" content="Browserify lab | Full Stack JavaScript Engineering">
         <meta property="og:site_name" content="Full Stack JavaScript Engineering">
         <meta property="og:type" content="book">
         <meta property="og:locale" content="en_US">
@@ -42,7 +42,7 @@
 
 
         
-    <div class="book" data-github="ivanoats/Full-Stack-JavaScript-Engineering" data-level="6.1" data-basepath=".." data-revision="1399922092344">
+    <div class="book" data-github="ivanoats/Full-Stack-JavaScript-Engineering" data-level="8.3" data-basepath=".." data-revision="1399922092344">
     <div class="book-header">
     <!-- Actions Left -->
     
@@ -120,7 +120,7 @@
 
         
         <li>
-            <a href="https://github.com/ivanoats/Full-Stack-JavaScript-Engineering/edit/master/day4/acceptance_testing_with_casperjs.md" target="blank">Edit and Contribute</a>
+            <a href="https://github.com/ivanoats/Full-Stack-JavaScript-Engineering/edit/master/day6/Browserify_lab.md" target="blank">Edit and Contribute</a>
         </li>
         
 
@@ -351,7 +351,7 @@
             <div class="page-wrapper" tabindex="-1">
                 <div class="book-progress">
     <div class="bar">
-        <div class="inner" style="width: 63.63636363636363%;min-width: 59.09090909090909%;"></div>
+        <div class="inner" style="width: 95.45454545454545%;min-width: 90.9090909090909%;"></div>
     </div>
     <div class="chapters">
     
@@ -385,19 +385,19 @@
     
         <a href="../day4/acceptance_testing_with_casperjs.html" title="Acceptance Testing with CasperJS" class="chapter done " data-progress="6.1" style="left: 63.63636363636363%;"></a>
     
-        <a href="../day4/Sass.html" title="Sass" class="chapter  " data-progress="6.2" style="left: 68.18181818181819%;"></a>
+        <a href="../day4/Sass.html" title="Sass" class="chapter done " data-progress="6.2" style="left: 68.18181818181819%;"></a>
     
-        <a href="../day4/Heroku.html" title="Heroku" class="chapter  " data-progress="6.3" style="left: 72.72727272727273%;"></a>
+        <a href="../day4/Heroku.html" title="Heroku" class="chapter done " data-progress="6.3" style="left: 72.72727272727273%;"></a>
     
-        <a href="../day5/README.html" title="Day Five" class="chapter  new-chapter" data-progress="7" style="left: 77.27272727272727%;"></a>
+        <a href="../day5/README.html" title="Day Five" class="chapter done new-chapter" data-progress="7" style="left: 77.27272727272727%;"></a>
     
-        <a href="../day6/README.html" title="Day Six" class="chapter  new-chapter" data-progress="8" style="left: 81.81818181818181%;"></a>
+        <a href="../day6/README.html" title="Day Six" class="chapter done new-chapter" data-progress="8" style="left: 81.81818181818181%;"></a>
     
-        <a href="../day6/day6_readings.html" title="Readings" class="chapter  " data-progress="8.1" style="left: 86.36363636363636%;"></a>
+        <a href="../day6/day6_readings.html" title="Readings" class="chapter done " data-progress="8.1" style="left: 86.36363636363636%;"></a>
     
-        <a href="../day6/Browserify.html" title="Browserify" class="chapter  " data-progress="8.2" style="left: 90.9090909090909%;"></a>
+        <a href="../day6/Browserify.html" title="Browserify" class="chapter done " data-progress="8.2" style="left: 90.9090909090909%;"></a>
     
-        <a href="../day6/Browserify_lab.html" title="Browserify lab" class="chapter  " data-progress="8.3" style="left: 95.45454545454545%;"></a>
+        <a href="../day6/Browserify_lab.html" title="Browserify lab" class="chapter done " data-progress="8.3" style="left: 95.45454545454545%;"></a>
     
         <a href="../day6/requirejs.html" title="Require.js" class="chapter  " data-progress="8.4" style="left: 100%;"></a>
     
@@ -406,118 +406,104 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_16">
+                    <section class="normal" id="section-gitbook_19">
                     
-                        <h1 id="acceptance-testing-with-casperjs">Acceptance Testing with CasperJS</h1>
-<p>Acceptance testing is also known as &quot;Outside-in&quot;, or &quot;black-box&quot; testing. It
-tests a system just like a web browser does. Except, instead of a person clicking
-on a web browser, a &quot;headless&quot; browser operates in the command line, a bit more
-behind the scenes. </p>
-<p><img src="images/js_acceptance_testing_landscape.jpg" alt="JS Acceptance Testing Landscape"> </p>
-<p>There are many options for acceptance testing, but we will be using one called
-<a href="http://casperjs.org" target="_blank">CasperJS</a>.</p>
-<h2 id="write-our-first-acceptance-test">Write our first acceptance test</h2>
-<p>Let&#39;s just test to see if the home page is loading o.k., and that the title tag
-and H1 tags are what we expect. Here&#39;s the code, it goes in
-<code>test/acceptance/home_page_test.js</code>:</p>
-<p>BTW, if you want to make a new directory multiple levels deep, you can use:
-<code>mkdir -p test/acceptance</code> from your project&#39;s home directory.</p>
-<pre><code class="lang-javascript"><span class="hljs-pi">'use strict'</span>;
-<span class="hljs-comment">/*global casper*/</span>
-
-casper.test.begin(<span class="hljs-string">'home page'</span>, <span class="hljs-number">3</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">suite</span><span class="hljs-params">(test)</span> {</span>
-
-  casper.start(<span class="hljs-string">'http://localhost:3000/'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
-    test.assertHttpStatus(<span class="hljs-number">200</span>);
-  });
-
-  casper.then(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span>{</span>
-    test.assertTitle(<span class="hljs-string">'Hello World Express'</span>, <span class="hljs-string">'title is Hello World Express'</span>);
-  });
-
-  casper.then(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
-    test.assertSelectorHasText(<span class="hljs-string">'h1'</span>,<span class="hljs-string">'Hello World'</span>);
-  });
-
-  casper.run(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span>{</span>
-    test.done();
-  });
-
-});
-</code></pre>
-<p>So, we have three assertions that we expect to be true. The status should be 200
-OK, the title should be &quot;Hello World Express&quot;, and the h1 should include the text
-&quot;Hello World&quot;.</p>
-<h2 id="run-our-acceptance-tests">Run our acceptance tests</h2>
-<p>To run our acceptance test we&#39;ll need to make sure to start the express server.
-We will use a grunt plugin to automate this.</p>
-<p>You can do this on your personal portfolio site, or your hello world express code.</p>
-<h4 id="hook-up-grunt-express-server">Hook up Grunt-Express-Server</h4>
-<p>From the command line:
-<code>npm install grunt-express-server --save-dev</code></p>
-<p>And in Gruntfile.js add:
-<code>grunt.loadNpmTasks(&#39;grunt-express-server&#39;);</code></p>
-<h4 id="install-and-configure-casperjs-and-phantomjs">Install and Configure CasperJS and PhantomJS</h4>
-<p>Install Casper and PhantomJS globally, and Grunt integration locally</p>
-<pre><code>npm install -g phantomjs casperjs
-npm install grunt-casper --save-dev
-npm install grunt-express-server --save-dev
-</code></pre><p>Edit your <code>Gruntfile.js</code> to include tasks like these below:</p>
+                        <h1 id="browserify-lab">Browserify Lab</h1>
+<p>Let&#39;s modify our <a href="">Hello World Express</a> server to use Browserify and friends.</p>
+<h2 id="install-browserify">Install Browserify</h2>
+<p><code>npm install -g browserify</code></p>
+<h2 id="grunt-all-the-things">GRUNT ALL THE THINGS</h2>
+<p><code>npm install grunt-contrib-copy grunt-contrib-clean grunt-contrib-jshint grunt-contrib-watch grunt-browserify matchdep globule --save-dev</code></p>
+<p>These tools will help clean and build our files</p>
+<h2 id="install-the-debowerify-transform">Install the Debowerify transform</h2>
+<p><code>npm install debowerify --save</code></p>
+<p>This lets us use front-end packages from Bower.</p>
+<h2 id="set-up-bower">Set up Bower</h2>
+<p><code>bower init</code></p>
+<p>And install jQuery:</p>
+<p><code>bower install jquery</code></p>
+<h2 id="set-up-a-distribution-directory">Set up a distribution directory</h2>
+<p>`mkdir dist &amp;&amp; echo &quot;dist&quot; &gt;&gt; .gitignore</p>
+<h2 id="set-up-the-gruntfile">Set up the Gruntfile</h2>
+<p>You can copy this one:</p>
 <pre><code class="lang-javascript"><span class="hljs-pi">'use strict'</span>;
 module.exports = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(grunt)</span> {</span>
-
-  grunt.loadNpmTasks(<span class="hljs-string">'grunt-contrib-jshint'</span>);
-  grunt.loadNpmTasks(<span class="hljs-string">'grunt-express-server'</span>);
-  grunt.loadNpmTasks(<span class="hljs-string">'grunt-casper'</span>);
-
   grunt.initConfig({
-    express: {
+    pkg: grunt.file.readJSON(<span class="hljs-string">'package.json'</span>),
+
+    clean: [<span class="hljs-string">'dist'</span>],
+
+    copy: {
+      all: {
+        expand: <span class="hljs-literal">true</span>,
+        cwd: <span class="hljs-string">'src/'</span>,
+        src: [<span class="hljs-string">'*.css'</span>, <span class="hljs-string">'*.html'</span>, <span class="hljs-string">'/images/**/*'</span>, <span class="hljs-string">'!Gruntfile.js'</span>],
+        dest: <span class="hljs-string">'dist/'</span>,
+        flatten: <span class="hljs-literal">true</span>,
+        filter: <span class="hljs-string">'isFile'</span>
+      },
+    },
+
+    browserify: {
+      all: {
+        src: <span class="hljs-string">'src/*.js'</span>,
+        dest: <span class="hljs-string">'dist/app.js'</span>
+      },
       options: {
-        <span class="hljs-comment">// Override defaults here</span>
-      },
-      dev: {
-        options: {
-          script: <span class="hljs-string">'server.js'</span>
-        }
-      },
-      prod: {
-        options: {
-          script: <span class="hljs-string">'server.js'</span>,
-          node_env: <span class="hljs-string">'production'</span>
-        }
-      },
-      test: {
-        options: {
-          script: <span class="hljs-string">'server.js'</span>
-        }
+        transform: [<span class="hljs-string">'debowerify'</span>],
+        debug: <span class="hljs-literal">true</span>
       }
     },
-    casper: {
-      acceptance : {
-        options : {
-          test : <span class="hljs-literal">true</span>,
-        },
-        files : {
-          <span class="hljs-string">'test/acceptance/casper-results.xml'</span> : [<span class="hljs-string">'test/acceptance/*_test.js'</span>]
+
+    jshint: {
+      all: [<span class="hljs-string">'Gruntfile.js'</span>, <span class="hljs-string">'src/**/*.js'</span>, <span class="hljs-string">'test/**/*.js'</span>],
+      options: {
+        jshintrc: <span class="hljs-literal">true</span>,
+        globals: {
+          jQuery: <span class="hljs-literal">true</span>,
+          console: <span class="hljs-literal">true</span>,
+          module: <span class="hljs-literal">true</span>
         }
+      },
+    },
+
+    connect: {
+      options: {
+        port: process.env.PORT || <span class="hljs-number">3000</span>,
+        base: <span class="hljs-string">'dist/'</span>,
+      },
+
+      all: {},
+    },
+
+    watch: {
+      options: {
+        livereload: <span class="hljs-literal">true</span>
+      },
+
+      html: {
+        files: <span class="hljs-string">'&lt;%= copy.all.src %&gt;'</span>,
+      },
+
+      js: {
+        files: <span class="hljs-string">'&lt;%= browserify.all.src %&gt;'</span>,
+        tasks: [<span class="hljs-string">'browserify'</span>],
+      },
+
+      assets: {
+        files: [<span class="hljs-string">'assets/**/*'</span>, <span class="hljs-string">'*.css'</span>, <span class="hljs-string">'images/**/*'</span>, <span class="hljs-string">'img/**/*'</span>, <span class="hljs-string">'!Gruntfile.js'</span>],
+        tasks: [<span class="hljs-string">'copy'</span>],
       }
     }
   });
 
-  grunt.registerTask(<span class="hljs-string">'server'</span>, [ <span class="hljs-string">'jshint'</span>, <span class="hljs-string">'express:dev'</span> ]);
-  grunt.registerTask(<span class="hljs-string">'test'</span>,[<span class="hljs-string">'express:dev'</span>,<span class="hljs-string">'casper'</span>]);
-  grunt.registerTask(<span class="hljs-string">'default'</span>, [<span class="hljs-string">'jshint'</span>, <span class="hljs-string">'test'</span>]);
+  <span class="hljs-built_in">require</span>(<span class="hljs-string">'matchdep'</span>).filterDev(<span class="hljs-string">'grunt-*'</span>).forEach(grunt.loadNpmTasks);
+
+  grunt.registerTask(<span class="hljs-string">'default'</span>, [<span class="hljs-string">'jshint'</span>, <span class="hljs-string">'clean'</span>, <span class="hljs-string">'browserify'</span>, <span class="hljs-string">'copy'</span>]);
+  grunt.registerTask(<span class="hljs-string">'server'</span>, [<span class="hljs-string">'default'</span>, <span class="hljs-string">'connect'</span>, <span class="hljs-string">'watch'</span>]);
 
 };
 </code></pre>
-<ul>
-<li>I added a <code>server</code> task that runs the express server after JSHint passes.</li>
-<li>I added a <code>test</code> task that sets up the express server in dev mode, and then runs
-the casper tests.</li>
-<li>I set the default task to run JSHint and then the test task.</li>
-</ul>
-<h2 id="try-it-out">Try it out</h2>
-<p>Now try <code>grunt test</code> from the command line and see what happens&hellip;</p>
 
                     
                     </section>
@@ -527,10 +513,10 @@ the casper tests.</li>
         </div>
 
         
-        <a href="../day4/README.html" class="navigation navigation-prev "><i class="fa fa-angle-left"></i></a>
+        <a href="../day6/Browserify.html" class="navigation navigation-prev "><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../day4/Sass.html" class="navigation navigation-next "><i class="fa fa-angle-right"></i></a>
+        <a href="../day6/requirejs.html" class="navigation navigation-next "><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# Revision 1399920902625
+# Revision 1399922092344
 
 CACHE:
 day2/README.html
@@ -20,6 +20,7 @@ day4/Sass.html
 day4/acceptance_testing_with_casperjs.html
 day5/README.html
 day6/Browserify.html
+day6/Browserify_lab.html
 day6/README.html
 day6/day6_readings.html
 day6/requirejs.html
