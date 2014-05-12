@@ -19,4 +19,5 @@
 * [Day Five](day5/README.md)
 * [Day Six](day6/README.md)
     * [Browserify](day6/Browserify.md)
+    * [Require.js](day6/requirejs.md)
 
