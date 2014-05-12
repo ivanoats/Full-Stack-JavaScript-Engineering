@@ -18,6 +18,7 @@
     * [Heroku](day4/Heroku.md)
 * [Day Five](day5/README.md)
 * [Day Six](day6/README.md)
+    * [Readings](day6/day6_readings.md)
     * [Browserify](day6/Browserify.md)
     * [Require.js](day6/requirejs.md)
 
