@@ -1,0 +1,555 @@
+<!DOCTYPE HTML>
+<html lang="en-US" manifest="../manifest.appcache">
+    <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
+        
+        <meta charset="UTF-8">
+        <title>Require.js | Full Stack JavaScript Engineering</title>
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="robots" content="index, follow">
+        <meta name="author" content="ivanoats">
+        <meta name="description" content="Code Fellows&#39; Development Accelerator Textbook">
+        <meta name="keywords" content="gitbook,github" >
+        <meta name="generator" content="www.gitbook.io">
+
+        
+        
+        <link rel="prev" href="../day6/Browserify.html" />
+        
+
+        <meta property="og:title" content="Require.js | Full Stack JavaScript Engineering">
+        <meta property="og:site_name" content="Full Stack JavaScript Engineering">
+        <meta property="og:type" content="book">
+        <meta property="og:locale" content="en_US">
+
+        <meta property="book:author" content="https://github.com/ivanoats">
+        <meta property="book:tag" content="GitBook">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    </head>
+    <body>
+        
+
+        <link rel="stylesheet" href="../gitbook/style.css">
+        
+
+
+        
+    <div class="book" data-github="ivanoats/Full-Stack-JavaScript-Engineering" data-level="8.3" data-basepath=".." data-revision="1399920464093">
+    <div class="book-header">
+    <!-- Actions Left -->
+    
+    <a href="https://github.com/ivanoats/Full-Stack-JavaScript-Engineering" target="_blank" class="btn pull-left"><i class="fa fa-bookmark-o"></i></a>
+    
+    <a href="#" class="btn pull-left toggle-summary"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search"><i class="fa fa-search"></i></a>
+    <span id="font-settings-wrapper">
+        <a href="#" class="btn pull-left toggle-font-settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+	<div class="dropdown-caret">
+  <span class="caret-outer"></span>
+  <span class="caret-inner"></span>
+</div>
+
+	<div class="btn-group btn-block">
+		<button id="reduce-font-size" class="btn btn-default">A</button>
+		<button id="enlarge-font-size" class="btn btn-default">A</button>
+	</div>
+
+	<ul class="list-group font-family-list">
+		<li class="list-group-item" data-font="0">Serif</li>
+		<li class="list-group-item" data-font="1">Sans</li>
+	</ul>
+
+	<div class="btn-group btn-group-xs btn-block color-theme-list">
+	  <button type="button" class="btn btn-default" id="color-theme-preview-0" data-theme="0">White</button>
+	  <button type="button" class="btn btn-default" id="color-theme-preview-1" data-theme="1">Sepia</button>
+	  <button type="button" class="btn btn-default" id="color-theme-preview-2" data-theme="2">Night</button>
+	</div>
+</div>
+
+    </span>
+
+    <!-- Actions Right -->
+    
+    <a href="#" target="_blank" class="btn pull-right" data-sharing="google-plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right" data-sharing="facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right" data-sharing="twitter"><i class="fa fa-twitter"></i></a>
+    
+
+    
+    <a href="https://github.com/ivanoats/Full-Stack-JavaScript-Engineering/stargazers" target="_blank" class="btn pull-right count-star hidden-xs"><i class="fa fa-star-o"></i> Star (<span>-</span>)</a>
+    <a href="https://github.com/ivanoats/Full-Stack-JavaScript-Engineering/watchers" target="_blank" class="btn pull-right count-watch hidden-xs"><i class="fa fa-eye"></i> Watch (<span>-</span>)</a>
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-spinner fa-spin"></i>
+        <a href="../" >Full Stack JavaScript Engineering</a>
+    </h1>
+</div>
+
+    <div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        <li>
+            <a href="https://www.codefellows.org/full-stack-javascript-development-accelerator" target="blank">About the author</a>
+        </li>
+        
+
+        
+        <li>
+            <a href="https://github.com/ivanoats/Full-Stack-JavaScript-Engineering/issues" target="blank">Questions and Issues</a>
+        </li>
+        
+
+        
+        <li>
+            <a href="https://github.com/ivanoats/Full-Stack-JavaScript-Engineering/edit/master/day6/requirejs.md" target="blank">Edit and Contribute</a>
+        </li>
+        
+
+        
+        <li class="divider"></li>
+        
+
+        <li data-level="0" data-path="index.html">
+            <a href="../"><i class="fa fa-check"></i> Introduction</a>
+        </li>
+        
+            <li  data-level="1" data-path="pre-work/README.html">
+                
+                <a href="../pre-work/README.html">
+                    <i class="fa fa-check"></i> <b>1.</b> Prework
+                </a>
+                
+                
+            </li>
+        
+            <li  data-level="2" data-path="communication/connect_to_irc.html">
+                
+                <a href="../communication/connect_to_irc.html">
+                    <i class="fa fa-check"></i> <b>2.</b> Connect to IRC
+                </a>
+                
+                
+            </li>
+        
+            <li  data-level="3" data-path="day1/README.html">
+                
+                <a href="../day1/README.html">
+                    <i class="fa fa-check"></i> <b>3.</b> Day One
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="3.1" data-path="day1/pull_request_practice.html">
+                            
+                            <a href="../day1/pull_request_practice.html">
+                                <i class="fa fa-check"></i> <b>3.1.</b> Github Pull Request Practice
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="3.2" data-path="day1/computer_setup.html">
+                            
+                            <a href="../day1/computer_setup.html">
+                                <i class="fa fa-check"></i> <b>3.2.</b> Computer Setup
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="3.3" data-path="day1/initial_toolchain_practice.html">
+                            
+                            <a href="../day1/initial_toolchain_practice.html">
+                                <i class="fa fa-check"></i> <b>3.3.</b> Make sure grunt works
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li  data-level="4" data-path="day2/README.html">
+                
+                <a href="../day2/README.html">
+                    <i class="fa fa-check"></i> <b>4.</b> Day Two
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="4.1" data-path="day2/async_demo.html">
+                            
+                            <a href="../day2/async_demo.html">
+                                <i class="fa fa-check"></i> <b>4.1.</b> Async Demo
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="4.2" data-path="day2/hello_express.html">
+                            
+                            <a href="../day2/hello_express.html">
+                                <i class="fa fa-check"></i> <b>4.2.</b> Hello Express
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li  data-level="5" data-path="day3/README.html">
+                
+                <a href="../day3/README.html">
+                    <i class="fa fa-check"></i> <b>5.</b> Day Three
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="5.1" data-path="day3/Grunt.html">
+                            
+                            <a href="../day3/Grunt.html">
+                                <i class="fa fa-check"></i> <b>5.1.</b> Grunt
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="5.2" data-path="day3/Personal_Blog_Site_Tutorial_with_Yeoman_and_Zurb.html">
+                            
+                            <a href="../day3/Personal_Blog_Site_Tutorial_with_Yeoman_and_Zurb.html">
+                                <i class="fa fa-check"></i> <b>5.2.</b> Personal Blog Site Tutorial with Yeoman and Zurb
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li  data-level="6" data-path="day4/README.html">
+                
+                <a href="../day4/README.html">
+                    <i class="fa fa-check"></i> <b>6.</b> Day Four
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="6.1" data-path="day4/acceptance_testing_with_casperjs.html">
+                            
+                            <a href="../day4/acceptance_testing_with_casperjs.html">
+                                <i class="fa fa-check"></i> <b>6.1.</b> Acceptance Testing with CasperJS
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="6.2" data-path="day4/Sass.html">
+                            
+                            <a href="../day4/Sass.html">
+                                <i class="fa fa-check"></i> <b>6.2.</b> Sass
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="6.3" data-path="day4/Heroku.html">
+                            
+                            <a href="../day4/Heroku.html">
+                                <i class="fa fa-check"></i> <b>6.3.</b> Heroku
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li  data-level="7" data-path="day5/README.html">
+                
+                <a href="../day5/README.html">
+                    <i class="fa fa-check"></i> <b>7.</b> Day Five
+                </a>
+                
+                
+            </li>
+        
+            <li  data-level="8" data-path="day6/README.html">
+                
+                <a href="../day6/README.html">
+                    <i class="fa fa-check"></i> <b>8.</b> Day Six
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="8.1" data-path="day6/day6_readings.html">
+                            
+                            <a href="../day6/day6_readings.html">
+                                <i class="fa fa-check"></i> <b>8.1.</b> Readings
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="8.2" data-path="day6/Browserify.html">
+                            
+                            <a href="../day6/Browserify.html">
+                                <i class="fa fa-check"></i> <b>8.2.</b> Browserify
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="8.3" data-path="day6/requirejs.html">
+                            
+                            <a href="../day6/requirejs.html">
+                                <i class="fa fa-check"></i> <b>8.3.</b> Require.js
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank">Generated using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="page-wrapper" tabindex="-1">
+                <div class="book-progress">
+    <div class="bar">
+        <div class="inner" style="width: 100%;min-width: 95.23809523809524%;"></div>
+    </div>
+    <div class="chapters">
+    
+        <a href="../index.html" title="Introduction" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
+    
+        <a href="../pre-work/README.html" title="Prework" class="chapter done new-chapter" data-progress="1" style="left: 4.761904761904762%;"></a>
+    
+        <a href="../communication/connect_to_irc.html" title="Connect to IRC" class="chapter done new-chapter" data-progress="2" style="left: 9.523809523809524%;"></a>
+    
+        <a href="../day1/README.html" title="Day One" class="chapter done new-chapter" data-progress="3" style="left: 14.285714285714286%;"></a>
+    
+        <a href="../day1/pull_request_practice.html" title="Github Pull Request Practice" class="chapter done " data-progress="3.1" style="left: 19.047619047619047%;"></a>
+    
+        <a href="../day1/computer_setup.html" title="Computer Setup" class="chapter done " data-progress="3.2" style="left: 23.80952380952381%;"></a>
+    
+        <a href="../day1/initial_toolchain_practice.html" title="Make sure grunt works" class="chapter done " data-progress="3.3" style="left: 28.571428571428573%;"></a>
+    
+        <a href="../day2/README.html" title="Day Two" class="chapter done new-chapter" data-progress="4" style="left: 33.333333333333336%;"></a>
+    
+        <a href="../day2/async_demo.html" title="Async Demo" class="chapter done " data-progress="4.1" style="left: 38.095238095238095%;"></a>
+    
+        <a href="../day2/hello_express.html" title="Hello Express" class="chapter done " data-progress="4.2" style="left: 42.857142857142854%;"></a>
+    
+        <a href="../day3/README.html" title="Day Three" class="chapter done new-chapter" data-progress="5" style="left: 47.61904761904762%;"></a>
+    
+        <a href="../day3/Grunt.html" title="Grunt" class="chapter done " data-progress="5.1" style="left: 52.38095238095238%;"></a>
+    
+        <a href="../day3/Personal_Blog_Site_Tutorial_with_Yeoman_and_Zurb.html" title="Personal Blog Site Tutorial with Yeoman and Zurb" class="chapter done " data-progress="5.2" style="left: 57.142857142857146%;"></a>
+    
+        <a href="../day4/README.html" title="Day Four" class="chapter done new-chapter" data-progress="6" style="left: 61.904761904761905%;"></a>
+    
+        <a href="../day4/acceptance_testing_with_casperjs.html" title="Acceptance Testing with CasperJS" class="chapter done " data-progress="6.1" style="left: 66.66666666666667%;"></a>
+    
+        <a href="../day4/Sass.html" title="Sass" class="chapter done " data-progress="6.2" style="left: 71.42857142857143%;"></a>
+    
+        <a href="../day4/Heroku.html" title="Heroku" class="chapter done " data-progress="6.3" style="left: 76.19047619047619%;"></a>
+    
+        <a href="../day5/README.html" title="Day Five" class="chapter done new-chapter" data-progress="7" style="left: 80.95238095238095%;"></a>
+    
+        <a href="../day6/README.html" title="Day Six" class="chapter done new-chapter" data-progress="8" style="left: 85.71428571428571%;"></a>
+    
+        <a href="../day6/day6_readings.html" title="Readings" class="chapter done " data-progress="8.1" style="left: 90.47619047619048%;"></a>
+    
+        <a href="../day6/Browserify.html" title="Browserify" class="chapter done " data-progress="8.2" style="left: 95.23809523809524%;"></a>
+    
+        <a href="../day6/requirejs.html" title="Require.js" class="chapter done " data-progress="8.3" style="left: 100%;"></a>
+    
+    </div>
+</div>
+
+                <div class="page-inner">
+                
+                    <section class="normal" id="section-gitbook_21">
+                    
+                        <h1 id="require-js-and-amd">Require.js and AMD</h1>
+<p>Right now, two client side Javascript module loaders are duking it out to claim the title of #1 super best before the wide adoption ES6: <a href="http://browserify.org/">Browserify</a> and <a href="http://requirejs.org/">Require.js</a>. So far in my Javascript adventures, learning and using Browserify has proved to be much easier. It shares the CommonJS method of module loading with Node and can automatically pull in bower components using the debowerify transform with grunt. Require <a href="http://requirejs.org/docs/whyamd.html#amd">boasts</a> a lot of advantages in using the Asynchronous Module Definition(AMD) over CommonJS. This intrigued me, so I though I would wade into the odd looking module definition syntax and get Require.js up and running with Grunt and a simple static file express server.</p>
+<p>First step, create a package.json file that looks something like this:</p>
+<pre><code>{
+  &quot;name&quot;: &quot;requirejs-grunt-demo&quot;,
+  &quot;description&quot;: &quot;a demo app using require.js, grunt and express&quot;,
+  &quot;version&quot;: &quot;0.0.1&quot;,
+  &quot;dependencies&quot;: {
+      &quot;express&quot;: &quot;^4.0&quot;
+  },
+  &quot;devDepencies&quot;: {
+    &quot;grunt&quot;: &quot;^0.4&quot;,
+    &quot;grunt-contrib-clean&quot;: &quot;^0.4&quot;,
+    &quot;grunt-contrib-copy&quot;: &quot;^0.4&quot;,
+    &quot;grunt-contrib-requirejs&quot;: &quot;^0.4&quot;
+  }
+}
+</code></pre><p>It&#39;s a pretty simple set of dependencies, express for serving the site (although this could easily be an http or connect server) and grunt with some plugins to build the static assets. The grunt-contrib-clean plugin deletes all the files from the previous build. The grunt-contrib-copy plugin copies everyfile that isn&#39;t a Javascript file into the build. Finally grunt-contrib-requirejs helps to build all of the Javascript files into a single file that can be included in a static html page. First up, here&#39;s the app.js express server:</p>
+<pre><code>var express = require(&#39;express&#39;);
+var http = require(&#39;http&#39;);
+
+var app = express();
+
+app.use(static(__dirname + &#39;build/&#39;));
+
+var server = http.createServer(app);
+server.listen(3000, function() {
+     console.log(&#39;server started&#39;);
+});
+</code></pre><p>This code should be pretty straight forward. It creates a static file server that seves up everything in the build directory. Next the app needs something to place in the build directory when the build task is run. I like to place my source in an app directory the tree of which should look something like this:</p>
+<pre><code>|-app
+|---css
+|---js
+|---index.html
+</code></pre><p>The index.html page contains a basic &#39;hello world&#39; html5 page:</p>
+<pre><code>&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;/&gt;
+        &lt;title&gt;Hello World!&lt;/title&gt;
+        &lt;script data-main=&quot;client.js&quot;
+        src=&quot;bower_components/requirejs/require.js&quot;&gt;
+        &lt;/script&gt;
+        &lt;link href=&quot;styles.css&quot; rel=&quot;stylesheet&quot;/&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+      Hello World!
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>The script tag looks a little different than normal because it uses the Require.js convention of placing a link to the require.js library in the src field and a link to the code that utilizes the libaray in the data-main field. Everything else in this file should look familiar.</p>
+<p>I&#39;m actually not going to go over any styling because my styling is abysmal and I don&#39;t want to embarrass myself any more than necessary. Which means that next up is the bower configuration. I usually just run <code>bower init</code> from the root of the directory and answer the questions. Then create a .bowerrc file with the following:</p>
+<pre><code>{
+  &quot;directory&quot;: &quot;app/bower_components&quot;
+}
+</code></pre><p>This tells bower to install the components in app instead of the root of the project. Next, run <code>bower install requirejs --save</code> and <code>bower install jquery --save</code>. Alright that&#39;s all of the initial config and setup, next up is the Gruntfile.</p>
+<p><a href="http://gruntjs.com/">Grunt</a> is a task runner for Javascript that makes the process of development much smoother. It allows the conifuration of tasks much like Rake does for Ruby or make does for C. If you haven&#39;t used Grunt before I suggest checking out the docs because I&#39;m not going to go over the basics. Create a Gruntfile.js that looks like this: </p>
+<pre><code>module.exports = function(grunt) {
+  grunt.loadNpmTask(&#39;grunt-contrib-copy&#39;);
+  grunt.loadNpmTask(&#39;grunt-contrib-clean&#39;);
+  grunt.loadNpmTask(&#39;grunt-contrib-requirejs&#39;);
+
+  grunt.initConfig({
+    pkg: grunt.file.readJSON(&#39;package.json&#39;);
+
+    clean: {
+      build: [&#39;build/&#39;],
+      dev: {
+        src: [&#39;build/**/*&#39;]
+      }
+    },
+
+    copy: {
+      dev: {
+        expand: true,
+        cwd: &#39;app&#39;,
+        src: [&#39;*.css&#39;, &#39;*.html&#39;, &#39;bower_compenents/requirejs/require.js&#39;],
+        dest: &#39;build/&#39;,
+        flatten: false,
+        filter: &#39;isFile&#39;
+      }
+    },
+
+    requirejs: {
+      compile: {
+        options: {
+          name: &#39;config&#39;,
+          baseUrl: &#39;app/js/&#39;,
+          mainConfigFile: &#39;app/js/config.js&#39;,
+          out: &#39;build/client.js&#39;,
+          optimizer: &#39;none&#39;
+        }
+      }
+    }
+  });
+
+  grunt.registerTask(&#39;build:dev&#39;, [&#39;clean:dev&#39;, &#39;requirejs&#39;, &#39;copy:dev&#39;]);
+</code></pre><p>When build:dev is called first it removes everthing currently in the build directory. Then it takes all of the files specified in the the <code>app/js/config.js</code> file and &quot;compiles&quot; them into build/client.js. Finally, it copies over our static files including the requirejs library. </p>
+<p>The final step is to get some requirejs files into the application. There are going to be two files, app/js/config.js and app/js/main.js. The config.js is the base file and contains logic to load all of the libraries and custom js files for the application. It should look something like this:</p>
+<pre><code>require.config({
+  paths: {
+    &quot;components&quot;: &quot;../bower_components&quot;,
+    &quot;jquery&quot;: &quot;../bower_components/jquery/dist/jquery&quot;
+  }
+});
+
+require([&#39;main&#39;], function() {console.log(&#39;main.js loaded&#39;)});
+</code></pre><p>First this file tells require where it can find our bower_comonents and jquery. These files don&#39;t need to be copied over with grunt-contrib-copy as they will be included in our client.js file. The require statement at the bottom takes a series of file names(in this case just main.js) and a callback which runs once the module is loaded. The main.js file is where jquery is going to be loaded and used and it should look something like this:</p>
+<pre><code>define([&#39;jquery&#39;], function($) {
+   $(&#39;body&#39;).append(&#39;&lt;/br&gt; Hello World from Require.js&#39;);
+ });
+</code></pre><p>The define function takes an array of depencies and a callback that executes when they have all been loaded. Each parameter in the callback contains the modules loaded through the dependencies, in order. For instance, to load <a href="http://backbonejs.org/">Backbone.js</a> with jquery and underscore the define statement would look something this:</p>
+<pre><code>define([&#39;jquery&#39;,&#39;underscore&#39;,&#39;backbone&#39;], function($, _, Backbone) {});
+</code></pre><p>Of course, the location of those would have to be specified in the config.js as well. That&#39;s the basics and the way I managed to get requirejs working for my workflow(yes the alliteration is intentional) with grunt and bower.</p>
+
+                    
+                    </section>
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../day6/Browserify.html" class="navigation navigation-prev navigation-unique"><i class="fa fa-angle-left"></i></a>
+        
+        
+    </div>
+</div>
+
+        
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/mode-javascript.js"></script>
+        <script src="../gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
+        <script src="../gitbook/app.js"></script>
+        
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-mixpanel/plugin.js"></script>
+    
+
+    
+    <script src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {};
+    gitbook.start(config);
+});
+</script>
+
+    </body>
+</html>
