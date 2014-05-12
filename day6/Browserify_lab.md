@@ -113,3 +113,47 @@ module.exports = function(grunt) {
 
 };
 ```
+
+## Node Static
+
+A useful package to have around in your global NPM package list is [node-static](https://github.com/cloudhead/node-static)
+
+Install it with:
+
+`npm -g install node-static`
+
+This can be a simple way of quickly serving up a public or dist directory, without messing around
+with creating another Gruntfile task.
+
+## Using jQuery and Your Own Module with Browserify
+
+Create a file called `post.js` in your `src` folder:
+
+```javascript
+var Post = function(title) {
+  return {title: title};
+}
+
+module.exports = Post;
+```
+
+This could be the very beginnings of a Post object that could be used in a blog app.
+We're using module.exports to make this Post contstructor available via the CommonJS
+module system,  Browserify, in the web browser.
+
+Now, create another file called 'main.js' in your `src` directory:
+
+```javascript
+var $ = require('jquery');
+var Post = require('./post');
+
+var how_to_use_browserify = new Post("How to use browserify");
+
+$('body').append('<h2>' + how_to_use_browserify.title + '</h2>');
+```
+
+* This file requires jQuery and assigns it to the $ variable.
+* It then loads in ourPost object constructor. 
+* We create an instance of a post called `how_to_use_browserify`
+* We then use jQuery to append our post's title in an h2 element to the body of 
+our web page.

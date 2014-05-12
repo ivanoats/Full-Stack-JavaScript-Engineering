@@ -42,7 +42,7 @@
 
 
         
-    <div class="book" data-github="ivanoats/Full-Stack-JavaScript-Engineering" data-level="8.3" data-basepath=".." data-revision="1399922092344">
+    <div class="book" data-github="ivanoats/Full-Stack-JavaScript-Engineering" data-level="8.3" data-basepath=".." data-revision="1399932771861">
     <div class="book-header">
     <!-- Actions Left -->
     
@@ -504,6 +504,38 @@ module.exports = <span class="hljs-function"><span class="hljs-keyword">function
 
 };
 </code></pre>
+<h2 id="node-static">Node Static</h2>
+<p>A useful package to have around in your global NPM package list is <a href="https://github.com/cloudhead/node-static" target="_blank">node-static</a></p>
+<p>Install it with:</p>
+<p><code>npm -g install node-static</code></p>
+<p>This can be a simple way of quickly serving up a public or dist directory, without messing around
+with creating another Gruntfile task.</p>
+<h2 id="using-jquery-and-your-own-module-with-browserify">Using jQuery and Your Own Module with Browserify</h2>
+<p>Create a file called <code>post.js</code> in your <code>src</code> folder:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> Post = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(title)</span> {</span>
+  <span class="hljs-keyword">return</span> {title: title};
+}
+
+module.exports = Post;
+</code></pre>
+<p>This could be the very beginnings of a Post object that could be used in a blog app.
+We&#39;re using module.exports to make this Post contstructor available via the CommonJS
+module system,  Browserify, in the web browser.</p>
+<p>Now, create another file called &#39;main.js&#39; in your <code>src</code> directory:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> $ = <span class="hljs-built_in">require</span>(<span class="hljs-string">'jquery'</span>);
+<span class="hljs-keyword">var</span> Post = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./post'</span>);
+
+<span class="hljs-keyword">var</span> how_to_use_browserify = <span class="hljs-keyword">new</span> Post(<span class="hljs-string">"How to use browserify"</span>);
+
+$(<span class="hljs-string">'body'</span>).append(<span class="hljs-string">'&lt;h2&gt;'</span> + how_to_use_browserify.title + <span class="hljs-string">'&lt;/h2&gt;'</span>);
+</code></pre>
+<ul>
+<li>This file requires jQuery and assigns it to the $ variable.</li>
+<li>It then loads in ourPost object constructor. </li>
+<li>We create an instance of a post called <code>how_to_use_browserify</code></li>
+<li>We then use jQuery to append our post&#39;s title in an h2 element to the body of 
+our web page.</li>
+</ul>
 
                     
                     </section>
