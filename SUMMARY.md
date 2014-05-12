@@ -18,5 +18,7 @@
     * [Heroku](day4/Heroku.md)
 * [Day Five](day5/README.md)
 * [Day Six](day6/README.md)
+    * [Day Six Readings](day6/day6_readings.md)
     * [Browserify](day6/Browserify.md)
+    * [Add an Express Server for Your Blog](day6/express_for_your_blog.md)
 
