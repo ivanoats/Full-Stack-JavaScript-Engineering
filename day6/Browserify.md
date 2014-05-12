@@ -40,11 +40,8 @@ Anything you want to use on the server and in the browser.
 * Use the [debowerify](https://github.com/eugeneware/debowerify) transform package from npm to link bower+browserify
 
 ## More Resources
-
-*  http://learnjs.io/blog/2013/12/22/express-and-browserify/
-* http://superbigtree.tumblr.com/post/54873453939/introduction-to-browserify
-* Read about the use case for browserify:
-  * http://lincolnloop.com/blog/untangle-your-javascript-browserify
-* How to make node and browserify talk to one another:
-  * https://blog.codecentric.de/en/2014/02/cross-platform-javascript
+* Intro to Browserify http://superbigtree.tumblr.com/post/54873453939/introduction-to-browserify
+* Read about the use case for browserify:  http://lincolnloop.com/blog/untangle-your-javascript-browserify
+* How to make node and browserify talk to one another: https://blog.codecentric.de/en/2014/02/cross-platform-javascript
+* Express and Browserify: http://learnjs.io/blog/2013/12/22/express-and-browserify/
 ￼￼

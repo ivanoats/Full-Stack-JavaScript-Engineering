@@ -4,7 +4,7 @@ Monday, welcome back! How were the weekend readings?
 
 ## Agenda
 
-* Discuss readings on Modular JavaScript, CommonJS, Code Complexity and Clean Code
+* [Discuss readings on Modular JavaScript, CommonJS, Code Complexity and Clean Code](day6/day6_readings.md)
 * [Browserify](day6/browserify.md)
-* RequireJS
-* Stretch goals: ECMAScript6/Harmony
+* [RequireJS](http://requirejs.org)
+* Stretch goals: [ECMAScript6/Harmony modules](http://www.2ality.com/2013/07/es6-modules.html)
