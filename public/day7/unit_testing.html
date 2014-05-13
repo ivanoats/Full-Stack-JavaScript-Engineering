@@ -42,7 +42,7 @@
 
 
         
-    <div class="book" data-github="ivanoats/Full-Stack-JavaScript-Engineering" data-level="9.1" data-basepath=".." data-revision="1400014096800">
+    <div class="book" data-github="ivanoats/Full-Stack-JavaScript-Engineering" data-level="9.1" data-basepath=".." data-revision="1400018380441">
     <div class="book-header">
     <!-- Actions Left -->
     
@@ -546,10 +546,10 @@ describe(<span class="hljs-string">'Post object tests'</span>, <span class="hljs
     });
 
   });
-}
+});
 </code></pre>
 <p>Now we can run the mocha tests with the Mocha command line tool.</p>
-<p><code>mocha</code></p>
+<p><code>mocha test/unit</code></p>
 <p>should do the trick!</p>
 <p>The next step is to use the <a href="https://github.com/yaymukund/grunt-simple-mocha" target="_blank">grunt-simple-mocha</a>
 grunt plugin to be able to type <code>grunt test</code> and run this, and other, unit tests.</p>
@@ -557,29 +557,31 @@ grunt plugin to be able to type <code>grunt test</code> and run this, and other,
 <h2 id="testing-js-objects-on-the-client-browser-side">Testing JS Objects on the Client (Browser) Side</h2>
 <p>We can also run these tests in the browser environment. For this, we will need a
 &#39;test harness&#39; HTML file.</p>
+<h3 id="install-mocha-and-chai-via-bower-too">Install Mocha and Chai via Bower, too</h3>
+<p><code>bower install mocha chai</code></p>
 <pre><code class="lang-html"><span class="hljs-comment">&lt;!-- test/browser/index.html --&gt;</span>
 <span class="hljs-doctype">&lt;!DOCTYPE html&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-title">html</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">meta</span> <span class="hljs-attribute">charset</span>=<span class="hljs-value">"utf-8"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>Post tests<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">link</span> <span class="hljs-attribute">rel</span>=<span class="hljs-value">"stylesheet"</span> <span class="hljs-attribute">media</span>=<span class="hljs-value">"all"</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"bower_components/mocha/mocha.css"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">link</span> <span class="hljs-attribute">rel</span>=<span class="hljs-value">"stylesheet"</span> <span class="hljs-attribute">media</span>=<span class="hljs-value">"all"</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"../../bower_components/mocha/mocha.css"</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"mocha"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"."</span>&gt;</span>Index<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"messages"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"fixtures"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"../bower_components/mocha/mocha.js"</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"../bower_components/chai/chai.js"</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"../lib/post.js"</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"../../bower_components/mocha/mocha.js"</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"../../bower_components/chai/chai.js"</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"../../lib/post.js"</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">mocha.setup(<span class="hljs-string">'bdd'</span>)</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"post_browser_test.js"</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"./post_test.js"</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">mocha.run();</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span>
 </code></pre>
 <p>and</p>
-<pre><code class="lang-javascript"><span class="hljs-comment">// test/browser/post__test.js</span>
+<pre><code class="lang-javascript"><span class="hljs-comment">// test/browser/post_test.js</span>
 <span class="hljs-keyword">var</span> expect = chai.expect
 
 describe(<span class="hljs-string">'Post object tests'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
@@ -604,10 +606,11 @@ describe(<span class="hljs-string">'Post object tests'</span>, <span class="hljs
     });
 
   });
+});
 </code></pre>
-<p>Now open this HTML document in the browser. You may want to use the &#39;node-static&#39;
-package like this:</p>
-<p><code>static test</code></p>
+<p>Now open this HTML document in the browser.</p>
+<p><code>open test/browser/index.html</code></p>
+<p><img src="images/Post_tests.png" alt="screen shot of working mocha browser tests"></p>
 <p><em>Stretch goal</em>: The next step is to use the <a href="https://github.com/kmiyashiro/grunt-mocha" target="_blank">grunt-mocha</a> 
 grunt plugin to run these browser tests headlessly via PhantomJS.</p>
 <p><strong>TODO</strong>: This is a work in progress &hellip;</p>

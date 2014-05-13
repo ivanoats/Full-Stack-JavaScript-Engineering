@@ -96,12 +96,12 @@ describe('Post object tests', function() {
     });
     
   });
-}
+});
 ```
 
 Now we can run the mocha tests with the Mocha command line tool.
 
-`mocha`
+`mocha test/unit`
 
 should do the trick!
 
@@ -114,6 +114,11 @@ By now you should be familiar with Grunt, and configuring grunt plugins. Try it 
 
 We can also run these tests in the browser environment. For this, we will need a
 'test harness' HTML file.
+
+### Install Mocha and Chai via Bower, too
+
+`bower install mocha chai`
+
 ```html
 <!-- test/browser/index.html -->
 <!DOCTYPE html>
@@ -121,17 +126,17 @@ We can also run these tests in the browser environment. For this, we will need a
 <head>
   <meta charset="utf-8">
   <title>Post tests</title>
-  <link rel="stylesheet" media="all" href="bower_components/mocha/mocha.css">
+  <link rel="stylesheet" media="all" href="../../bower_components/mocha/mocha.css">
 </head>
 <body>
   <div id="mocha"><p><a href=".">Index</a></p></div>
   <div id="messages"></div>
   <div id="fixtures"></div>
-  <script src="../bower_components/mocha/mocha.js"></script>
-  <script src="../bower_components/chai/chai.js"></script>
-  <script src="../lib/post.js"></script>
+  <script src="../../bower_components/mocha/mocha.js"></script>
+  <script src="../../bower_components/chai/chai.js"></script>
+  <script src="../../lib/post.js"></script>
   <script>mocha.setup('bdd')</script>
-  <script src="post_browser_test.js"></script>
+  <script src="./post_test.js"></script>
   <script>mocha.run();</script>
 </body>
 </html>
@@ -139,7 +144,7 @@ We can also run these tests in the browser environment. For this, we will need a
 and
 
 ```javascript
-// test/browser/post__test.js
+// test/browser/post_test.js
 var expect = chai.expect
 
 describe('Post object tests', function() {
@@ -164,12 +169,14 @@ describe('Post object tests', function() {
     });
     
   });
+});
 ```
 
-Now open this HTML document in the browser. You may want to use the 'node-static'
-package like this:
+Now open this HTML document in the browser.
 
-`static test`
+`open test/browser/index.html`
+
+![screen shot of working mocha browser tests](images/Post_tests.png)
 
 _Stretch goal_: The next step is to use the [grunt-mocha](https://github.com/kmiyashiro/grunt-mocha) 
 grunt plugin to run these browser tests headlessly via PhantomJS.
