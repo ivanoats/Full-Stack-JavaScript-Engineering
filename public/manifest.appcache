@@ -1,10 +1,11 @@
 CACHE MANIFEST
-# Revision 1399941855241
+# Revision 1399943079822
 
 CACHE:
-day2/README.html
-day2/async_demo.html
-day2/hello_express.html
+day3/Grunt.html
+day3/Personal_Blog_Site_Tutorial_with_Yeoman_and_Zurb.html
+day3/README.html
+day3/responsive.html
 index.html
 communication/connect_to_irc.html
 day1/README.html
@@ -12,10 +13,9 @@ day1/ToolsOverview.html
 day1/computer_setup.html
 day1/initial_toolchain_practice.html
 day1/pull_request_practice.html
-day3/Grunt.html
-day3/Personal_Blog_Site_Tutorial_with_Yeoman_and_Zurb.html
-day3/README.html
-day3/responsive.html
+day2/README.html
+day2/async_demo.html
+day2/hello_express.html
 day4/Heroku.html
 day4/README.html
 day4/Sass.html
@@ -26,6 +26,7 @@ day6/Browserify_lab.html
 day6/README.html
 day6/day6_readings.html
 day6/requirejs.html
+day7/README.html
 pre-work/README.html
 gitbook/app.js
 gitbook/fonts/anonymouspro/400.woff
