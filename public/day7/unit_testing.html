@@ -3,7 +3,7 @@
     <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
         
         <meta charset="UTF-8">
-        <title>Heroku | Full Stack JavaScript Engineering</title>
+        <title>Unit Testing | Full Stack JavaScript Engineering</title>
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="robots" content="index, follow">
@@ -13,13 +13,13 @@
         <meta name="generator" content="www.gitbook.io">
 
         
-        <link rel="next" href="../day5/README.html" />
+        <link rel="next" href="../day7/REST.html" />
         
         
-        <link rel="prev" href="../day4/Sass.html" />
+        <link rel="prev" href="../day7/README.html" />
         
 
-        <meta property="og:title" content="Heroku | Full Stack JavaScript Engineering">
+        <meta property="og:title" content="Unit Testing | Full Stack JavaScript Engineering">
         <meta property="og:site_name" content="Full Stack JavaScript Engineering">
         <meta property="og:type" content="book">
         <meta property="og:locale" content="en_US">
@@ -42,7 +42,7 @@
 
 
         
-    <div class="book" data-github="ivanoats/Full-Stack-JavaScript-Engineering" data-level="6.3" data-basepath=".." data-revision="1400014096800">
+    <div class="book" data-github="ivanoats/Full-Stack-JavaScript-Engineering" data-level="9.1" data-basepath=".." data-revision="1400014096800">
     <div class="book-header">
     <!-- Actions Left -->
     
@@ -120,7 +120,7 @@
 
         
         <li>
-            <a href="https://github.com/ivanoats/Full-Stack-JavaScript-Engineering/edit/master/day4/Heroku.md" target="blank">Edit and Contribute</a>
+            <a href="https://github.com/ivanoats/Full-Stack-JavaScript-Engineering/edit/master/day7/unit_testing.md" target="blank">Edit and Contribute</a>
         </li>
         
 
@@ -396,7 +396,7 @@
             <div class="page-wrapper" tabindex="-1">
                 <div class="book-progress">
     <div class="bar">
-        <div class="inner" style="width: 66.66666666666667%;min-width: 62.96296296296296%;"></div>
+        <div class="inner" style="width: 96.29629629629629%;min-width: 92.5925925925926%;"></div>
     </div>
     <div class="chapters">
     
@@ -438,21 +438,21 @@
     
         <a href="../day4/Heroku.html" title="Heroku" class="chapter done " data-progress="6.3" style="left: 66.66666666666667%;"></a>
     
-        <a href="../day5/README.html" title="Day Five" class="chapter  new-chapter" data-progress="7" style="left: 70.37037037037037%;"></a>
+        <a href="../day5/README.html" title="Day Five" class="chapter done new-chapter" data-progress="7" style="left: 70.37037037037037%;"></a>
     
-        <a href="../day6/README.html" title="Day Six" class="chapter  new-chapter" data-progress="8" style="left: 74.07407407407408%;"></a>
+        <a href="../day6/README.html" title="Day Six" class="chapter done new-chapter" data-progress="8" style="left: 74.07407407407408%;"></a>
     
-        <a href="../day6/day6_readings.html" title="Readings" class="chapter  " data-progress="8.1" style="left: 77.77777777777777%;"></a>
+        <a href="../day6/day6_readings.html" title="Readings" class="chapter done " data-progress="8.1" style="left: 77.77777777777777%;"></a>
     
-        <a href="../day6/Browserify.html" title="Browserify" class="chapter  " data-progress="8.2" style="left: 81.48148148148148%;"></a>
+        <a href="../day6/Browserify.html" title="Browserify" class="chapter done " data-progress="8.2" style="left: 81.48148148148148%;"></a>
     
-        <a href="../day6/Browserify_lab.html" title="Browserify lab" class="chapter  " data-progress="8.3" style="left: 85.18518518518519%;"></a>
+        <a href="../day6/Browserify_lab.html" title="Browserify lab" class="chapter done " data-progress="8.3" style="left: 85.18518518518519%;"></a>
     
-        <a href="../day6/requirejs.html" title="Require.js" class="chapter  " data-progress="8.4" style="left: 88.88888888888889%;"></a>
+        <a href="../day6/requirejs.html" title="Require.js" class="chapter done " data-progress="8.4" style="left: 88.88888888888889%;"></a>
     
-        <a href="../day7/README.html" title="Day Seven" class="chapter  new-chapter" data-progress="9" style="left: 92.5925925925926%;"></a>
+        <a href="../day7/README.html" title="Day Seven" class="chapter done new-chapter" data-progress="9" style="left: 92.5925925925926%;"></a>
     
-        <a href="../day7/unit_testing.html" title="Unit Testing" class="chapter  " data-progress="9.1" style="left: 96.29629629629629%;"></a>
+        <a href="../day7/unit_testing.html" title="Unit Testing" class="chapter done " data-progress="9.1" style="left: 96.29629629629629%;"></a>
     
         <a href="../day7/REST.html" title="REST" class="chapter  " data-progress="9.2" style="left: 100%;"></a>
     
@@ -461,86 +461,156 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_15">
+                    <section class="normal" id="section-gitbook_27">
                     
-                        <h1 id="heroku">Heroku</h1>
-<p>Let&#39;s get our site LIVE ON THE WEB!! This process is called <strong>deployment</strong>.</p>
-<h2 id="slides">Slides</h2>
-<p><a href="pdf/cf_heroku.pdf">Slides</a> from class introducing Heroku.</p>
-<h2 id="installation">Installation</h2>
-<p>Make sure you have the <a href="https://toolbelt.heroku.com" target="_blank">Heroku Toolbelt</a> installed.</p>
-<p>You can usually <code>brew install heroku-toolbelt</code> or <code>sudo apt-get install heroku-toolbelt</code>. If those don&#39;t work you may need to donwload it.</p>
-<p>Also, if you haven&#39;t already, sign up for an account on <a href="http://heroku.com" target="_blank">Heroku.com</a>.</p>
-<h2 id="login">Login</h2>
-<p>Use <code>heroku login</code> to log in to heroku from the command line.</p>
-<p>If you&#39;re already logged in, you can use <code>heroku auth:whoami</code> to see who you are logged in as.</p>
-<h2 id="create-a-heroku-app">Create a heroku app</h2>
-<p>You&#39;ll want a nice name for your app instead of the random ones Heroku gives you.</p>
-<p>E.g. <code>heroku create ivan-hello-world-express</code></p>
-<h2 id="create-the-procfile">Create the Procfile</h2>
-<p>You need a file to tell heroku how to launch your app.</p>
-<p>Edit <code>Procfile</code> which should be in the root directory of your project. No file extension on this file, and it needs to start with a Capital letter. The procfile is simply:</p>
-<pre><code>web: node server.js
-</code></pre><p>This tells heroku that to start your web server, it needs to run the command <code>node server.js</code></p>
-<h2 id="test-it-out-locally-with-node-foreman">Test it out locally with node-foreman</h2>
-<p>You can use a npm package called foreman to test that your Procfile works as expected. Install this globally.</p>
-<p><code>npm install -g foreman</code></p>
-<p>This will give you the <code>nf</code> command. Try it out.</p>
-<p><code>nf --help</code></p>
-<p>And, now, try starting your server via foreman.</p>
-<p><code>nf start</code></p>
-<p>It should start up your server on port 5000 as a default.</p>
-<p>This means that your server should not have any port &#39;hard-coded&#39; as a default (like 3000). Make sure your server code looks something like this:</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> server = http.createServer(app);
-app.set(<span class="hljs-string">'port'</span>, process.env.PORT || <span class="hljs-number">3000</span>);
+                        <h1 id="unit-testing">Unit Testing</h1>
+<blockquote>
+In computer programming, <a href="http://en.wikipedia.org/wiki/Unit_testing" target="_blank">unit testing</a>
+is a software testing method by which individual units of source code, sets of
+one or more computer program modules together with associated control data, usage
+procedures, and operating procedures are tested to determine if they are fit for
+use. Intuitively, one can view a unit as the smallest testable part of an
+application. In procedural programming, a unit could be an entire module, but it
+is more commonly an individual function or procedure. In object-oriented
+programming, a unit is often an entire interface, such as a class, but could be
+an individual method. Unit tests are short code fragments created by programmers
+or occasionally by white box testers during the development process.
+</blockquote>
 
-server.listen(app.get(<span class="hljs-string">'port'</span>), <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
-  console.log(<span class="hljs-string">'the server is NOW running on port'</span>, app.get(<span class="hljs-string">'port'</span>));
-});
+<h2 id="with-mocha-and-chai">With Mocha and Chai</h2>
+<blockquote>
+<a href="http://visionmedia.github.io/mocha/" target="_blank">Mocha</a> is a feature-rich JavaScript test
+framework running on node.js and the browser, making asynchronous testing simple
+and fun. Mocha tests run serially, allowing for flexible and accurate reporting,
+while mapping uncaught exceptions to the correct test cases.
+</blockquote>
+
+<blockquote>
+<a href="http://chaijs.com" target="_blank">Chai</a> is a BDD / TDD assertion library for node and the
+browser that can be delightfully paired with any javascript testing framework
+&hellip; Chai has several interfaces that allow the developer to choose the most
+comfortable. The chain-capable BDD styles provide an expressive language &amp;
+readable style, while the TDD assert style provides a more classical feel
+</blockquote>
+
+<p>Mocha and Chai (along with <a href="">Sinon</a> which we will use later) are two of the
+leading JS testing frameworks. They are frequently used together. An alternative
+library that includes both features of Mocha, Chai, and Sinon is
+<a href="http://jasmine.github.io" target="_blank">Jasmine</a>.</p>
+<h2 id="testing-nodejs-objects-on-the-server-side">Testing NodeJS Objects on the Server Side</h2>
+<p>You can use the [Hello World Express] as a starting point for this tutorial, or
+any other app you have. <code>cd</code> into your project&#39;s root folder.</p>
+<p>Install Mocha as a global NPM module:
+<code>npm install -g mocha</code>
+We will do this globally to be able to use the <code>mocha</code> command from our command
+line. We will also install Mocha and Chai as <code>devDependency</code>-ies in our project.
+<code>npm install mocha chai --save-dev</code></p>
+<p>Make a test directory: <code>mkdir -p test/unit</code></p>
+<p>We will also make a <code>lib</code> directory to hold our &quot;Plain Old JavaScript Objects&quot;
+(POJSOs)</p>
+<p>Here&#39;s our simple Post object again:</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// lib/post.js</span>
+<span class="hljs-keyword">var</span> Post = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(title)</span> {</span>
+  <span class="hljs-keyword">return</span> {title: title};
+}
+
+module.exports = Post;
 </code></pre>
-<h2 id="commit-any-changes-and-push-to-heroku">Commit any changes and push to Heroku</h2>
-<p>Make sure to commit any changes you made to your app, like adding the Procfile, etc.</p>
-<p><code>git add .</code></p>
-<p><code>git commit -m &#39;preparing for heroku&#39;</code></p>
-<p>Make sure you&#39;re on the master branch or that you merge you changes back to master.</p>
-<p>And now, to deploy your app to the web on Heroku:</p>
-<p><code>git push heroku master</code></p>
-<p>You&#39;ll see a bunch of info scroll by from Heroku, but it should look something like this:</p>
-<pre><code>$ git push heroku master
-Fetching repository, done.
-Counting objects: 7, done.
-Delta compression using up to 8 threads.
-Compressing objects: 100% (3/3), done.
-Writing objects: 100% (4/4), 343 bytes | 0 bytes/s, done.
-Total 4 (delta 2), reused 0 (delta 0)
+<p>Great, we have a Post object constructor that can initialize an instance of a
+post with a title property.</p>
+<p>Let&#39;s test to see that the constructor does what we think it will. The returned
+object should have a title property.</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// test/post_test.js</span>
+<span class="hljs-keyword">var</span> expect = <span class="hljs-built_in">require</span>(<span class="hljs-string">'chai'</span>).expect,
+  Post = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../lib/post'</span>);
 
------&gt; Node.js app detected
+describe(<span class="hljs-string">'Post object tests'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+  <span class="hljs-keyword">var</span> post;
 
-       PRO TIP: Specify a node version in package.json
-       See https://devcenter.heroku.com/articles/nodejs-support
+  beforeEach(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+    post = <span class="hljs-keyword">new</span> Post(<span class="hljs-string">'A test post'</span>);
+  });
 
------&gt; Defaulting to latest stable node: 0.10.28
------&gt; Downloading and installing node
------&gt; Restoring node_modules directory from cache
------&gt; Pruning cached dependencies not specified in package.json
-       npm WARN package.json hello-express@ No repository field.
------&gt; Writing a custom .npmrc to circumvent npm bugs
------&gt; Exporting config vars to environment
------&gt; Installing dependencies
-       npm WARN package.json hello-express@ No repository field.
------&gt; Caching node_modules directory for future builds
------&gt; Cleaning up node-gyp and npm artifacts
------&gt; Building runtime environment
------&gt; Discovering process types
-       Procfile declares types -&gt; web
+  describe(<span class="hljs-string">'constructor'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
 
------&gt; Compressing... done, 5.3MB
------&gt; Launching... done, v4
-       http://ivan-hello-world-express.herokuapp.com/ deployed to Heroku
+    it(<span class="hljs-string">'post should be truthy (exists)'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+      expect(post).to.be.ok;
+    });
 
-To git@heroku.com:ivan-hello-world-express.git
-   3d47745..3f34feb  master -&gt; master
-</code></pre><p>And you can open your browser, and visit your app on the web!</p>
+    it(<span class="hljs-string">'post should have title property'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+      expect(post).to.have.property(<span class="hljs-string">'title'</span>);
+    });
+
+    it(<span class="hljs-string">'post title property matches beforeEach'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+      expect(post.title).to.equal(<span class="hljs-string">'A test post'</span>);
+    });
+
+  });
+}
+</code></pre>
+<p>Now we can run the mocha tests with the Mocha command line tool.</p>
+<p><code>mocha</code></p>
+<p>should do the trick!</p>
+<p>The next step is to use the <a href="https://github.com/yaymukund/grunt-simple-mocha" target="_blank">grunt-simple-mocha</a>
+grunt plugin to be able to type <code>grunt test</code> and run this, and other, unit tests.</p>
+<p>By now you should be familiar with Grunt, and configuring grunt plugins. Try it out.</p>
+<h2 id="testing-js-objects-on-the-client-browser-side">Testing JS Objects on the Client (Browser) Side</h2>
+<p>We can also run these tests in the browser environment. For this, we will need a
+&#39;test harness&#39; HTML file.</p>
+<pre><code class="lang-html"><span class="hljs-comment">&lt;!-- test/browser/index.html --&gt;</span>
+<span class="hljs-doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">meta</span> <span class="hljs-attribute">charset</span>=<span class="hljs-value">"utf-8"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>Post tests<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">link</span> <span class="hljs-attribute">rel</span>=<span class="hljs-value">"stylesheet"</span> <span class="hljs-attribute">media</span>=<span class="hljs-value">"all"</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"bower_components/mocha/mocha.css"</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"mocha"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"."</span>&gt;</span>Index<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"messages"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"fixtures"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"../bower_components/mocha/mocha.js"</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"../bower_components/chai/chai.js"</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"../lib/post.js"</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">mocha.setup(<span class="hljs-string">'bdd'</span>)</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"post_browser_test.js"</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">mocha.run();</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span>
+</code></pre>
+<p>and</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// test/browser/post__test.js</span>
+<span class="hljs-keyword">var</span> expect = chai.expect
+
+describe(<span class="hljs-string">'Post object tests'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+  <span class="hljs-keyword">var</span> post;
+
+  beforeEach(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+    post = <span class="hljs-keyword">new</span> Post(<span class="hljs-string">'A test post'</span>);
+  });
+
+  describe(<span class="hljs-string">'constructor'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+
+    it(<span class="hljs-string">'post should be truthy (exists)'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+      expect(post).to.be.ok;
+    });
+
+    it(<span class="hljs-string">'post should have title property'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+      expect(post).to.have.property(<span class="hljs-string">'title'</span>);
+    });
+
+    it(<span class="hljs-string">'post title property matches beforeEach'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+      expect(post.title).to.equal(<span class="hljs-string">'A test post'</span>);
+    });
+
+  });
+</code></pre>
+<p>Now open this HTML document in the browser. You may want to use the &#39;node-static&#39;
+package like this:</p>
+<p><code>static test</code></p>
+<p><em>Stretch goal</em>: The next step is to use the <a href="https://github.com/kmiyashiro/grunt-mocha" target="_blank">grunt-mocha</a> 
+grunt plugin to run these browser tests headlessly via PhantomJS.</p>
+<p><strong>TODO</strong>: This is a work in progress &hellip;</p>
 
                     
                     </section>
@@ -550,10 +620,10 @@ To git@heroku.com:ivan-hello-world-express.git
         </div>
 
         
-        <a href="../day4/Sass.html" class="navigation navigation-prev "><i class="fa fa-angle-left"></i></a>
+        <a href="../day7/README.html" class="navigation navigation-prev "><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../day5/README.html" class="navigation navigation-next "><i class="fa fa-angle-right"></i></a>
+        <a href="../day7/REST.html" class="navigation navigation-next "><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

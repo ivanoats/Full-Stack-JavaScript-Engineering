@@ -25,6 +25,6 @@
     * [Browserify lab](day6/Browserify_lab.md)
     * [Require.js](day6/requirejs.md)
 * [Day Seven](day7/README.md)
-    * [Unit Testing](day/unit_testing.md)
+    * [Unit Testing](day7/unit_testing.md)
     * [REST](day7/REST.md)
 
