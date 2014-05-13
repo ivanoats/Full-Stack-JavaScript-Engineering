@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# Revision 1399941412620
+# Revision 1399941855241
 
 CACHE:
 day2/README.html
@@ -15,6 +15,7 @@ day1/pull_request_practice.html
 day3/Grunt.html
 day3/Personal_Blog_Site_Tutorial_with_Yeoman_and_Zurb.html
 day3/README.html
+day3/responsive.html
 day4/Heroku.html
 day4/README.html
 day4/Sass.html
@@ -62,8 +63,8 @@ gitbook/jsrepl/sandbox.html
 gitbook/jsrepl/sandbox.js
 gitbook/print.css
 gitbook/style.css
-gitbook/plugins/gitbook-plugin-mathjax/plugin.js
 gitbook/plugins/gitbook-plugin-mixpanel/plugin.js
+gitbook/plugins/gitbook-plugin-mathjax/plugin.js
 
 NETWORK:
 *
