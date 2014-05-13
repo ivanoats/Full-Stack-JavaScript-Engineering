@@ -83,7 +83,7 @@ This tells bower to install the components in app instead of the root of the pro
           dev: {
             expand: true,
             cwd: 'app',
-            src: ['*.css', '*.html', 'bower_compenents/requirejs/require.js'],
+            src: ['*.css', '*.html', 'bower_components/requirejs/require.js'],
             dest: 'build/',
             flatten: false,
             filter: 'isFile'
