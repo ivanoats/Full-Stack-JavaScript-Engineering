@@ -3,7 +3,7 @@
     <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
         
         <meta charset="UTF-8">
-        <title>Connect to IRC | Full Stack JavaScript Engineering</title>
+        <title>JavaSCript Tools Overview | Full Stack JavaScript Engineering</title>
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="robots" content="index, follow">
@@ -13,13 +13,13 @@
         <meta name="generator" content="www.gitbook.io">
 
         
-        <link rel="next" href="../day1/README.html" />
+        <link rel="next" href="../day1/pull_request_practice.html" />
         
         
-        <link rel="prev" href="../pre-work/README.html" />
+        <link rel="prev" href="../day1/README.html" />
         
 
-        <meta property="og:title" content="Connect to IRC | Full Stack JavaScript Engineering">
+        <meta property="og:title" content="JavaSCript Tools Overview | Full Stack JavaScript Engineering">
         <meta property="og:site_name" content="Full Stack JavaScript Engineering">
         <meta property="og:type" content="book">
         <meta property="og:locale" content="en_US">
@@ -42,7 +42,7 @@
 
 
         
-    <div class="book" data-github="ivanoats/Full-Stack-JavaScript-Engineering" data-level="2" data-basepath=".." data-revision="1399941412620">
+    <div class="book" data-github="ivanoats/Full-Stack-JavaScript-Engineering" data-level="3.1" data-basepath=".." data-revision="1399941412620">
     <div class="book-header">
     <!-- Actions Left -->
     
@@ -120,7 +120,7 @@
 
         
         <li>
-            <a href="https://github.com/ivanoats/Full-Stack-JavaScript-Engineering/edit/master/communication/connect_to_irc.md" target="blank">Edit and Contribute</a>
+            <a href="https://github.com/ivanoats/Full-Stack-JavaScript-Engineering/edit/master/day1/ToolsOverview.md" target="blank">Edit and Contribute</a>
         </li>
         
 
@@ -359,7 +359,7 @@
             <div class="page-wrapper" tabindex="-1">
                 <div class="book-progress">
     <div class="bar">
-        <div class="inner" style="width: 8.695652173913043%;min-width: 4.3478260869565215%;"></div>
+        <div class="inner" style="width: 17.391304347826086%;min-width: 13.043478260869565%;"></div>
     </div>
     <div class="chapters">
     
@@ -369,9 +369,9 @@
     
         <a href="../communication/connect_to_irc.html" title="Connect to IRC" class="chapter done new-chapter" data-progress="2" style="left: 8.695652173913043%;"></a>
     
-        <a href="../day1/README.html" title="Day One" class="chapter  new-chapter" data-progress="3" style="left: 13.043478260869565%;"></a>
+        <a href="../day1/README.html" title="Day One" class="chapter done new-chapter" data-progress="3" style="left: 13.043478260869565%;"></a>
     
-        <a href="../day1/ToolsOverview.html" title="JavaSCript Tools Overview" class="chapter  " data-progress="3.1" style="left: 17.391304347826086%;"></a>
+        <a href="../day1/ToolsOverview.html" title="JavaSCript Tools Overview" class="chapter done " data-progress="3.1" style="left: 17.391304347826086%;"></a>
     
         <a href="../day1/pull_request_practice.html" title="Github Pull Request Practice" class="chapter  " data-progress="3.2" style="left: 21.73913043478261%;"></a>
     
@@ -416,35 +416,90 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_5">
+                    <section class="normal" id="section-gitbook_7">
                     
-                        <h1 id="connect-to-irc">Connect to IRC</h1>
-<p>Internet Relay Chat (IRC) despite being an ancient chat protocol, is highly
- used in the JavaScript, Node.js, and general web development community. It&#39;s
- <strong>important</strong> that you&#39;re familiar with it and can utilize it for help and to
- connect with others in the community. We have our own channel to model this
- community. The channel has two &quot;bots&quot;, a logging bot written in Ruby, and a fun
- bot called &quot;codehue&quot; written in NodeJS.</p>
+                        <h1 id="a-list-of-foundational-javascript-tools">A List of Foundational JavaScript Tools</h1>
+<p><em>by Kalina Wu, Ivan Storck, and Sarah Fischer</em></p>
+<p>In our development accelerator, students are introduced to several tools and libraries to expand the abilities of their code. Kalina, one of our former JavaScript students, compiled a list of these tools and wanted to share it with other Code Fellows.</p>
+<p><a href="https://twitter.com/ivanoats" target="_blank">Ivan Storck</a>, our <a href="https://www.codefellows.org/javascript-bootcamp" target="_blank">JavaScript Development Accelerator</a> instructor, used <a href="https://www.linkedin.com/in/kalinawu" target="_blank">Kalina&#39;s</a> list to draft up this helpful mind map:</p>
+<p><a href="https://dgosxlrnzhofi.cloudfront.net/custom_page_images/production/107/page_images/JavaScript-Tools-1200.jpg?1395348993" target="_blank"><img src="https://dgosxlrnzhofi.cloudfront.net/custom_page_images/production/107/page_images/JavaScript-Tools-1200.jpg?1395348993" alt="JavaScript Tools Mind Map"></a></p>
+<h2 id="general">General</h2>
+<p><strong>Scaffolding Tools</strong> (for starting projects)</p>
 <ul>
-<li>Connect to the class IRC channel #<a href="http://webchat.freenode.net/?channels=%23codefellows&amp;uio=d4" target="_blank">codefellows</a>
-on freenode.net and say hello.</li>
-<li>If you want to be able to talk on the ##<a href="http://webchat.freenode.net/?channels=%23%23javascript&amp;uio=d4" target="_blank">javascript</a>
-channel, you need to register a nickname with Freenode. Type
-<code>/msg NickServ help</code> to get started from your IRC client.</li>
-<li>Mac, best free client is <a href="http://limechat.net/mac/" target="_blank">LimeChat</a>.</li>
-<li>Unix, your package manager should have <a href="http://xchat.org/" target="_blank">XChat</a> or
-<a href="http://www.pidgin.im/" target="_blank">Pidgin</a>.</li>
-<li><a href="http://www.irchelp.org/" target="_blank">http://www.irchelp.org/</a> is a great intro site if
-you&#39;re new to IRC.</li>
-<li>A short article on irc etiquette: <a href="http://geoff.greer.fm/2012/05/19/programmer-irc-etiquette/" target="_blank">http://geoff.greer.fm/2012/05/19/programmer-irc-etiquette/</a> Also see
-<a href="https://speakerdeck.com/ivanoats/a-good-question" target="_blank">https://speakerdeck.com/ivanoats/a-good-question</a></li>
+<li><a href="http://yeoman.io/" target="_blank">Yeoman</a> - Yeoman is a robust and opinionated client-side stack, comprising tools and frameworks that can help developers quickly build beautiful web applications.</li>
 </ul>
-<p>There is no submission for this assignment. We&#39;ll see you on the #codefellows
-channel in class, and on Gitter.IM. They are very useful for sending links to
-everyone during class, asking questions in the evening, or just socializing.</p>
-<p>We also use <a href="https://badges.gitter.im/codefellows/sea-b15-javascript.png" target="_blank">Gitter.IM</a>
-as a chatroom just for our class. Click on this button to join.</p>
-<p><a href="https://gitter.im/codefellows/sea-b15-javascript" target="_blank"><img src="https://badges.gitter.im/codefellows/sea-b15-javascript.png" alt="Gitter chat"></a></p>
+<p><strong>Build Tools</strong> (automation)</p>
+<ul>
+<li><a href="http://gruntjs.com/" target="_blank">Grunt.js</a> - The Grunt ecosystem is huge and it&#39;s growing every day. With literally hundreds of plugins to choose from, you can use Grunt to automate just about anything with a minimum of effort.<ul>
+<li><a href="http://www.pintjs.com/" target="_blank">Pint.js</a> (Grunt helper) - Pint is a small, asynchronous, dependency-aware wrapper around Grunt, attempting to solve some of the problems that accompany a build process at scale.</li>
+</ul>
+</li>
+<li><a href="http://gulpjs.com/" target="_blank">Gulp.js</a> - Gulp&#39;s use of streams and code-over-configuration makes for a simpler and more intuitive build.</li>
+<li><a href="http://browserify.org/" target="_blank">Browserify.js</a> (for browser) - Browserify is a development tool that allows us to write node.js-style modules that compile for use in the browser. Just like node, we write our modules in separate files, exporting external methods and properties using the module.exports and exports variables.</li>
+<li><a href="http://marijnhaverbeke.nl//uglifyjs" target="_blank">Uglify.js</a> - Uglify.js is a JavaScript parser / mangler / compressor / beautifier library for NodeJS.</li>
+</ul>
+<p><strong>Package Management Tools</strong></p>
+<ul>
+<li><a href="http://brew.sh/" target="_blank">Homebrew</a> (Mac OS) - Homebrew installs the stuff you need that Apple didn&#39;t.</li>
+<li><a href="https://help.ubuntu.com/12.04/serverguide/apt-get.html" target="_blank">Apt</a> (Ubuntu) - The apt-get command is a powerful command-line tool, which works with Ubuntu&#39;s Advanced Packaging Tool (APT) performing such functions as installation of new software packages, upgrade of existing software packages, updating of the package list index, and even upgrading the entire Ubuntu system.</li>
+<li><a href="https://www.npmjs.org/" target="_blank">NPM</a> - npm is the official package manager for Node.js.</li>
+<li><a href="http://bower.io/" target="_blank">Bower</a> - Bower is a package manager for the web.</li>
+</ul>
+<h2 id="front-end">Front End</h2>
+<p><strong>MVC Frameworks</strong></p>
+<ul>
+<li><a href="http://backbonejs.org/" target="_blank">Backbone.js</a> - Backbone.js gives structure to web applications by providing models with key-value binding and custom events, collections with a rich API of enumerable functions, and views with declarative event handling. It connects it all to your existing API over a RESTful JSON interface.</li>
+<li><a href="http://emberjs.com/" target="_blank">Ember.js</a> - Ember makes Handlebars templates even better by ensuring your HTML stays up-to-date when the underlying model changes. To get started, you don&#39;t even need to write any JavaScript.</li>
+<li><a href="http://angularjs.org/" target="_blank">Angular.js</a> - AngularJS lets you extend HTML vocabulary for your application. The resulting environment is extraordinarily expressive, readable, and quick to develop.</li>
+</ul>
+<p><strong>Templates</strong></p>
+<ul>
+<li><a href="http://handlebarsjs.com/" target="_blank">Handlebars.js</a> - Handlebars provides the power necessary to let you build semantic templates effectively with no frustration. Mustache templates are compatible with Handlebars, so you can take a Mustache template, import it into Handlebars, and start taking advantage of the extra Handlebars features.</li>
+<li><a href="http://mustache.github.io/" target="_blank">Mustache.js</a> (less built-out than Handlebars) - Mustache is a simple web template system with implementations available for ActionScript, C++, Clojure, CoffeeScript, ColdFusion, D, Erlang, Fantom, Go, Java, JavaScript, Lua, .NET, Objective-C, Pharo, Perl, PHP, Python, Ruby, Scala and XQuery.</li>
+<li><a href="http://jade-lang.com/" target="_blank">Jade</a> - Jade is a node template engine designed primarily for server-side templating in node.js.</li>
+<li><a href="https://github.com/creationix/haml-js" target="_blank">Haml-js</a> - Haml-js allows the <a href="http://haml.info/" target="_blank">Haml</a> syntax to be used in a JavaScript project. It has most of the same functionality as the original Haml.</li>
+<li><a href="https://github.com/sstephenson/eco" target="_blank">Eco</a> - Eco lets you embed <a href="http://coffeescript.org/" target="_blank">CoffeeScript</a> logic in your markup.</li>
+</ul>
+<p><strong>Testing</strong></p>
+<ul>
+<li><a href="http://casperjs.org/" target="_blank">Casper.js</a> - CasperJS is a navigation scripting and testing utility for <a href="http://phantomjs.org/" target="_blank">PhantomJS</a> and SlimerJS written in Javascript.</li>
+<li><a href="http://zombie.labnotes.org/" target="_blank">Zombie.js</a> - Zombie.js is a lightweight framework for testing client-side JavaScript code in a simulated environment. No browser required.</li>
+</ul>
+<h2 id="back-end">Back End</h2>
+<p><strong>Servers</strong></p>
+<ul>
+<li><a href="http://expressjs.com/" target="_blank">Express</a> - Express is a web application framework for Node.</li>
+<li><a href="http://nodejs.org/" target="_blank">Node</a> - Node.js is a platform built on Chrome&#39;s JavaScript runtime for easily building fast, scalable network applications.</li>
+</ul>
+<p><strong>Databases</strong></p>
+<ul>
+<li><a href="https://www.mongodb.org/" target="_blank">MongoDB</a> - MongoDB is an open-source document database, and the leading NoSQL database.</li>
+<li><a href="http://www.postgresql.org/" target="_blank">Postgresql</a> - PostgreSQL is a powerful, open source, object-relational database system.</li>
+<li><a href="http://www.sqlcourse.com/intro.html" target="_blank">SQL</a> - SQL is used to communicate with a database. According to the American National Standards Institute, it is the standard language for relational database management systems.</li>
+</ul>
+<p><strong>Architectural Style</strong></p>
+<ul>
+<li>RESTful - Representational State Transfer is an architectural style consisting of a coordinated set of architectural constraints applied to components, connectors, and data elements, within a distributed hypermedia system.</li>
+</ul>
+<p><strong>Testing</strong></p>
+<ul>
+<li><a href="https://github.com/cucumber/cucumber-js" target="_blank">Cucumber.js</a> - Cucumber.js takes the popular <a href="http://cukes.info/" target="_blank">behavior-driven development tool</a> and applies it to your JavaScript stack. </li>
+<li><a href="http://jasmine.github.io/" target="_blank">Jasmine</a> - Jasmine is a behavior-driven development testing framework for JavaScript. It does not rely on browsers, DOM, or any JavaScript framework. Thus it&#39;s suited for websites, Node.js projects, or anywhere that JavaScript can run.</li>
+<li><a href="http://visionmedia.github.io/mocha/" target="_blank">Mocha</a> - Mocha is a feature-rich JavaScript test framework running on node.js and the browser, making asynchronous testing simple and fun.</li>
+<li><a href="https://qunitjs.com/" target="_blank">Q-Unit</a> - Q-Unit is a powerful, easy-to-use JavaScript unit testing framework. It&#39;s used by the jQuery, jQuery UI and jQuery Mobile projects and is capable of testing any generic JavaScript code.</li>
+</ul>
+<p><strong>Assertion Libraries</strong></p>
+<ul>
+<li><a href="http://chaijs.com/" target="_blank">Chai</a> - Chai is a BDD / TDD assertion library for node and the browser that can be delightfully paired with any javascript testing framework.</li>
+</ul>
+<p><strong>Functional Programming Tools</strong></p>
+<ul>
+<li><a href="http://underscorejs.org/" target="_blank">Underscore.js</a> - Underscore is a JavaScript library that provides a whole mess of useful functional programming helpers without extending any built-in objects.</li>
+<li><a href="http://lodash.com/" target="_blank">Lo-Dash</a> - Lo-Dash is a utility library delivering consistency, customization, and performance.</li>
+</ul>
+<p><br></p>
+<h3 id="update-">Update:</h3>
+<p>Have a tool you think should be on the list? Check out this article and the associated <a href="https://mindnode.com/" target="_blank">MindNode</a> mind map (OPML) on <a href="https://github.com/codefellows/jstools" target="_blank">Github</a>. Submit a pull request and send us your suggestions to add new and popular tools!</p>
 
                     
                     </section>
@@ -454,10 +509,10 @@ as a chatroom just for our class. Click on this button to join.</p>
         </div>
 
         
-        <a href="../pre-work/README.html" class="navigation navigation-prev "><i class="fa fa-angle-left"></i></a>
+        <a href="../day1/README.html" class="navigation navigation-prev "><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../day1/README.html" class="navigation navigation-next "><i class="fa fa-angle-right"></i></a>
+        <a href="../day1/pull_request_practice.html" class="navigation navigation-next "><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

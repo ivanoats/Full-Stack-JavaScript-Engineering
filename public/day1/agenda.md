@@ -16,7 +16,4 @@
 - Show video and Talk about Agile, intro Along-the-Way project, and share task in Asana
 - Check in on IRC / Gitter.IM
 - Demo Grunt and File Redirection
-
-- Get started on Day 2 - The Node Beginner Book
-
-- Show TATFT video (if time?)
+-
