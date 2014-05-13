@@ -94,5 +94,5 @@ Where do you go from here? There are some options for transitioning your website
 <br>This boilerplate for developing mobile-friendly websites gives you a foundation for your website. The bonus for Skeleton is its simple syntax and basic provision of basic styles, which means the look of your site is entirely up to you.
 3. [HTML and CSS: design and build websites](http://www.htmlandcssbook.com/) by Jon Duckett
 <br>If you want to skip the templates and create your own responsive website from scratch, *Ch. 15: Layouts* offers great instruction on grid layouts. This is also a great place to go if you're just getting started in web development.
-
+4. [Beginner's Guide to Grids with Zurb Foundation 5](http://blog.teamtreehouse.com/beginners-guide-grids-zurb-foundation-5)
 Try it out—Your mobile visitors will sing your praises (or just appreciate how easy your website is to use on a smartphone. Win-win!).
