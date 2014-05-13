@@ -9,13 +9,13 @@ First step, create a package.json file that looks something like this:
       "description": "a demo app using require.js, grunt and express",
       "version": "0.0.1",
       "dependencies": {
-      	"express": "^4.0"
+          "express": "^4.0"
       },
-      "devDepencies": {
+      "devDependencies": {
         "grunt": "^0.4",
         "grunt-contrib-clean": "^0.4",
         "grunt-contrib-copy": "^0.4",
-		"grunt-contrib-requirejs": "^0.4"
+        "grunt-contrib-requirejs": "^0.4"
       }
     }
 It's a pretty simple set of dependencies, express for serving the site (although this could easily be an http or connect server) and grunt with some plugins to build the static assets. The grunt-contrib-clean plugin deletes all the files from the previous build. The grunt-contrib-copy plugin copies everyfile that isn't a Javascript file into the build. Finally grunt-contrib-requirejs helps to build all of the Javascript files into a single file that can be included in a static html page. First up, here's the app.js express server:
@@ -65,12 +65,12 @@ This tells bower to install the components in app instead of the root of the pro
 <a href="http://gruntjs.com/">Grunt</a> is a task runner for Javascript that makes the process of development much smoother. It allows the conifuration of tasks much like Rake does for Ruby or make does for C. If you haven't used Grunt before I suggest checking out the docs because I'm not going to go over the basics. Create a Gruntfile.js that looks like this: 
 
     module.exports = function(grunt) {
-      grunt.loadNpmTask('grunt-contrib-copy');
-      grunt.loadNpmTask('grunt-contrib-clean');
-      grunt.loadNpmTask('grunt-contrib-requirejs');
+      grunt.loadNpmTasks('grunt-contrib-copy');
+      grunt.loadNpmTasks('grunt-contrib-clean');
+      grunt.loadNpmTasks('grunt-contrib-requirejs');
       
       grunt.initConfig({
-        pkg: grunt.file.readJSON('package.json');
+        pkg: grunt.file.readJSON('package.json'),
         
         clean: {
           build: ['build/'],
@@ -88,7 +88,7 @@ This tells bower to install the components in app instead of the root of the pro
             flatten: false,
             filter: 'isFile'
           }
-		},
+		    },
         
         requirejs: {
           compile: {
@@ -104,6 +104,8 @@ This tells bower to install the components in app instead of the root of the pro
       });
       
       grunt.registerTask('build:dev', ['clean:dev', 'requirejs', 'copy:dev']);
+
+    };
 When build:dev is called first it removes everthing currently in the build directory. Then it takes all of the files specified in the the `app/js/config.js` file and "compiles" them into build/client.js. Finally, it copies over our static files including the requirejs library. 
 
 The final step is to get some requirejs files into the application. There are going to be two files, app/js/config.js and app/js/main.js. The config.js is the base file and contains logic to load all of the libraries and custom js files for the application. It should look something like this:
@@ -115,7 +117,7 @@ The final step is to get some requirejs files into the application. There are go
       }
     });
     
-    require(['main'], function() {console.log('main.js loaded')});
+    require(['main'], function() {console.log('main.js loaded');});
 First this file tells require where it can find our bower_comonents and jquery. These files don't need to be copied over with grunt-contrib-copy as they will be included in our client.js file. The require statement at the bottom takes a series of file names(in this case just main.js) and a callback which runs once the module is loaded. The main.js file is where jquery is going to be loaded and used and it should look something like this:
 
     define(['jquery'], function($) {
