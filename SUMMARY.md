@@ -26,5 +26,5 @@
     * [Require.js](day6/requirejs.md)
 * [Day Seven](day7/README.md)
     * Unit Testing
-    * [REST](REST.md)
+    * [REST](day7/REST.md)
 
