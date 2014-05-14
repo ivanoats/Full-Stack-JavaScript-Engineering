@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# Revision 1400018380442
+# Revision 1400093055570
 
 CACHE:
 day3/Grunt.html
@@ -29,6 +29,9 @@ day6/requirejs.html
 day7/README.html
 day7/REST.html
 day7/unit_testing.html
+day8/README.html
+day8/mongo_mongoose_and_the_rest.html
+day8/superagent_testing.html
 pre-work/README.html
 gitbook/app.js
 gitbook/fonts/anonymouspro/400.woff
@@ -66,8 +69,8 @@ gitbook/jsrepl/sandbox.html
 gitbook/jsrepl/sandbox.js
 gitbook/print.css
 gitbook/style.css
-gitbook/plugins/gitbook-plugin-mixpanel/plugin.js
 gitbook/plugins/gitbook-plugin-mathjax/plugin.js
+gitbook/plugins/gitbook-plugin-mixpanel/plugin.js
 
 NETWORK:
 *
