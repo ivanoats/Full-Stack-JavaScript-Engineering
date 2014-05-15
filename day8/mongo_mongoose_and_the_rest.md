@@ -158,7 +158,7 @@ app.use(bodyparser());
 
 app.get('/api/v1/notes', noteRoutes.collection);
 app.get('/api/v1/note/:id', noteRoutes.findById);
-app.post('/api/v1/notes',  noteRouts.create);
+app.post('/api/v1/notes',  noteRoutes.create);
 app.put('/api/v1/note/:id', noteRoutes.update);
 app.delete('/api/v1/note/:id', noteRoutes.destroy);
 
