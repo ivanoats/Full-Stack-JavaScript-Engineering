@@ -20,7 +20,7 @@ describe('Notes JSON api', function() {
   
   //testing the POST function of the JSON API
   it('can successfully create a new note', function(done) {
-    superagent.post('http://localhost:3000/api/v1/notes/)
+    superagent.post('http://localhost:3000/api/v1/notes/')
       .send({
         body: 'a new note!'
       })
@@ -36,7 +36,7 @@ describe('Notes JSON api', function() {
       
   //testing the GET function of the JSON API
   it('can successfully get a note', function(done) {
-    superagent.get('http://localhost:3000/api/v1/notes/' + id)
+    superagent.get('http://localhost:3000/api/v1/note/' + id)
       .end(function(err, res) {
         expect(err).to.eql(null);
         expect(res.body._id).to.be.eql(id);
@@ -47,7 +47,7 @@ describe('Notes JSON api', function() {
   });
   
   it('can successfully update a note', function(done) {
-    superagent.put('http://localhost:3000/api/v1/notes/' + id)
+    superagent.put('http://localhost:3000/api/v1/note/' + id)
       .send({
         body: 'an updated note'
       })
@@ -61,12 +61,13 @@ describe('Notes JSON api', function() {
   });
   
   it('can successfully delete a note', function(done) {
-    superagent.del('http://localhost:3000/api/v1/notes/' + id)
+    superagent.del('http://localhost:3000/api/v1/note/' + id)
       .end(function(err, res) {
         expect(err).to.eql(null);
         
         done();
       });
   });
+});
 ```
 Some interesting things happen in this code, first when app is required from server.js it actually starts the server before sending JSON requests to it. When each request is sent to the server it returns a callback response that should contain a successful JSON object.  In the case of the creation of this object(the POST request) it returns a copy of the object that presumably has been saved to a persistent database. It's integration testing, so while it's not precise it does test the general use case for the JSON api.```')})})```
