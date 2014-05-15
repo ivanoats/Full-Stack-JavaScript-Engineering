@@ -120,12 +120,12 @@ exports.update = function(req, res) {
   var id = req.params.id;
   delete req.body._id;
   
-  Note.update({'_id' : id}, req.body, function(err) {
+  Note.findOneAndUpdate({'_id' : id}, req.body, function(err, note) {
                      if(err) {
                        res.send(500, {error: err});
       return false;
     }
-    res.send({"message": "success!"});
+    res.send(note);
   })
 });
 
