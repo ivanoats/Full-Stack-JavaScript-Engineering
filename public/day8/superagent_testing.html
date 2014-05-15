@@ -42,7 +42,7 @@
 
 
         
-    <div class="book" data-github="ivanoats/Full-Stack-JavaScript-Engineering" data-level="10.1" data-basepath=".." data-revision="1400176784816">
+    <div class="book" data-github="ivanoats/Full-Stack-JavaScript-Engineering" data-level="10.1" data-basepath=".." data-revision="1400185316244">
     <div class="book-header">
     <!-- Actions Left -->
     
@@ -507,65 +507,66 @@ both a testing framework, as well as a collection of expect statements. Also bei
 tests from Grunt is key. A combination of Mocha and Chai should fit the bill nicely. First run
 <code>npm install superagent chai mocha --save</code> then create a test file test/api/notes_api_test.js with the 
 following code:</p>
-<pre><code class="lang-javascript">var superagent = require(&#39;superagent&#39;);
-var chai = require(&#39;chai&#39;),
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> superagent = <span class="hljs-built_in">require</span>(<span class="hljs-string">'superagent'</span>);
+<span class="hljs-keyword">var</span> chai = <span class="hljs-built_in">require</span>(<span class="hljs-string">'chai'</span>),
     expect = chai.expect,
     should = chai.should();
-var app = require(&#39;../server.js&#39;).app
+<span class="hljs-keyword">var</span> app = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../server.js'</span>).app
 
-describe(&#39;Notes JSON api&#39;, function() {
-  var id;
+describe(<span class="hljs-string">'Notes JSON api'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+  <span class="hljs-keyword">var</span> id;
 
-  //testing the POST function of the JSON API
-  it(&#39;can successfully create a new note&#39;, function(done) {
-    superagent.post(&#39;http://localhost:3000/api/v1/notes/)
+  <span class="hljs-comment">//testing the POST function of the JSON API</span>
+  it(<span class="hljs-string">'can successfully create a new note'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(done)</span> {</span>
+    superagent.post(<span class="hljs-string">'http://localhost:3000/api/v1/notes/'</span>)
       .send({
-        body: &#39;a new note!&#39;
+        body: <span class="hljs-string">'a new note!'</span>
       })
-      .end(function(err, res) {
-        expect(err).to.eql(null);
-        expect(res.body._id).to.not.be.eql(null);
-        expect(res.body.body).to.be.eql(&#39;a new note!&#39;);
+      .end(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, res)</span> {</span>
+        expect(err).to.eql(<span class="hljs-literal">null</span>);
+        expect(res.body._id).to.not.be.eql(<span class="hljs-literal">null</span>);
+        expect(res.body.body).to.be.eql(<span class="hljs-string">'a new note!'</span>);
         id = res.body._id;
 
         done();
       })
   });
 
-  //testing the GET function of the JSON API
-  it(&#39;can successfully get a note&#39;, function(done) {
-    superagent.get(&#39;http://localhost:3000/api/v1/notes/&#39; + id)
-      .end(function(err, res) {
-        expect(err).to.eql(null);
+  <span class="hljs-comment">//testing the GET function of the JSON API</span>
+  it(<span class="hljs-string">'can successfully get a note'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(done)</span> {</span>
+    superagent.get(<span class="hljs-string">'http://localhost:3000/api/v1/note/'</span> + id)
+      .end(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, res)</span> {</span>
+        expect(err).to.eql(<span class="hljs-literal">null</span>);
         expect(res.body._id).to.be.eql(id);
-        expect(res.body.body).to.be.eql(&#39;a new note!&#39;);
+        expect(res.body.body).to.be.eql(<span class="hljs-string">'a new note!'</span>);
 
         done();
       })
   });
 
-  it(&#39;can successfully update a note&#39;, function(done) {
-    superagent.put(&#39;http://localhost:3000/api/v1/notes/&#39; + id)
+  it(<span class="hljs-string">'can successfully update a note'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(done)</span> {</span>
+    superagent.put(<span class="hljs-string">'http://localhost:3000/api/v1/note/'</span> + id)
       .send({
-        body: &#39;an updated note&#39;
+        body: <span class="hljs-string">'an updated note'</span>
       })
-      .end(function(err, res) {
-        expect(err).to.eql(null);
+      .end(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, res)</span> {</span>
+        expect(err).to.eql(<span class="hljs-literal">null</span>);
         expect(res.body._id).to.be.eql(id);
-        expect(res.body.body).to.be.eql(&#39;an updated note&#39;);
+        expect(res.body.body).to.be.eql(<span class="hljs-string">'an updated note'</span>);
 
         done();
       })
   });
 
-  it(&#39;can successfully delete a note&#39;, function(done) {
-    superagent.del(&#39;http://localhost:3000/api/v1/notes/&#39; + id)
-      .end(function(err, res) {
-        expect(err).to.eql(null);
+  it(<span class="hljs-string">'can successfully delete a note'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(done)</span> {</span>
+    superagent.del(<span class="hljs-string">'http://localhost:3000/api/v1/note/'</span> + id)
+      .end(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, res)</span> {</span>
+        expect(err).to.eql(<span class="hljs-literal">null</span>);
 
         done();
       });
   });
+});
 </code></pre>
 <p>Some interesting things happen in this code, first when app is required from server.js it actually starts the server before sending JSON requests to it. When each request is sent to the server it returns a callback response that should contain a successful JSON object.  In the case of the creation of this object(the POST request) it returns a copy of the object that presumably has been saved to a persistent database. It&#39;s integration testing, so while it&#39;s not precise it does test the general use case for the JSON api.<code>&#39;)})})</code></p>
 
