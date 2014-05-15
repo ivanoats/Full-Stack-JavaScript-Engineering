@@ -129,7 +129,7 @@ exports.update = function(req, res) {
   })
 };
 
-exports.destroy function(req, res) {
+exports.destroy = function(req, res) {
   res.setHeader('Content-Type', 'application/json');
   Note.remove({'_id' : req.params.id}, function(err) {
     if(err) {
