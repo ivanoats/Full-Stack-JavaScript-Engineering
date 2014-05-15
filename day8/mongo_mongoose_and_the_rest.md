@@ -45,12 +45,12 @@ var Note = require('../models/note');
 
 exports.collection = function(req, res) {
   res.setHeader('Content-Type', 'application/json');
-  Note.find({}, function(err, users) {
+  Note.find({}, function(err, notes) {
                 if(err) {
                   res.send(500, {"error": err});
       return false;
     }
-    res.send(users);
+    res.send(notes);
   });
 });
 ```
@@ -83,35 +83,35 @@ var Note = require('../models/note');
 
 exports.collection = function(req, res) {
   res.setHeader('Content-Type', 'application/json');
-  Note.find({}, function(err, users) {
+  Note.find({}, function(err, note) {
                 if(err) {
                   res.send(500, {"error": err});
       return false;
     }
-    res.send(users);
+    res.send(note);
   });
 });
 
 exports.findById = function(req, res) {
   res.setHeader('Content-Type', 'application/json');
-  Note.findOne({"_id" : req.params.id}, function(err, user) {
+  Note.findOne({"_id" : req.params.id}, function(err, note) {
     if(err) {
       res.send(500, {error: err});
       return false;
     }
-    res.send(user);
+    res.send(note);
   });
 });
 
 exports.create = function(req, res) {
   res.setHeader('Content-Type', 'application/json');
-  var note = new Note(req.body);
-  note.save(function(err, resUser) {
+  var note = new Note({bodyu: req.body.body});
+  note.save(function(err, resNote) {
     if(err) {
       res.send(500, {error: err});
       return false;
     }
-    res.send(resUser);
+    res.send(resNote);
   });
 });
 
@@ -120,16 +120,16 @@ exports.update = function(req, res) {
   var id = req.params.id;
   delete req.body._id;
   
-  Note.update({'_id' : id}, req.body, function(err) {
+  Note.findOneAndUpdate({'_id' : id}, req.body, function(err, note) {
                      if(err) {
                        res.send(500, {error: err});
       return false;
     }
-    res.send({"message": "success!"});
+    res.send(note);
   })
 });
 
-eports.destroy function(req, res) {
+exports.destroy function(req, res) {
   res.setHeader('Content-Type', 'application/json');
   Note.remove({'_id' : req.params.id}, function(err) {
     if(err) {
@@ -158,9 +158,9 @@ app.use(bodyparser());
 
 app.get('/api/v1/notes', noteRoutes.collection);
 app.get('/api/v1/note/:id', noteRoutes.findById);
-app.post('api/v1/notes',  noteRouts.create);
-app.put('api/v1/note/:id', noteRoutes.update);
-app.delete('api/v1/note/:id', noteRoutes.destroy);
+app.post('/api/v1/notes',  noteRouts.create);
+app.put('/api/v1/note/:id', noteRoutes.update);
+app.delete('/api/v1/note/:id', noteRoutes.destroy);
 
 app.set('port', process.env.PORT || 3000);
 

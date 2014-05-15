@@ -19,7 +19,7 @@ describe('Notes JSON api', function() {
   var id;
   
   //testing the POST function of the JSON API
-  it('can successfully create a new note', function() {
+  it('can successfully create a new note', function(done) {
     superagent.post('http://localhost:3000/api/v1/notes/)
       .send({
         body: 'a new note!'
@@ -35,7 +35,7 @@ describe('Notes JSON api', function() {
   });
       
   //testing the GET function of the JSON API
-  it('can successfully get a note', function() {
+  it('can successfully get a note', function(done) {
     superagent.get('http://localhost:3000/api/v1/notes/' + id)
       .end(function(err, res) {
         expect(err).to.eql(null);
@@ -46,7 +46,7 @@ describe('Notes JSON api', function() {
       })
   });
   
-  it('can successfully update a note', function() {
+  it('can successfully update a note', function(done) {
     superagent.put('http://localhost:3000/api/v1/notes/' + id)
       .send({
         body: 'an updated note'
@@ -60,7 +60,7 @@ describe('Notes JSON api', function() {
       })
   });
   
-  it('can successfully delete a note', function() {
+  it('can successfully delete a note', function(done) {
     superagent.del('http://localhost:3000/api/v1/notes/' + id)
       .end(function(err, res) {
         expect(err).to.eql(null);
