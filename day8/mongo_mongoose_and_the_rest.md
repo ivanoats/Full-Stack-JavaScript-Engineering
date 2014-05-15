@@ -105,7 +105,7 @@ exports.findById = function(req, res) {
 
 exports.create = function(req, res) {
   res.setHeader('Content-Type', 'application/json');
-  var note = new Note({bodyu: req.body.body});
+  var note = new Note({body: req.body.body});
   note.save(function(err, resNote) {
     if(err) {
       res.send(500, {error: err});

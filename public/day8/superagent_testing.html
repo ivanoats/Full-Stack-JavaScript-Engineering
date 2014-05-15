@@ -42,7 +42,7 @@
 
 
         
-    <div class="book" data-github="ivanoats/Full-Stack-JavaScript-Engineering" data-level="10.1" data-basepath=".." data-revision="1400093055569">
+    <div class="book" data-github="ivanoats/Full-Stack-JavaScript-Engineering" data-level="10.1" data-basepath=".." data-revision="1400176784816">
     <div class="book-header">
     <!-- Actions Left -->
     
@@ -517,7 +517,7 @@ describe(&#39;Notes JSON api&#39;, function() {
   var id;
 
   //testing the POST function of the JSON API
-  it(&#39;can successfully create a new note&#39;, function() {
+  it(&#39;can successfully create a new note&#39;, function(done) {
     superagent.post(&#39;http://localhost:3000/api/v1/notes/)
       .send({
         body: &#39;a new note!&#39;
@@ -533,7 +533,7 @@ describe(&#39;Notes JSON api&#39;, function() {
   });
 
   //testing the GET function of the JSON API
-  it(&#39;can successfully get a note&#39;, function() {
+  it(&#39;can successfully get a note&#39;, function(done) {
     superagent.get(&#39;http://localhost:3000/api/v1/notes/&#39; + id)
       .end(function(err, res) {
         expect(err).to.eql(null);
@@ -544,7 +544,7 @@ describe(&#39;Notes JSON api&#39;, function() {
       })
   });
 
-  it(&#39;can successfully update a note&#39;, function() {
+  it(&#39;can successfully update a note&#39;, function(done) {
     superagent.put(&#39;http://localhost:3000/api/v1/notes/&#39; + id)
       .send({
         body: &#39;an updated note&#39;
@@ -558,7 +558,7 @@ describe(&#39;Notes JSON api&#39;, function() {
       })
   });
 
-  it(&#39;can successfully delete a note&#39;, function() {
+  it(&#39;can successfully delete a note&#39;, function(done) {
     superagent.del(&#39;http://localhost:3000/api/v1/notes/&#39; + id)
       .end(function(err, res) {
         expect(err).to.eql(null);

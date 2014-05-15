@@ -40,7 +40,7 @@
 
 
         
-    <div class="book" data-github="ivanoats/Full-Stack-JavaScript-Engineering" data-level="10.2" data-basepath=".." data-revision="1400093055569">
+    <div class="book" data-github="ivanoats/Full-Stack-JavaScript-Engineering" data-level="10.2" data-basepath=".." data-revision="1400176784816">
     <div class="book-header">
     <!-- Actions Left -->
     
@@ -539,12 +539,12 @@ server.listen(app.get(<span class="hljs-string">'port'</span>), <span class="hlj
 
 exports.collection = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res)</span> {</span>
   res.setHeader(<span class="hljs-string">'Content-Type'</span>, <span class="hljs-string">'application/json'</span>);
-  Note.find({}, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, users)</span> {</span>
+  Note.find({}, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, notes)</span> {</span>
                 <span class="hljs-keyword">if</span>(err) {
                   res.send(<span class="hljs-number">500</span>, {<span class="hljs-string">"error"</span>: err});
       <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
     }
-    res.send(users);
+    res.send(notes);
   });
 });
 </code></pre>
@@ -575,35 +575,35 @@ server.listen(app.get(<span class="hljs-string">'port'</span>), <span class="hlj
 
 exports.collection = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res)</span> {</span>
   res.setHeader(<span class="hljs-string">'Content-Type'</span>, <span class="hljs-string">'application/json'</span>);
-  Note.find({}, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, users)</span> {</span>
+  Note.find({}, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, note)</span> {</span>
                 <span class="hljs-keyword">if</span>(err) {
                   res.send(<span class="hljs-number">500</span>, {<span class="hljs-string">"error"</span>: err});
       <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
     }
-    res.send(users);
+    res.send(note);
   });
 });
 
 exports.findById = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res)</span> {</span>
   res.setHeader(<span class="hljs-string">'Content-Type'</span>, <span class="hljs-string">'application/json'</span>);
-  Note.findOne({<span class="hljs-string">"_id"</span> : req.params.id}, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, user)</span> {</span>
+  Note.findOne({<span class="hljs-string">"_id"</span> : req.params.id}, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, note)</span> {</span>
     <span class="hljs-keyword">if</span>(err) {
       res.send(<span class="hljs-number">500</span>, {error: err});
       <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
     }
-    res.send(user);
+    res.send(note);
   });
 });
 
 exports.create = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res)</span> {</span>
   res.setHeader(<span class="hljs-string">'Content-Type'</span>, <span class="hljs-string">'application/json'</span>);
-  <span class="hljs-keyword">var</span> note = <span class="hljs-keyword">new</span> Note(req.body);
-  note.save(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, resUser)</span> {</span>
+  <span class="hljs-keyword">var</span> note = <span class="hljs-keyword">new</span> Note({body: req.body.body});
+  note.save(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, resNote)</span> {</span>
     <span class="hljs-keyword">if</span>(err) {
       res.send(<span class="hljs-number">500</span>, {error: err});
       <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
     }
-    res.send(resUser);
+    res.send(resNote);
   });
 });
 
@@ -612,16 +612,16 @@ exports.update = <span class="hljs-function"><span class="hljs-keyword">function
   <span class="hljs-keyword">var</span> id = req.params.id;
   <span class="hljs-keyword">delete</span> req.body._id;
 
-  Note.update({<span class="hljs-string">'_id'</span> : id}, req.body, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err)</span> {</span>
+  Note.findOneAndUpdate({<span class="hljs-string">'_id'</span> : id}, req.body, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, note)</span> {</span>
                      <span class="hljs-keyword">if</span>(err) {
                        res.send(<span class="hljs-number">500</span>, {error: err});
       <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
     }
-    res.send({<span class="hljs-string">"message"</span>: <span class="hljs-string">"success!"</span>});
+    res.send(note);
   })
 });
 
-eports.destroy <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res)</span> {</span>
+exports.destroy <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res)</span> {</span>
   res.setHeader(<span class="hljs-string">'Content-Type'</span>, <span class="hljs-string">'application/json'</span>);
   Note.remove({<span class="hljs-string">'_id'</span> : req.params.id}, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err)</span> {</span>
     <span class="hljs-keyword">if</span>(err) {
@@ -649,9 +649,9 @@ app.use(bodyparser());
 
 app.get(<span class="hljs-string">'/api/v1/notes'</span>, noteRoutes.collection);
 app.get(<span class="hljs-string">'/api/v1/note/:id'</span>, noteRoutes.findById);
-app.post(<span class="hljs-string">'api/v1/notes'</span>,  noteRouts.create);
-app.put(<span class="hljs-string">'api/v1/note/:id'</span>, noteRoutes.update);
-app.delete(<span class="hljs-string">'api/v1/note/:id'</span>, noteRoutes.destroy);
+app.post(<span class="hljs-string">'/api/v1/notes'</span>,  noteRouts.create);
+app.put(<span class="hljs-string">'/api/v1/note/:id'</span>, noteRoutes.update);
+app.delete(<span class="hljs-string">'/api/v1/note/:id'</span>, noteRoutes.destroy);
 
 app.set(<span class="hljs-string">'port'</span>, process.env.PORT || <span class="hljs-number">3000</span>);
 
