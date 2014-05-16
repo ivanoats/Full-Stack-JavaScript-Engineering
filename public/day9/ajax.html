@@ -3,7 +3,7 @@
     <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
         
         <meta charset="UTF-8">
-        <title>Hello Express | Full Stack JavaScript Engineering</title>
+        <title>AJAX | Full Stack JavaScript Engineering</title>
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="robots" content="index, follow">
@@ -13,13 +13,13 @@
         <meta name="generator" content="www.gitbook.io">
 
         
-        <link rel="next" href="../day3/README.html" />
+        <link rel="next" href="../day10/README.html" />
         
         
-        <link rel="prev" href="../day2/async_demo.html" />
+        <link rel="prev" href="../day9/README.html" />
         
 
-        <meta property="og:title" content="Hello Express | Full Stack JavaScript Engineering">
+        <meta property="og:title" content="AJAX | Full Stack JavaScript Engineering">
         <meta property="og:site_name" content="Full Stack JavaScript Engineering">
         <meta property="og:type" content="book">
         <meta property="og:locale" content="en_US">
@@ -42,7 +42,7 @@
 
 
         
-    <div class="book" data-github="ivanoats/Full-Stack-JavaScript-Engineering" data-level="4.2" data-basepath=".." data-revision="1400266443251">
+    <div class="book" data-github="ivanoats/Full-Stack-JavaScript-Engineering" data-level="11.1" data-basepath=".." data-revision="1400266443251">
     <div class="book-header">
     <!-- Actions Left -->
     
@@ -120,7 +120,7 @@
 
         
         <li>
-            <a href="https://github.com/ivanoats/Full-Stack-JavaScript-Engineering/edit/master/day2/hello_express.md" target="blank">Edit and Contribute</a>
+            <a href="https://github.com/ivanoats/Full-Stack-JavaScript-Engineering/edit/master/day9/ajax.md" target="blank">Edit and Contribute</a>
         </li>
         
 
@@ -455,7 +455,7 @@
             <div class="page-wrapper" tabindex="-1">
                 <div class="book-progress">
     <div class="bar">
-        <div class="inner" style="width: 48.484848484848484%;min-width: 45.45454545454545%;"></div>
+        <div class="inner" style="width: 18.181818181818183%;min-width: 15.151515151515152%;"></div>
     </div>
     <div class="chapters">
     
@@ -473,25 +473,25 @@
     
         <a href="../day9/ajax.html" title="AJAX" class="chapter done " data-progress="11.1" style="left: 18.181818181818183%;"></a>
     
-        <a href="../day10/README.html" title="Day Ten" class="chapter done " data-progress="12" style="left: 21.21212121212121%;"></a>
+        <a href="../day10/README.html" title="Day Ten" class="chapter  " data-progress="12" style="left: 21.21212121212121%;"></a>
     
-        <a href="../communication/connect_to_irc.html" title="Connect to IRC" class="chapter done new-chapter" data-progress="2" style="left: 24.242424242424242%;"></a>
+        <a href="../communication/connect_to_irc.html" title="Connect to IRC" class="chapter  new-chapter" data-progress="2" style="left: 24.242424242424242%;"></a>
     
-        <a href="../day1/README.html" title="Day One" class="chapter done new-chapter" data-progress="3" style="left: 27.272727272727273%;"></a>
+        <a href="../day1/README.html" title="Day One" class="chapter  new-chapter" data-progress="3" style="left: 27.272727272727273%;"></a>
     
-        <a href="../day1/ToolsOverview.html" title="JavaScript Tools Overview" class="chapter done " data-progress="3.1" style="left: 30.303030303030305%;"></a>
+        <a href="../day1/ToolsOverview.html" title="JavaScript Tools Overview" class="chapter  " data-progress="3.1" style="left: 30.303030303030305%;"></a>
     
-        <a href="../day1/pull_request_practice.html" title="Github Pull Request Practice" class="chapter done " data-progress="3.2" style="left: 33.333333333333336%;"></a>
+        <a href="../day1/pull_request_practice.html" title="Github Pull Request Practice" class="chapter  " data-progress="3.2" style="left: 33.333333333333336%;"></a>
     
-        <a href="../day1/computer_setup.html" title="Computer Setup" class="chapter done " data-progress="3.3" style="left: 36.36363636363637%;"></a>
+        <a href="../day1/computer_setup.html" title="Computer Setup" class="chapter  " data-progress="3.3" style="left: 36.36363636363637%;"></a>
     
-        <a href="../day1/initial_toolchain_practice.html" title="Make sure grunt works" class="chapter done " data-progress="3.4" style="left: 39.39393939393939%;"></a>
+        <a href="../day1/initial_toolchain_practice.html" title="Make sure grunt works" class="chapter  " data-progress="3.4" style="left: 39.39393939393939%;"></a>
     
-        <a href="../day2/README.html" title="Day Two" class="chapter done new-chapter" data-progress="4" style="left: 42.42424242424242%;"></a>
+        <a href="../day2/README.html" title="Day Two" class="chapter  new-chapter" data-progress="4" style="left: 42.42424242424242%;"></a>
     
-        <a href="../day2/async_demo.html" title="Async Demo" class="chapter done " data-progress="4.1" style="left: 45.45454545454545%;"></a>
+        <a href="../day2/async_demo.html" title="Async Demo" class="chapter  " data-progress="4.1" style="left: 45.45454545454545%;"></a>
     
-        <a href="../day2/hello_express.html" title="Hello Express" class="chapter done " data-progress="4.2" style="left: 48.484848484848484%;"></a>
+        <a href="../day2/hello_express.html" title="Hello Express" class="chapter  " data-progress="4.2" style="left: 48.484848484848484%;"></a>
     
         <a href="../day3/README.html" title="Day Three" class="chapter  new-chapter" data-progress="5" style="left: 51.515151515151516%;"></a>
     
@@ -532,100 +532,91 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_15">
+                    <section class="normal" id="section-gitbook_33">
                     
-                        <h1 id="hello-express">Hello Express</h1>
-<p>Express is a minimalistic web framework built on top of Node.js. Based on
-Ruby&#39;s Sinatra framework it abstracts away a lot of the boiler plate
-code required to get a Node web server up and running. Created by
- <a href="https://github.com/visionmedia">TJ Holowaychuck</a> Express is built
-using <a href="http://www.senchalabs.org/connect/">Connect</a> another abstraction
-for creating web servers with Node. Express 3.x includes a suite of middleware
-that were abstracted into their own modules with Express 4. Read more about it <a href="http://scotch.io/bar-talk/expressjs-4-0-new-features-and-upgrading-from-3-0">here</a></p>
-<p>The first step in creating an express application from scratch is to create
-a new folder with <code>mkdir hello_express</code>. Change into the director with <code>cd hello_express</code>
-and  create a file with the name <code>package.json</code>. Inside of the file place the following:</p>
-<pre><code>{
-  &quot;name&quot; : &quot;hello-express&quot;,
-  &quot;description&quot; : &quot;a hello world web application written in express&quot;,
-  &quot;version&quot; : &quot;0.0.1&quot;,
-  &quot;dependencies&quot; : {
-    &quot;express&quot; : &quot;^4.0&quot;
+                        <h1 id="ajax">AJAX</h1>
+<p>Now that we&#39;ve built a REST API, and tested it with our &quot;headless&quot; superagent tests,
+we can also access the API with JavaScript from a web browser. </p>
+<p>AJAX is a term coined by
+<a href="http://www.adaptivepath.com/ideas/ajax-new-approach-web-applications/" target="_blank">Jesse James Garret</a>
+in 2005 to describe the technology stack that enables <a href="http://singlepageappbook.com/goal.html" target="_blank">Single Page Applications</a>.
+It stands for &quot;Asynchronous JavaScript And XML&quot;. </p>
+<p>Now, most people actually tend to send JSON back and forth, more than XML, but
+saying &quot;AJAJ&quot; is kind of silly &hellip;so we&#39;ve stuck with AJAX.</p>
+<p>The Asynchronous part of the acronym refers to the fact that we can send data
+to the server from the browser, and thanks to the brower&#39;s JavaScript event loop,
+we can have function executed later when the server returns data.</p>
+<h2 id="a-basic-ajax-request-in-the-browser-javascript-console">A basic AJAX request in the Browser JavaScript Console</h2>
+<p>Make sure your notes app is running: <code>grunt serve</code> or <code>node server.js</code></p>
+<pre><code class="lang-javascript">request = <span class="hljs-keyword">new</span> XMLHttpRequest();
+request.open(<span class="hljs-string">'GET'</span>, <span class="hljs-string">'/api/v1/notes'</span>, <span class="hljs-literal">true</span>);
+
+request.onload = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+  <span class="hljs-keyword">if</span> (request.status &gt;= <span class="hljs-number">200</span> &amp;&amp; request.status &lt; <span class="hljs-number">400</span>){
+    <span class="hljs-comment">// Success!</span>
+    data = <span class="hljs-built_in">JSON</span>.parse(request.responseText);
+    console.log(data);
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-comment">// We reached our target server, but it returned an error</span>
+    console.log(<span class="hljs-string">"there was an error with the server: "</span> + request.status)
   }
-}
-</code></pre><p>A package.json file is found in nearly every Node packag or application. It tells npm about our
- application. The name and description would appear in npm if we were creatin a node
-package. The version is the <a href="http://semver.org/">Semantic Versioning</a> version
-of our application and the dependencies tell npm what packages we need in order to
-run our application. In this case the only package that we need is express. After saving
-this file run <code>npm install</code> from the command in our hello_express directory and npm
-will install Express and all of it&#39;s dependencies and save them into a folder called node_modules. 
-Now seems like a perfect time to create a git repository for our application.</p>
-<pre><code>git init
-touch .gitignore
-echo &quot;node_modules/&quot; &gt;&gt; .gitignore
-git add .
-git commit -m &quot;add package.json and .gitignore&quot;
-</code></pre><p>First we need to create a .gitignore file. This file tells git not include our node_modules
-folder in our version control. This folder can get quite large and we already have our
-dependencies declared in our package.json file, so it becomes redundant. Now we need to 
-create a simple web server. Create a file called server.js and add the following code:</p>
-<pre><code>var express = require(&#39;express&#39;);
-var http    = require(&#39;http&#39;);
+};
 
-var app = express();
+request.onerror = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+  <span class="hljs-comment">// There was a connection error of some sort</span>
+  console.log(<span class="hljs-string">"There was an error with the request's connection."</span>);
+};
 
-app.get(&#39;/&#39;, function(req, res){
-  res.send(&#39;hello world!&#39;);
-});
-
-var server = http.createServer(app);
-server.listen(3000, function(){
-  console.log(&#39;the server is running on port 3000&#39;);
-});
-</code></pre><p>In this file we first require the express package within our server.js file. We then require
-http which will be used to create the actual server. Then we create our app by calling the root 
-express function. The app.get line is a <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">REST</a>
-get request to our root url that simple writes &#39;hello world!&#39; to the browser. In the final section
-we create a server and start it listening on port 3000, we pass a callback that gets called
-when the server is running that simple outputs &#39;the server is running on port 3000&#39; to the console.
-To start our server simply run <code>node server.js</code> from the command line. Then point your preferred 
-browser to <a href="http://localhost:3000" target="_blank">http://localhost:3000</a>, you should see the text <code>hello world!</code>.</p>
-<p>Now this particular server isn&#39;t especially useful or interesting but we can modify it to serve
-static html pages using one of the few optional middlewares that didn&#39;t get abstracted out of
-Express 4, static. Modify your server.js file to look like this:</p>
-<pre><code>var express = require(&#39;express&#39;);
-var http    = require(&#39;http&#39;);
-
-var app = express();
-
-app.use(express.static(__dirname + &#39;/public&#39;));
-
-var server = http.createServer(app);
-server.listen(3000, function() {
-  console.log(&#39;the server is listening on port 3000&#39;);
-});
-</code></pre><p>Our server now serves any file located in the /public directory. The __dirname in this version of the server.js
-points to the root directory of our application. This is a node global and is available anywhere in a 
-node program. Next we need to create the /public directory, run <code>mkdir public</code> from the console.
-Now place create an index.html file in the public directory and add the following to it:</p>
-<pre><code>&lt;!doctype html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-    &lt;head&gt;
-        &lt;meta charset=&quot;UTF-8&quot;/&gt;
-        &lt;title&gt;Hello World Express&lt;/title&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-      Hello World from an html document!
-    &lt;/body&gt;
-&lt;/html&gt;
-</code></pre><p>If you close the server we had running and run <code>node server.js</code> again, when you browse to <a href="http://localhost:3000" target="_blank">http://localhost:3000</a>
-you should see the text <code>Hello World from an html document</code>. You can also serve up anything you place in the
-public directory, including javascript files, images, css stylesheets and other html files. Don&#39;t forget to commit
-the changes!</p>
-<pre><code>git add .
-git commit -m &quot;serving static files&quot;
+request.send();
 </code></pre>
+<h2 id="a-jquery-ajax-request-in-the-browser-javascript-console">A jQuery AJAX request in the Browser JavaScript Console</h2>
+<p>Make sure your notes app is running: <code>grunt serve</code> or <code>node server.js</code></p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> data = <span class="hljs-string">''</span>;
+
+$.ajax({
+  url: <span class="hljs-string">'/api/v1/notes'</span>,
+  data: data,
+  success: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(data)</span> {</span>
+    data.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(element)</span> {</span>
+      $(<span class="hljs-string">'body'</span>).append(<span class="hljs-string">'&lt;p&gt;'</span> + element.noteBody + <span class="hljs-string">'&lt;/p&gt;'</span>);
+    });
+  },
+  dataType: <span class="hljs-string">'json'</span>
+});
+</code></pre>
+<h2 id="integrating-jquery-browserify-and-ajax">Integrating jQuery, Browserify, and AJAX</h2>
+<p>You&#39;ll need to set up your notes app with Browserify, grunt initConfig, etc.
+I&#39;ve chosen <code>client.js</code> as the file the Browserify will bundle my app/js into.</p>
+<pre><code class="lang-html"><span class="hljs-comment">&lt;!-- app/index.html --&gt;</span>
+<span class="hljs-doctype">&lt;!doctype html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">html</span> <span class="hljs-attribute">lang</span>=<span class="hljs-value">"en"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">meta</span> <span class="hljs-attribute">charset</span>=<span class="hljs-value">"UTF-8"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>jQuery Browserify Ajax Demo<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">ul</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"notes"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">ul</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"client.js"</span> <span class="hljs-attribute">charset</span>=<span class="hljs-value">"utf-8"</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span>
+</code></pre>
+<pre><code class="lang-javascript"><span class="hljs-comment">// app/js/ajax.js</span>
+$ = <span class="hljs-built_in">require</span>(<span class="hljs-string">'jquery'</span>);
+
+<span class="hljs-keyword">var</span> data = <span class="hljs-string">''</span>;
+
+$.ajax({
+  url: <span class="hljs-string">'/api/v1/notes'</span>,
+  data: data,
+  success: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(data)</span> {</span>
+    data.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(element)</span> {</span>
+      $(<span class="hljs-string">'#notes'</span>).append(<span class="hljs-string">'&lt;li&gt;'</span> + element.noteBody + <span class="hljs-string">'&lt;/li&gt;'</span>);
+    });
+  },
+  dataType: <span class="hljs-string">'json'</span>
+});
+</code></pre>
+
                     
                     </section>
                 
@@ -634,10 +625,10 @@ git commit -m &quot;serving static files&quot;
         </div>
 
         
-        <a href="../day2/async_demo.html" class="navigation navigation-prev "><i class="fa fa-angle-left"></i></a>
+        <a href="../day9/README.html" class="navigation navigation-prev "><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../day3/README.html" class="navigation navigation-next "><i class="fa fa-angle-right"></i></a>
+        <a href="../day10/README.html" class="navigation navigation-next "><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
