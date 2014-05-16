@@ -30,3 +30,6 @@
 * [Day Eight](day8/README.md)
     * [Test With Super Agent](day8/superagent_testing.md)
     * [Mongo, Mongoose and the REST](day8/mongo_mongoose_and_the_rest.md)
+* [Day Nine](day9/README.md)
+    * [AJAX](day9/README.md)
+* [Day Ten](day10/README.md)
