@@ -40,7 +40,7 @@
 
 
         
-    <div class="book" data-github="ivanoats/Full-Stack-JavaScript-Engineering" data-level="10.2" data-basepath=".." data-revision="1400185316244">
+    <div class="book" data-github="ivanoats/Full-Stack-JavaScript-Engineering" data-level="10.2" data-basepath=".." data-revision="1400260156634">
     <div class="book-header">
     <!-- Actions Left -->
     
@@ -582,7 +582,7 @@ exports.collection = <span class="hljs-function"><span class="hljs-keyword">func
     }
     res.send(note);
   });
-});
+};
 
 exports.findById = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res)</span> {</span>
   res.setHeader(<span class="hljs-string">'Content-Type'</span>, <span class="hljs-string">'application/json'</span>);
@@ -593,7 +593,7 @@ exports.findById = <span class="hljs-function"><span class="hljs-keyword">functi
     }
     res.send(note);
   });
-});
+};
 
 exports.create = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res)</span> {</span>
   res.setHeader(<span class="hljs-string">'Content-Type'</span>, <span class="hljs-string">'application/json'</span>);
@@ -605,7 +605,7 @@ exports.create = <span class="hljs-function"><span class="hljs-keyword">function
     }
     res.send(resNote);
   });
-});
+};
 
 exports.update = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res)</span> {</span>
   res.setHeader(<span class="hljs-string">'Content-Type'</span>, <span class="hljs-string">'application/json'</span>);
@@ -619,9 +619,9 @@ exports.update = <span class="hljs-function"><span class="hljs-keyword">function
     }
     res.send(note);
   })
-});
+};
 
-exports.destroy <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res)</span> {</span>
+exports.destroy = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res)</span> {</span>
   res.setHeader(<span class="hljs-string">'Content-Type'</span>, <span class="hljs-string">'application/json'</span>);
   Note.remove({<span class="hljs-string">'_id'</span> : req.params.id}, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err)</span> {</span>
     <span class="hljs-keyword">if</span>(err) {
@@ -630,7 +630,7 @@ exports.destroy <span class="hljs-function"><span class="hljs-keyword">function<
     }
     res.send({<span class="hljs-string">"message"</span> : <span class="hljs-string">"success!"</span>});
   });
-});
+};
 </code></pre>
 <p>First, since express 4 removed most of the connect middleware that was included with express 3 and the noteRoutes.js needs to parse the body of the incoming request, bodyparser has to be added to the application with <code>npm install body-parser --save</code>. Then, the server.js file should be updated to look like this:</p>
 <pre><code class="lang-javascript"><span class="hljs-comment">//server.js</span>
@@ -649,7 +649,7 @@ app.use(bodyparser());
 
 app.get(<span class="hljs-string">'/api/v1/notes'</span>, noteRoutes.collection);
 app.get(<span class="hljs-string">'/api/v1/note/:id'</span>, noteRoutes.findById);
-app.post(<span class="hljs-string">'/api/v1/notes'</span>,  noteRouts.create);
+app.post(<span class="hljs-string">'/api/v1/notes'</span>,  noteRoutes.create);
 app.put(<span class="hljs-string">'/api/v1/note/:id'</span>, noteRoutes.update);
 app.delete(<span class="hljs-string">'/api/v1/note/:id'</span>, noteRoutes.destroy);
 
