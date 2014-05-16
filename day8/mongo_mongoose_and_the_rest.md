@@ -90,7 +90,7 @@ exports.collection = function(req, res) {
     }
     res.send(note);
   });
-});
+};
 
 exports.findById = function(req, res) {
   res.setHeader('Content-Type', 'application/json');
@@ -101,7 +101,7 @@ exports.findById = function(req, res) {
     }
     res.send(note);
   });
-});
+};
 
 exports.create = function(req, res) {
   res.setHeader('Content-Type', 'application/json');
@@ -113,7 +113,7 @@ exports.create = function(req, res) {
     }
     res.send(resNote);
   });
-});
+};
 
 exports.update = function(req, res) {
   res.setHeader('Content-Type', 'application/json');
@@ -127,9 +127,9 @@ exports.update = function(req, res) {
     }
     res.send(note);
   })
-});
+};
 
-exports.destroy function(req, res) {
+exports.destroy = function(req, res) {
   res.setHeader('Content-Type', 'application/json');
   Note.remove({'_id' : req.params.id}, function(err) {
     if(err) {
@@ -138,7 +138,7 @@ exports.destroy function(req, res) {
     }
     res.send({"message" : "success!"});
   });
-});
+};
 ```
 First, since express 4 removed most of the connect middleware that was included with express 3 and the noteRoutes.js needs to parse the body of the incoming request, bodyparser has to be added to the application with `npm install body-parser --save`. Then, the server.js file should be updated to look like this:
 ```javascript
@@ -158,7 +158,7 @@ app.use(bodyparser());
 
 app.get('/api/v1/notes', noteRoutes.collection);
 app.get('/api/v1/note/:id', noteRoutes.findById);
-app.post('/api/v1/notes',  noteRouts.create);
+app.post('/api/v1/notes',  noteRoutes.create);
 app.put('/api/v1/note/:id', noteRoutes.update);
 app.delete('/api/v1/note/:id', noteRoutes.destroy);
 
