@@ -76,25 +76,25 @@ var expect = require('chai').expect,
 
 describe('Post object tests', function() {
   var post;
-  
+
   beforeEach(function() {
     post = new Post('A test post');
   });
-  
+
   describe('constructor', function() {
-    
+
     it('post should be truthy (exists)', function() {
       expect(post).to.be.ok;
     });
-    
+
     it('post should have title property', function() {
       expect(post).to.have.property('title');
     });
-    
+
     it('post title property matches beforeEach', function() {
       expect(post.title).to.equal('A test post');
     });
-    
+
   });
 });
 ```
@@ -145,29 +145,29 @@ and
 
 ```javascript
 // test/browser/post_test.js
-var expect = chai.expect
+var expect = chai.expect;
 
 describe('Post object tests', function() {
   var post;
-  
+
   beforeEach(function() {
     post = new Post('A test post');
   });
-  
+
   describe('constructor', function() {
-    
+
     it('post should be truthy (exists)', function() {
       expect(post).to.be.ok;
     });
-    
+
     it('post should have title property', function() {
       expect(post).to.have.property('title');
     });
-    
+
     it('post title property matches beforeEach', function() {
       expect(post.title).to.equal('A test post');
     });
-    
+
   });
 });
 ```
@@ -178,7 +178,7 @@ Now open this HTML document in the browser.
 
 ![screen shot of working mocha browser tests](images/Post_tests.png)
 
-_Stretch goal_: The next step is to use the [grunt-mocha](https://github.com/kmiyashiro/grunt-mocha) 
+_Stretch goal_: The next step is to use the [grunt-mocha](https://github.com/kmiyashiro/grunt-mocha)
 grunt plugin to run these browser tests headlessly via PhantomJS.
 
 __TODO__: This is a work in progress &hellip;
