@@ -1,9 +1,9 @@
 CACHE MANIFEST
-# Revision 1400388205957
+# Revision 1400801481525
 
 CACHE:
-day3/Personal_Blog_Site_Tutorial_with_Yeoman_and_Zurb.html
 day3/Grunt.html
+day3/Personal_Blog_Site_Tutorial_with_Yeoman_and_Zurb.html
 day3/README.html
 day3/responsive.html
 index.html
@@ -72,8 +72,8 @@ gitbook/jsrepl/sandbox.html
 gitbook/jsrepl/sandbox.js
 gitbook/print.css
 gitbook/style.css
-gitbook/plugins/gitbook-plugin-mathjax/plugin.js
 gitbook/plugins/gitbook-plugin-mixpanel/plugin.js
+gitbook/plugins/gitbook-plugin-mathjax/plugin.js
 
 NETWORK:
 *
