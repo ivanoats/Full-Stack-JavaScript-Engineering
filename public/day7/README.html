@@ -1,92 +1,84 @@
 <!DOCTYPE HTML>
 <html lang="en-US" manifest="../manifest.appcache">
-    <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
+    
+    <head>
         
         <meta charset="UTF-8">
         <title>Day Seven | Full Stack JavaScript Engineering</title>
-
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <meta name="robots" content="index, follow">
-        <meta name="author" content="ivanoats">
-        <meta name="description" content="Code Fellows&#39; Development Accelerator Textbook">
-        <meta name="keywords" content="gitbook,github" >
-        <meta name="generator" content="www.gitbook.io">
-
-        
-        <link rel="next" href="../day7/unit_testing.html" />
-        
-        
-        <link rel="prev" href="../day6/requirejs.html" />
-        
-
-        <meta property="og:title" content="Day Seven | Full Stack JavaScript Engineering">
-        <meta property="og:site_name" content="Full Stack JavaScript Engineering">
-        <meta property="og:type" content="book">
-        <meta property="og:locale" content="en_US">
-
-        <meta property="book:author" content="https://github.com/ivanoats">
-        <meta property="book:tag" content="GitBook">
-
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 0.5.2">
+        <meta name="HandheldFriendly" content="true"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
-
         <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    
+    
+    <meta name="author" content="ivanoats">
+    
+    
+    <link rel="next" href="../day7/unit_testing.html" />
+    
+    
+    <link rel="prev" href="../day6/requirejs.html" />
+    
+
         
     </head>
     <body>
         
-
-        <link rel="stylesheet" href="../gitbook/style.css">
         
+<link rel="stylesheet" href="../gitbook/style.css">
 
 
         
-    <div class="book" data-github="ivanoats/Full-Stack-JavaScript-Engineering" data-level="9" data-basepath=".." data-revision="1400801481524">
+    <div class="book" data-github="ivanoats/Full-Stack-JavaScript-Engineering" data-level="9" data-basepath=".." data-revision="1402604337117">
     <div class="book-header">
     <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
     
-    <a href="https://github.com/ivanoats/Full-Stack-JavaScript-Engineering" target="_blank" class="btn pull-left"><i class="fa fa-bookmark-o"></i></a>
+    <a href="https://github.com/ivanoats/Full-Stack-JavaScript-Engineering" target="_blank" class="btn pull-left home-bookmark" aria-label="GitHub home"><i class="fa fa-bookmark-o"></i></a>
     
-    <a href="#" class="btn pull-left toggle-summary"><i class="fa fa-align-justify"></i></a>
-    <a href="#" class="btn pull-left toggle-search"><i class="fa fa-search"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
     <span id="font-settings-wrapper">
-        <a href="#" class="btn pull-left toggle-font-settings"><i class="fa fa-font"></i>
+        <a href="#" class="btn pull-left toggle-font-settings" aria-label="Toggle font settings"><i class="fa fa-font"></i>
         </a>
         <div class="dropdown-menu font-settings">
-	<div class="dropdown-caret">
-  <span class="caret-outer"></span>
-  <span class="caret-inner"></span>
-</div>
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
 
-	<div class="btn-group btn-block">
-		<button id="reduce-font-size" class="btn btn-default">A</button>
-		<button id="enlarge-font-size" class="btn btn-default">A</button>
-	</div>
+    <div class="btn-group btn-block">
+        <button id="reduce-font-size" class="btn btn-default">A</button>
+        <button id="enlarge-font-size" class="btn btn-default">A</button>
+    </div>
 
-	<ul class="list-group font-family-list">
-		<li class="list-group-item" data-font="0">Serif</li>
-		<li class="list-group-item" data-font="1">Sans</li>
-	</ul>
+    <ul class="list-group font-family-list">
+        <li class="list-group-item" data-font="0">Serif</li>
+        <li class="list-group-item" data-font="1">Sans</li>
+    </ul>
 
-	<div class="btn-group btn-group-xs btn-block color-theme-list">
-	  <button type="button" class="btn btn-default" id="color-theme-preview-0" data-theme="0">White</button>
-	  <button type="button" class="btn btn-default" id="color-theme-preview-1" data-theme="1">Sepia</button>
-	  <button type="button" class="btn btn-default" id="color-theme-preview-2" data-theme="2">Night</button>
-	</div>
+    <div class="btn-group btn-group-xs btn-block color-theme-list">
+        <button type="button" class="btn btn-default" id="color-theme-preview-0" data-theme="0">White</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-1" data-theme="1">Sepia</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-2" data-theme="2">Night</button>
+    </div>
 </div>
 
     </span>
 
     <!-- Actions Right -->
     
-    <a href="#" target="_blank" class="btn pull-right" data-sharing="google-plus"><i class="fa fa-google-plus"></i></a>
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
     
     
-    <a href="#" target="_blank" class="btn pull-right" data-sharing="facebook"><i class="fa fa-facebook"></i></a>
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
     
     
-    <a href="#" target="_blank" class="btn pull-right" data-sharing="twitter"><i class="fa fa-twitter"></i></a>
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
     
 
     
@@ -101,26 +93,32 @@
     </h1>
 </div>
 
-    <div class="book-summary">
+    
+
+<div class="book-summary">
     <div class="book-search">
         <input type="text" placeholder="Search" class="form-control" />
     </div>
     <ul class="summary">
         
+        
+        
         <li>
-            <a href="https://www.codefellows.org/full-stack-javascript-development-accelerator" target="blank">About the author</a>
+            <a href="https://www.codefellows.org/full-stack-javascript-development-accelerator" target="blank" class="author-link">About the author</a>
         </li>
         
 
         
+        
         <li>
-            <a href="https://github.com/ivanoats/Full-Stack-JavaScript-Engineering/issues" target="blank">Questions and Issues</a>
+            <a href="https://github.com/ivanoats/Full-Stack-JavaScript-Engineering/issues" target="blank"class="issues-link">Questions and Issues</a>
         </li>
         
 
         
+        
         <li>
-            <a href="https://github.com/ivanoats/Full-Stack-JavaScript-Engineering/edit/master/day7/README.md" target="blank">Edit and Contribute</a>
+            <a href="https://github.com/ivanoats/Full-Stack-JavaScript-Engineering/edit/master/day7/README.md" target="blank" class="contribute-link">Edit and Contribute</a>
         </li>
         
 
@@ -132,319 +130,367 @@
             <a href="../"><i class="fa fa-check"></i> Introduction</a>
         </li>
         
-            <li  data-level="1" data-path="pre-work/README.html">
+    
+        <li class="chapter " data-level="1" data-path="pre-work/README.html">
+            
+            <a href="../pre-work/README.html">
+                <i class="fa fa-check"></i> <b>1.</b> Prework
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="communication/connect_to_irc.html">
+            
+            <a href="../communication/connect_to_irc.html">
+                <i class="fa fa-check"></i> <b>2.</b> Connect to IRC
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="day1/README.html">
+            
+            <a href="../day1/README.html">
+                <i class="fa fa-check"></i> <b>3.</b> Day One
+            </a>
+            
+            
+            <ul class="articles">
                 
-                <a href="../pre-work/README.html">
-                    <i class="fa fa-check"></i> <b>1.</b> Prework
-                </a>
+    
+        <li class="chapter " data-level="3.1" data-path="day1/ToolsOverview.html">
+            
+            <a href="../day1/ToolsOverview.html">
+                <i class="fa fa-check"></i> <b>3.1.</b> JavaScript Tools Overview
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="day1/pull_request_practice.html">
+            
+            <a href="../day1/pull_request_practice.html">
+                <i class="fa fa-check"></i> <b>3.2.</b> Github Pull Request Practice
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="day1/computer_setup.html">
+            
+            <a href="../day1/computer_setup.html">
+                <i class="fa fa-check"></i> <b>3.3.</b> Computer Setup
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="day1/initial_toolchain_practice.html">
+            
+            <a href="../day1/initial_toolchain_practice.html">
+                <i class="fa fa-check"></i> <b>3.4.</b> Make sure grunt works
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="day2/README.html">
+            
+            <a href="../day2/README.html">
+                <i class="fa fa-check"></i> <b>4.</b> Day Two
+            </a>
+            
+            
+            <ul class="articles">
                 
+    
+        <li class="chapter " data-level="4.1" data-path="day2/async_demo.html">
+            
+            <a href="../day2/async_demo.html">
+                <i class="fa fa-check"></i> <b>4.1.</b> Async Demo
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="day2/hello_express.html">
+            
+            <a href="../day2/hello_express.html">
+                <i class="fa fa-check"></i> <b>4.2.</b> Hello Express
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="day3/README.html">
+            
+            <a href="../day3/README.html">
+                <i class="fa fa-check"></i> <b>5.</b> Day Three
+            </a>
+            
+            
+            <ul class="articles">
                 
-            </li>
-        
-            <li  data-level="2" data-path="communication/connect_to_irc.html">
+    
+        <li class="chapter " data-level="5.1" data-path="day3/responsive.html">
+            
+            <a href="../day3/responsive.html">
+                <i class="fa fa-check"></i> <b>5.1.</b> Responsive Web Design
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="day3/Grunt.html">
+            
+            <a href="../day3/Grunt.html">
+                <i class="fa fa-check"></i> <b>5.2.</b> Grunt
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="day3/Personal_Blog_Site_Tutorial_with_Yeoman_and_Zurb.html">
+            
+            <a href="../day3/Personal_Blog_Site_Tutorial_with_Yeoman_and_Zurb.html">
+                <i class="fa fa-check"></i> <b>5.3.</b> Personal Blog Site Tutorial with Yeoman and Zurb
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="day4/README.html">
+            
+            <a href="../day4/README.html">
+                <i class="fa fa-check"></i> <b>6.</b> Day Four
+            </a>
+            
+            
+            <ul class="articles">
                 
-                <a href="../communication/connect_to_irc.html">
-                    <i class="fa fa-check"></i> <b>2.</b> Connect to IRC
-                </a>
+    
+        <li class="chapter " data-level="6.1" data-path="day4/acceptance_testing_with_casperjs.html">
+            
+            <a href="../day4/acceptance_testing_with_casperjs.html">
+                <i class="fa fa-check"></i> <b>6.1.</b> Acceptance Testing with CasperJS
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="day4/Sass.html">
+            
+            <a href="../day4/Sass.html">
+                <i class="fa fa-check"></i> <b>6.2.</b> Sass
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="day4/Heroku.html">
+            
+            <a href="../day4/Heroku.html">
+                <i class="fa fa-check"></i> <b>6.3.</b> Heroku
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="day5/README.html">
+            
+            <a href="../day5/README.html">
+                <i class="fa fa-check"></i> <b>7.</b> Day Five
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="day6/README.html">
+            
+            <a href="../day6/README.html">
+                <i class="fa fa-check"></i> <b>8.</b> Day Six
+            </a>
+            
+            
+            <ul class="articles">
                 
+    
+        <li class="chapter " data-level="8.1" data-path="day6/day6_readings.html">
+            
+            <a href="../day6/day6_readings.html">
+                <i class="fa fa-check"></i> <b>8.1.</b> Readings
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="day6/Browserify.html">
+            
+            <a href="../day6/Browserify.html">
+                <i class="fa fa-check"></i> <b>8.2.</b> Browserify
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.3" data-path="day6/Browserify_lab.html">
+            
+            <a href="../day6/Browserify_lab.html">
+                <i class="fa fa-check"></i> <b>8.3.</b> Browserify lab
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.4" data-path="day6/requirejs.html">
+            
+            <a href="../day6/requirejs.html">
+                <i class="fa fa-check"></i> <b>8.4.</b> Require.js
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="day7/README.html">
+            
+            <a href="../day7/README.html">
+                <i class="fa fa-check"></i> <b>9.</b> Day Seven
+            </a>
+            
+            
+            <ul class="articles">
                 
-            </li>
-        
-            <li  data-level="3" data-path="day1/README.html">
+    
+        <li class="chapter " data-level="9.1" data-path="day7/unit_testing.html">
+            
+            <a href="../day7/unit_testing.html">
+                <i class="fa fa-check"></i> <b>9.1.</b> Unit Testing
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.2" data-path="day7/REST.html">
+            
+            <a href="../day7/REST.html">
+                <i class="fa fa-check"></i> <b>9.2.</b> REST
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="day8/README.html">
+            
+            <a href="../day8/README.html">
+                <i class="fa fa-check"></i> <b>10.</b> Day Eight
+            </a>
+            
+            
+            <ul class="articles">
                 
-                <a href="../day1/README.html">
-                    <i class="fa fa-check"></i> <b>3.</b> Day One
-                </a>
+    
+        <li class="chapter " data-level="10.1" data-path="day8/superagent_testing.html">
+            
+            <a href="../day8/superagent_testing.html">
+                <i class="fa fa-check"></i> <b>10.1.</b> Test With Super Agent
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.2" data-path="day8/mongo_mongoose_and_the_rest.html">
+            
+            <a href="../day8/mongo_mongoose_and_the_rest.html">
+                <i class="fa fa-check"></i> <b>10.2.</b> Mongo, Mongoose and the REST
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="11" data-path="day9/README.html">
+            
+            <a href="../day9/README.html">
+                <i class="fa fa-check"></i> <b>11.</b> Day Nine
+            </a>
+            
+            
+            <ul class="articles">
                 
-                
-                <ul class="articles">
-                    
-                        <li  data-level="3.1" data-path="day1/ToolsOverview.html">
-                            
-                            <a href="../day1/ToolsOverview.html">
-                                <i class="fa fa-check"></i> <b>3.1.</b> JavaScript Tools Overview
-                            </a>
-                            
-                        </li>
-                    
-                        <li  data-level="3.2" data-path="day1/pull_request_practice.html">
-                            
-                            <a href="../day1/pull_request_practice.html">
-                                <i class="fa fa-check"></i> <b>3.2.</b> Github Pull Request Practice
-                            </a>
-                            
-                        </li>
-                    
-                        <li  data-level="3.3" data-path="day1/computer_setup.html">
-                            
-                            <a href="../day1/computer_setup.html">
-                                <i class="fa fa-check"></i> <b>3.3.</b> Computer Setup
-                            </a>
-                            
-                        </li>
-                    
-                        <li  data-level="3.4" data-path="day1/initial_toolchain_practice.html">
-                            
-                            <a href="../day1/initial_toolchain_practice.html">
-                                <i class="fa fa-check"></i> <b>3.4.</b> Make sure grunt works
-                            </a>
-                            
-                        </li>
-                    
-                </ul>
-                
-            </li>
-        
-            <li  data-level="4" data-path="day2/README.html">
-                
-                <a href="../day2/README.html">
-                    <i class="fa fa-check"></i> <b>4.</b> Day Two
-                </a>
-                
-                
-                <ul class="articles">
-                    
-                        <li  data-level="4.1" data-path="day2/async_demo.html">
-                            
-                            <a href="../day2/async_demo.html">
-                                <i class="fa fa-check"></i> <b>4.1.</b> Async Demo
-                            </a>
-                            
-                        </li>
-                    
-                        <li  data-level="4.2" data-path="day2/hello_express.html">
-                            
-                            <a href="../day2/hello_express.html">
-                                <i class="fa fa-check"></i> <b>4.2.</b> Hello Express
-                            </a>
-                            
-                        </li>
-                    
-                </ul>
-                
-            </li>
-        
-            <li  data-level="5" data-path="day3/README.html">
-                
-                <a href="../day3/README.html">
-                    <i class="fa fa-check"></i> <b>5.</b> Day Three
-                </a>
-                
-                
-                <ul class="articles">
-                    
-                        <li  data-level="5.1" data-path="day3/responsive.html">
-                            
-                            <a href="../day3/responsive.html">
-                                <i class="fa fa-check"></i> <b>5.1.</b> Responsive Web Design
-                            </a>
-                            
-                        </li>
-                    
-                        <li  data-level="5.2" data-path="day3/Grunt.html">
-                            
-                            <a href="../day3/Grunt.html">
-                                <i class="fa fa-check"></i> <b>5.2.</b> Grunt
-                            </a>
-                            
-                        </li>
-                    
-                        <li  data-level="5.3" data-path="day3/Personal_Blog_Site_Tutorial_with_Yeoman_and_Zurb.html">
-                            
-                            <a href="../day3/Personal_Blog_Site_Tutorial_with_Yeoman_and_Zurb.html">
-                                <i class="fa fa-check"></i> <b>5.3.</b> Personal Blog Site Tutorial with Yeoman and Zurb
-                            </a>
-                            
-                        </li>
-                    
-                </ul>
-                
-            </li>
-        
-            <li  data-level="6" data-path="day4/README.html">
-                
-                <a href="../day4/README.html">
-                    <i class="fa fa-check"></i> <b>6.</b> Day Four
-                </a>
-                
-                
-                <ul class="articles">
-                    
-                        <li  data-level="6.1" data-path="day4/acceptance_testing_with_casperjs.html">
-                            
-                            <a href="../day4/acceptance_testing_with_casperjs.html">
-                                <i class="fa fa-check"></i> <b>6.1.</b> Acceptance Testing with CasperJS
-                            </a>
-                            
-                        </li>
-                    
-                        <li  data-level="6.2" data-path="day4/Sass.html">
-                            
-                            <a href="../day4/Sass.html">
-                                <i class="fa fa-check"></i> <b>6.2.</b> Sass
-                            </a>
-                            
-                        </li>
-                    
-                        <li  data-level="6.3" data-path="day4/Heroku.html">
-                            
-                            <a href="../day4/Heroku.html">
-                                <i class="fa fa-check"></i> <b>6.3.</b> Heroku
-                            </a>
-                            
-                        </li>
-                    
-                </ul>
-                
-            </li>
-        
-            <li  data-level="7" data-path="day5/README.html">
-                
-                <a href="../day5/README.html">
-                    <i class="fa fa-check"></i> <b>7.</b> Day Five
-                </a>
-                
-                
-            </li>
-        
-            <li  data-level="8" data-path="day6/README.html">
-                
-                <a href="../day6/README.html">
-                    <i class="fa fa-check"></i> <b>8.</b> Day Six
-                </a>
-                
-                
-                <ul class="articles">
-                    
-                        <li  data-level="8.1" data-path="day6/day6_readings.html">
-                            
-                            <a href="../day6/day6_readings.html">
-                                <i class="fa fa-check"></i> <b>8.1.</b> Readings
-                            </a>
-                            
-                        </li>
-                    
-                        <li  data-level="8.2" data-path="day6/Browserify.html">
-                            
-                            <a href="../day6/Browserify.html">
-                                <i class="fa fa-check"></i> <b>8.2.</b> Browserify
-                            </a>
-                            
-                        </li>
-                    
-                        <li  data-level="8.3" data-path="day6/Browserify_lab.html">
-                            
-                            <a href="../day6/Browserify_lab.html">
-                                <i class="fa fa-check"></i> <b>8.3.</b> Browserify lab
-                            </a>
-                            
-                        </li>
-                    
-                        <li  data-level="8.4" data-path="day6/requirejs.html">
-                            
-                            <a href="../day6/requirejs.html">
-                                <i class="fa fa-check"></i> <b>8.4.</b> Require.js
-                            </a>
-                            
-                        </li>
-                    
-                </ul>
-                
-            </li>
-        
-            <li  data-level="9" data-path="day7/README.html">
-                
-                <a href="../day7/README.html">
-                    <i class="fa fa-check"></i> <b>9.</b> Day Seven
-                </a>
-                
-                
-                <ul class="articles">
-                    
-                        <li  data-level="9.1" data-path="day7/unit_testing.html">
-                            
-                            <a href="../day7/unit_testing.html">
-                                <i class="fa fa-check"></i> <b>9.1.</b> Unit Testing
-                            </a>
-                            
-                        </li>
-                    
-                        <li  data-level="9.2" data-path="day7/REST.html">
-                            
-                            <a href="../day7/REST.html">
-                                <i class="fa fa-check"></i> <b>9.2.</b> REST
-                            </a>
-                            
-                        </li>
-                    
-                </ul>
-                
-            </li>
-        
-            <li  data-level="10" data-path="day8/README.html">
-                
-                <a href="../day8/README.html">
-                    <i class="fa fa-check"></i> <b>10.</b> Day Eight
-                </a>
-                
-                
-                <ul class="articles">
-                    
-                        <li  data-level="10.1" data-path="day8/superagent_testing.html">
-                            
-                            <a href="../day8/superagent_testing.html">
-                                <i class="fa fa-check"></i> <b>10.1.</b> Test With Super Agent
-                            </a>
-                            
-                        </li>
-                    
-                        <li  data-level="10.2" data-path="day8/mongo_mongoose_and_the_rest.html">
-                            
-                            <a href="../day8/mongo_mongoose_and_the_rest.html">
-                                <i class="fa fa-check"></i> <b>10.2.</b> Mongo, Mongoose and the REST
-                            </a>
-                            
-                        </li>
-                    
-                </ul>
-                
-            </li>
-        
-            <li  data-level="11" data-path="day9/README.html">
-                
-                <a href="../day9/README.html">
-                    <i class="fa fa-check"></i> <b>11.</b> Day Nine
-                </a>
-                
-                
-                <ul class="articles">
-                    
-                        <li  data-level="11.1" data-path="day9/ajax.html">
-                            
-                            <a href="../day9/ajax.html">
-                                <i class="fa fa-check"></i> <b>11.1.</b> AJAX
-                            </a>
-                            
-                        </li>
-                    
-                </ul>
-                
-            </li>
-        
-            <li  data-level="12" data-path="day10/README.html">
-                
-                <a href="../day10/README.html">
-                    <i class="fa fa-check"></i> <b>12.</b> Day Ten
-                </a>
-                
-                
-            </li>
-        
+    
+        <li class="chapter " data-level="11.1" data-path="day9/ajax.html">
+            
+            <a href="../day9/ajax.html">
+                <i class="fa fa-check"></i> <b>11.1.</b> AJAX
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="12" data-path="day10/README.html">
+            
+            <a href="../day10/README.html">
+                <i class="fa fa-check"></i> <b>12.</b> Day Ten
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="13" data-path="ember/README.html">
+            
+            <a href="../ember/README.html">
+                <i class="fa fa-check"></i> <b>13.</b> Ember
+            </a>
+            
+            
+        </li>
+    
+
 
         
         <li class="divider"></li>
         <li>
-            <a href="http://www.gitbook.io/" target="blank">Generated using GitBook</a>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Generated using GitBook</a>
         </li>
         
     </ul>
@@ -455,77 +501,79 @@
             <div class="page-wrapper" tabindex="-1">
                 <div class="book-progress">
     <div class="bar">
-        <div class="inner" style="width: 93.93939393939394%;min-width: 90.9090909090909%;"></div>
+        <div class="inner" style="width: 73.52941176470588%;min-width: 70.58823529411765%;"></div>
     </div>
     <div class="chapters">
     
         <a href="../index.html" title="Introduction" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
     
-        <a href="../pre-work/README.html" title="Prework" class="chapter done new-chapter" data-progress="1" style="left: 3.0303030303030303%;"></a>
+        <a href="../pre-work/README.html" title="Prework" class="chapter done new-chapter" data-progress="1" style="left: 2.9411764705882355%;"></a>
     
-        <a href="../day8/README.html" title="Day Eight" class="chapter done " data-progress="10" style="left: 6.0606060606060606%;"></a>
+        <a href="../communication/connect_to_irc.html" title="Connect to IRC" class="chapter done new-chapter" data-progress="2" style="left: 5.882352941176471%;"></a>
     
-        <a href="../day8/superagent_testing.html" title="Test With Super Agent" class="chapter done " data-progress="10.1" style="left: 9.090909090909092%;"></a>
+        <a href="../day1/README.html" title="Day One" class="chapter done new-chapter" data-progress="3" style="left: 8.823529411764707%;"></a>
     
-        <a href="../day8/mongo_mongoose_and_the_rest.html" title="Mongo, Mongoose and the REST" class="chapter done " data-progress="10.2" style="left: 12.121212121212121%;"></a>
+        <a href="../day1/ToolsOverview.html" title="JavaScript Tools Overview" class="chapter done " data-progress="3.1" style="left: 11.764705882352942%;"></a>
     
-        <a href="../day9/README.html" title="Day Nine" class="chapter done " data-progress="11" style="left: 15.151515151515152%;"></a>
+        <a href="../day1/pull_request_practice.html" title="Github Pull Request Practice" class="chapter done " data-progress="3.2" style="left: 14.705882352941176%;"></a>
     
-        <a href="../day9/ajax.html" title="AJAX" class="chapter done " data-progress="11.1" style="left: 18.181818181818183%;"></a>
+        <a href="../day1/computer_setup.html" title="Computer Setup" class="chapter done " data-progress="3.3" style="left: 17.647058823529413%;"></a>
     
-        <a href="../day10/README.html" title="Day Ten" class="chapter done " data-progress="12" style="left: 21.21212121212121%;"></a>
+        <a href="../day1/initial_toolchain_practice.html" title="Make sure grunt works" class="chapter done " data-progress="3.4" style="left: 20.58823529411765%;"></a>
     
-        <a href="../communication/connect_to_irc.html" title="Connect to IRC" class="chapter done new-chapter" data-progress="2" style="left: 24.242424242424242%;"></a>
+        <a href="../day2/README.html" title="Day Two" class="chapter done new-chapter" data-progress="4" style="left: 23.529411764705884%;"></a>
     
-        <a href="../day1/README.html" title="Day One" class="chapter done new-chapter" data-progress="3" style="left: 27.272727272727273%;"></a>
+        <a href="../day2/async_demo.html" title="Async Demo" class="chapter done " data-progress="4.1" style="left: 26.470588235294116%;"></a>
     
-        <a href="../day1/ToolsOverview.html" title="JavaScript Tools Overview" class="chapter done " data-progress="3.1" style="left: 30.303030303030305%;"></a>
+        <a href="../day2/hello_express.html" title="Hello Express" class="chapter done " data-progress="4.2" style="left: 29.41176470588235%;"></a>
     
-        <a href="../day1/pull_request_practice.html" title="Github Pull Request Practice" class="chapter done " data-progress="3.2" style="left: 33.333333333333336%;"></a>
+        <a href="../day3/README.html" title="Day Three" class="chapter done new-chapter" data-progress="5" style="left: 32.35294117647059%;"></a>
     
-        <a href="../day1/computer_setup.html" title="Computer Setup" class="chapter done " data-progress="3.3" style="left: 36.36363636363637%;"></a>
+        <a href="../day3/responsive.html" title="Responsive Web Design" class="chapter done " data-progress="5.1" style="left: 35.294117647058826%;"></a>
     
-        <a href="../day1/initial_toolchain_practice.html" title="Make sure grunt works" class="chapter done " data-progress="3.4" style="left: 39.39393939393939%;"></a>
+        <a href="../day3/Grunt.html" title="Grunt" class="chapter done " data-progress="5.2" style="left: 38.23529411764706%;"></a>
     
-        <a href="../day2/README.html" title="Day Two" class="chapter done new-chapter" data-progress="4" style="left: 42.42424242424242%;"></a>
+        <a href="../day3/Personal_Blog_Site_Tutorial_with_Yeoman_and_Zurb.html" title="Personal Blog Site Tutorial with Yeoman and Zurb" class="chapter done " data-progress="5.3" style="left: 41.1764705882353%;"></a>
     
-        <a href="../day2/async_demo.html" title="Async Demo" class="chapter done " data-progress="4.1" style="left: 45.45454545454545%;"></a>
+        <a href="../day4/README.html" title="Day Four" class="chapter done new-chapter" data-progress="6" style="left: 44.11764705882353%;"></a>
     
-        <a href="../day2/hello_express.html" title="Hello Express" class="chapter done " data-progress="4.2" style="left: 48.484848484848484%;"></a>
+        <a href="../day4/acceptance_testing_with_casperjs.html" title="Acceptance Testing with CasperJS" class="chapter done " data-progress="6.1" style="left: 47.05882352941177%;"></a>
     
-        <a href="../day3/README.html" title="Day Three" class="chapter done new-chapter" data-progress="5" style="left: 51.515151515151516%;"></a>
+        <a href="../day4/Sass.html" title="Sass" class="chapter done " data-progress="6.2" style="left: 50%;"></a>
     
-        <a href="../day3/responsive.html" title="Responsive Web Design" class="chapter done " data-progress="5.1" style="left: 54.54545454545455%;"></a>
+        <a href="../day4/Heroku.html" title="Heroku" class="chapter done " data-progress="6.3" style="left: 52.94117647058823%;"></a>
     
-        <a href="../day3/Grunt.html" title="Grunt" class="chapter done " data-progress="5.2" style="left: 57.57575757575758%;"></a>
+        <a href="../day5/README.html" title="Day Five" class="chapter done new-chapter" data-progress="7" style="left: 55.88235294117647%;"></a>
     
-        <a href="../day3/Personal_Blog_Site_Tutorial_with_Yeoman_and_Zurb.html" title="Personal Blog Site Tutorial with Yeoman and Zurb" class="chapter done " data-progress="5.3" style="left: 60.60606060606061%;"></a>
+        <a href="../day6/README.html" title="Day Six" class="chapter done new-chapter" data-progress="8" style="left: 58.8235294117647%;"></a>
     
-        <a href="../day4/README.html" title="Day Four" class="chapter done new-chapter" data-progress="6" style="left: 63.63636363636363%;"></a>
+        <a href="../day6/day6_readings.html" title="Readings" class="chapter done " data-progress="8.1" style="left: 61.76470588235294%;"></a>
     
-        <a href="../day4/acceptance_testing_with_casperjs.html" title="Acceptance Testing with CasperJS" class="chapter done " data-progress="6.1" style="left: 66.66666666666667%;"></a>
+        <a href="../day6/Browserify.html" title="Browserify" class="chapter done " data-progress="8.2" style="left: 64.70588235294117%;"></a>
     
-        <a href="../day4/Sass.html" title="Sass" class="chapter done " data-progress="6.2" style="left: 69.6969696969697%;"></a>
+        <a href="../day6/Browserify_lab.html" title="Browserify lab" class="chapter done " data-progress="8.3" style="left: 67.6470588235294%;"></a>
     
-        <a href="../day4/Heroku.html" title="Heroku" class="chapter done " data-progress="6.3" style="left: 72.72727272727273%;"></a>
+        <a href="../day6/requirejs.html" title="Require.js" class="chapter done " data-progress="8.4" style="left: 70.58823529411765%;"></a>
     
-        <a href="../day5/README.html" title="Day Five" class="chapter done new-chapter" data-progress="7" style="left: 75.75757575757575%;"></a>
+        <a href="../day7/README.html" title="Day Seven" class="chapter done new-chapter" data-progress="9" style="left: 73.52941176470588%;"></a>
     
-        <a href="../day6/README.html" title="Day Six" class="chapter done new-chapter" data-progress="8" style="left: 78.78787878787878%;"></a>
+        <a href="../day7/unit_testing.html" title="Unit Testing" class="chapter  " data-progress="9.1" style="left: 76.47058823529412%;"></a>
     
-        <a href="../day6/day6_readings.html" title="Readings" class="chapter done " data-progress="8.1" style="left: 81.81818181818181%;"></a>
+        <a href="../day7/REST.html" title="REST" class="chapter  " data-progress="9.2" style="left: 79.41176470588235%;"></a>
     
-        <a href="../day6/Browserify.html" title="Browserify" class="chapter done " data-progress="8.2" style="left: 84.84848484848484%;"></a>
+        <a href="../day8/README.html" title="Day Eight" class="chapter  " data-progress="10" style="left: 82.3529411764706%;"></a>
     
-        <a href="../day6/Browserify_lab.html" title="Browserify lab" class="chapter done " data-progress="8.3" style="left: 87.87878787878788%;"></a>
+        <a href="../day8/superagent_testing.html" title="Test With Super Agent" class="chapter  " data-progress="10.1" style="left: 85.29411764705883%;"></a>
     
-        <a href="../day6/requirejs.html" title="Require.js" class="chapter done " data-progress="8.4" style="left: 90.9090909090909%;"></a>
+        <a href="../day8/mongo_mongoose_and_the_rest.html" title="Mongo, Mongoose and the REST" class="chapter  " data-progress="10.2" style="left: 88.23529411764706%;"></a>
     
-        <a href="../day7/README.html" title="Day Seven" class="chapter done new-chapter" data-progress="9" style="left: 93.93939393939394%;"></a>
+        <a href="../day9/README.html" title="Day Nine" class="chapter  " data-progress="11" style="left: 91.17647058823529%;"></a>
     
-        <a href="../day7/unit_testing.html" title="Unit Testing" class="chapter  " data-progress="9.1" style="left: 96.96969696969697%;"></a>
+        <a href="../day9/ajax.html" title="AJAX" class="chapter  " data-progress="11.1" style="left: 94.11764705882354%;"></a>
     
-        <a href="../day7/REST.html" title="REST" class="chapter  " data-progress="9.2" style="left: 100%;"></a>
+        <a href="../day10/README.html" title="Day Ten" class="chapter  " data-progress="12" style="left: 97.05882352941177%;"></a>
+    
+        <a href="../ember/README.html" title="Ember" class="chapter  " data-progress="13" style="left: 100%;"></a>
     
     </div>
 </div>
@@ -548,25 +596,17 @@
         </div>
 
         
-        <a href="../day6/requirejs.html" class="navigation navigation-prev "><i class="fa fa-angle-left"></i></a>
+        <a href="../day6/requirejs.html" class="navigation navigation-prev " aria-label="Previous page: Require.js"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../day7/unit_testing.html" class="navigation navigation-next "><i class="fa fa-angle-right"></i></a>
+        <a href="../day7/unit_testing.html" class="navigation navigation-next " aria-label="Next page: Unit Testing"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
 
         
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/mode-javascript.js"></script>
-        <script src="../gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
-        <script src="../gitbook/app.js"></script>
-        
-
-    
-    <script src="../gitbook/plugins/gitbook-plugin-mixpanel/plugin.js"></script>
-    
+<script src="../gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
+<script src="../gitbook/app.js"></script>
 
     
     <script src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -583,5 +623,7 @@ require(["gitbook"], function(gitbook) {
 });
 </script>
 
+        
     </body>
+    
 </html>
