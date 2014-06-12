@@ -161,8 +161,20 @@ and in your `index.hbs`
   </li>
 {{/each}}
 ```
-
 Now, with more Ponies!
+
+## Two-way Data Binding
+in index.hbs
+
+```
+<div>
+{{input type="text" value=name placeholder="Enter your pony name"}}
+</div>
+
+<div>
+  <p>Hello, my pony name is: <b>{{name}}</b>, and I think Ember is great!</p>
+</div>
+```
 
 ## More on Ember CLI
 
@@ -180,6 +192,10 @@ Now, with more Ponies!
 - https://www.codeschool.com/courses/warming-up-with-ember-js
 - http://pluralsight.com/training/courses/TableOfContents?courseName=fire-up-emberjs
 - https://courses.tutsplus.com/courses/lets-learn-ember
+- http://voidcanvas.com/emberjs-tutorial-two-way-data-binding/
+
+And if you're a Rails dev, too:
+- https://emberbites.com
   
 
 
