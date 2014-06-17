@@ -34,3 +34,4 @@
     * [AJAX](day9/ajax.md)
 * [Day Ten](day10/README.md)
 * [Ember](ember/README.md)
+* [EC2](ec2/README.md)
