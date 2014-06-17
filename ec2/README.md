@@ -25,7 +25,7 @@
 ## Install prerequisites, common packages
 
 ```
-sudo apt-get install build-essential g++
+sudo apt-get update && sudo apt-get install -y build-essential g++ tmux
 ```
 
 ## Install Node, Build from Source
@@ -34,8 +34,24 @@ sudo apt-get install build-essential g++
 curl -O http://nodejs.org/dist/v0.10.29/node-v0.10.29.tar.gz
 tar -xvzf node-v0.10.29.tar.gz
 cd node-v0.10.29
-./configure && make && sudo make install
+./configure --prefix=/opt/node
+make
+sudo mkdir -p /opt/node
+sudo chown -R ubuntu.ubuntu /opt/node
+make install
 ```
+
+Add node to your path in `~/.bashrc`:
+
+`echo "export PATH=/opt/node/bin:$PATH" >> .bashrc`
+
+Then reload `.bashrc`
+
+`source ~/.bashrc`
+
+Double check to see that node is in your path:
+
+`which node` => should be `/opt/node/bin/node`
 
 ## Install MongoDB, Redis, and Git
 `sudo apt-get install mongodb redis-server git -y`
@@ -55,7 +71,7 @@ show dbs
 `curl icanhazip.com`
 
 ## Bower ALL THE THINGS
-`sudo npm -g install bower grunt-cli`
+`npm -g install bower grunt-cli`
 
 ## Clone the Notes App
 Make sure you're in the ubuntu home directory: 
