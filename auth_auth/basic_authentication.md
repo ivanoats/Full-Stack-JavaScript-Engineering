@@ -12,12 +12,12 @@ the request. The eventual goal is to have a piece of information that can be
 easily passed to every request that tells nothing about the user if passed in
 the clear. Most APIs (such as Twitter or Facebook) use a public/private key that
 have to be created on their site in order to use their api but asking a user to
-do this in order to use a website would be rediculous. The goal is to have a token
+do this in order to use a website would be ridiculous. The goal is to have a token
 that will be created by the server and passed back to the client that can then 
-sent with every request that needs to be authenticated. Eventuall this well be
+sent with every request that needs to be authenticated. Eventually this well be
 JSON Web Token that contains an encrypted set of information that allows
 the server to find the user and all their attributes. However, the server
-first needs to determine if the should sent hte token the client requesting it,
+first needs to determine if the should sent the token the client requesting it,
 which will require a user name and password.
 
 I have found two easy ways to implement this with passport, HTTP Basic and Digest.
@@ -32,7 +32,7 @@ cert to avoid scary warnings in the browser. Instructions on how to generate
 a certificate can be found <a href="https://www.openssl.org/docs/HOWTO/certificates.txt">here</a>.
 
 The first step to authentication a node server with JSON api is to create a 
-node server with a JSON api. Create a new repository wiht a package.json file
+node server with a JSON api. Create a new repository with a package.json file
 that looks something like this.
 ```javascript
 {
@@ -170,7 +170,7 @@ valid user and we return the user to passport. Passport knows that if false is r
 a 401 unauthorized to the client making the request. Something to keep in mind, this passport definition is only
 going to be used when a user signs in. When a user is created it won't need to go through an authentication process
 and every other request should be authenticated with the JWT that will be generated upon a successful sign in.
-The next step is to create the sign up/sign in routes for the appliation. Create a routes directory from the root directory 
+The next step is to create the sign up/sign in routes for the application. Create a routes directory from the root directory 
 and add the following userRoutes.js file to that directory. 
 ```javascript
 var user = require('../models/userRoutes');
@@ -242,7 +242,7 @@ to the app. This new server.js also sets the jwtTokenSecret that is used to encr
 User model generates. 
 
 There is only one more piece to add to this application to be able to authenticate with JSON Web Tokens, the actual
-middleware that checks if the token/user on the incomming request is valid. Create a jwtAuth.js file in lib/authentication
+middleware that checks if the token/user on the incoming request is valid. Create a jwtAuth.js file in lib/authentication
 with the following code:
 ```javascript
 //lib/authentication/jwtAuth.js
