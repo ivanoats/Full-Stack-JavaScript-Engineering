@@ -43,7 +43,7 @@ make install
 
 Add node to your path in `~/.bashrc`:
 
-`echo "export PATH=/opt/node/bin:$PATH" >> .bashrc`
+`echo "export PATH=/opt/node/bin:$PATH" >> ~/.bashrc`
 
 Then reload `.bashrc`
 
@@ -53,8 +53,30 @@ Double check to see that node is in your path:
 
 `which node` => should be `/opt/node/bin/node`
 
-## Install MongoDB, Redis, and Git
-`sudo apt-get install mongodb redis-server git -y`
+## Install the Latest MongoDB
+Follow the directions here:
+http://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/
+
+To summarize:
+```
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list
+sudo apt-get install mongodb-org
+```
+
+## Install the Latest Redis
+```
+sudo add-apt-repository ppa:chris-lea/redis-server
+sudo apt-get update
+sudo apt-get install redis-server -y
+```
+
+## Install the Latest Git
+```
+sudo add-apt-repository ppa:git-core/ppa
+sudo apt-get update
+sudo apt-get install git -y
+```
 
 ### Test MongoDB is running
 
@@ -98,6 +120,13 @@ server reboots? You want something to re-start the server automatically.
 ## Install the Forever npm package
 
 `npm -g install forever`
+
+Create `/etc/init/notes.conf`
+
+```
+start on startup
+exec forever start /home/ubuntu/notes/server.js
+```
 
 Reference: https://www.exratione.com/2011/07/running-a-nodejs-server-as-a-service-using-forever/
 
