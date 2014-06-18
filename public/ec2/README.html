@@ -32,7 +32,7 @@
 
 
         
-    <div class="book" data-github="ivanoats/Full-Stack-JavaScript-Engineering" data-level="14" data-basepath=".." data-revision="1403033675858">
+    <div class="book" data-github="ivanoats/Full-Stack-JavaScript-Engineering" data-level="14" data-basepath=".." data-revision="1403068599276">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -634,14 +634,27 @@ sudo mkdir -p /opt/node
 sudo chown -R ubuntu.ubuntu /opt/node
 make install
 </code></pre><p>Add node to your path in <code>~/.bashrc</code>:</p>
-<p><code>echo &quot;export PATH=/opt/node/bin:$PATH&quot; &gt;&gt; .bashrc</code></p>
+<p><code>echo &quot;export PATH=/opt/node/bin:$PATH&quot; &gt;&gt; ~/.bashrc</code></p>
 <p>Then reload <code>.bashrc</code></p>
 <p><code>source ~/.bashrc</code></p>
 <p>Double check to see that node is in your path:</p>
 <p><code>which node</code> =&gt; should be <code>/opt/node/bin/node</code></p>
-<h2 id="install-mongodb-redis-and-git">Install MongoDB, Redis, and Git</h2>
-<p><code>sudo apt-get install mongodb redis-server git -y</code></p>
-<h3 id="test-mongodb-is-running">Test MongoDB is running</h3>
+<h2 id="install-the-latest-mongodb">Install the Latest MongoDB</h2>
+<p>Follow the directions here:
+<a href="http://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/" target="_blank">http://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/</a></p>
+<p>To summarize:</p>
+<pre><code>sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+echo &#39;deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen&#39; | sudo tee /etc/apt/sources.list.d/mongodb.list
+sudo apt-get install mongodb-org
+</code></pre><h2 id="install-the-latest-redis">Install the Latest Redis</h2>
+<pre><code>sudo add-apt-repository ppa:chris-lea/redis-server
+sudo apt-get update
+sudo apt-get install redis-server -y
+</code></pre><h2 id="install-the-latest-git">Install the Latest Git</h2>
+<pre><code>sudo add-apt-repository ppa:git-core/ppa
+sudo apt-get update
+sudo apt-get install git -y
+</code></pre><h3 id="test-mongodb-is-running">Test MongoDB is running</h3>
 <pre><code>mongo
 show dbs
 </code></pre><ul>
@@ -670,7 +683,10 @@ escalate to root privelege.</p>
 server reboots? You want something to re-start the server automatically.</p>
 <h2 id="install-the-forever-npm-package">Install the Forever npm package</h2>
 <p><code>npm -g install forever</code></p>
-<p>Reference: <a href="https://www.exratione.com/2011/07/running-a-nodejs-server-as-a-service-using-forever/" target="_blank">https://www.exratione.com/2011/07/running-a-nodejs-server-as-a-service-using-forever/</a></p>
+<p>Create <code>/etc/init/notes.conf</code></p>
+<pre><code>start on startup
+exec forever start /home/ubuntu/notes/server.js
+</code></pre><p>Reference: <a href="https://www.exratione.com/2011/07/running-a-nodejs-server-as-a-service-using-forever/" target="_blank">https://www.exratione.com/2011/07/running-a-nodejs-server-as-a-service-using-forever/</a></p>
 
                     
                     </section>
