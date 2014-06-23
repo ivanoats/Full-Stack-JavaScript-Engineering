@@ -1,12 +1,15 @@
 CACHE MANIFEST
-# Revision 1403132082087
+# Revision 1403537617260
 
 CACHE:
-day3/Personal_Blog_Site_Tutorial_with_Yeoman_and_Zurb.html
 day3/Grunt.html
+day3/Personal_Blog_Site_Tutorial_with_Yeoman_and_Zurb.html
 day3/README.html
 day3/responsive.html
 index.html
+auth_auth/README.html
+auth_auth/angular_jwt_basic.html
+auth_auth/basic_authentication.html
 communication/connect_to_irc.html
 day1/README.html
 day1/ToolsOverview.html
@@ -33,8 +36,8 @@ day7/unit_testing.html
 day8/README.html
 day8/mongo_mongoose_and_the_rest.html
 day8/superagent_testing.html
-day9/ajax.html
 day9/README.html
+day9/ajax.html
 ec2/README.html
 ember/README.html
 pre-work/README.html

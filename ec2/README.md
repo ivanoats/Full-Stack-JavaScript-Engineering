@@ -157,9 +157,9 @@ server reboots? You want something to re-start the server automatically.
 
 ## Install the Forever NPM Package
 
-`npm -g install forever`
+`npm -g install forever`. Forever is a simple CLI tool for ensuring that a given script runs continuously.
 
-Create `/etc/init/notes.conf`
+Create `/etc/init/notes.conf`. This is an [Ubuntu Upstart](http://en.wikipedia.org/wiki/Upstart) script.
 
 You can always use `nano` if you are [afraid of Vim&hellip;](http://vim-adventures.com)
 

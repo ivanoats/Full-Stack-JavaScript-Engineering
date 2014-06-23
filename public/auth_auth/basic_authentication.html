@@ -1,0 +1,975 @@
+<!DOCTYPE HTML>
+<html lang="en-US" manifest="../manifest.appcache">
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <title>Server Auth | Full Stack JavaScript Engineering</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 0.5.2">
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    
+    
+    <meta name="author" content="ivanoats">
+    
+    
+    <link rel="next" href="../auth_auth/angular_jwt_basic.html" />
+    
+    
+    <link rel="prev" href="../auth_auth/README.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+<link rel="stylesheet" href="../gitbook/style.css">
+
+
+        
+    <div class="book" data-github="ivanoats/Full-Stack-JavaScript-Engineering" data-level="14.1" data-basepath=".." data-revision="1403537617260">
+    <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    
+    <a href="https://github.com/ivanoats/Full-Stack-JavaScript-Engineering" target="_blank" class="btn pull-left home-bookmark" aria-label="GitHub home"><i class="fa fa-bookmark-o"></i></a>
+    
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    <span id="font-settings-wrapper">
+        <a href="#" class="btn pull-left toggle-font-settings" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="btn-group btn-block">
+        <button id="reduce-font-size" class="btn btn-default">A</button>
+        <button id="enlarge-font-size" class="btn btn-default">A</button>
+    </div>
+
+    <ul class="list-group font-family-list">
+        <li class="list-group-item" data-font="0">Serif</li>
+        <li class="list-group-item" data-font="1">Sans</li>
+    </ul>
+
+    <div class="btn-group btn-group-xs btn-block color-theme-list">
+        <button type="button" class="btn btn-default" id="color-theme-preview-0" data-theme="0">White</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-1" data-theme="1">Sepia</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-2" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </span>
+
+    <!-- Actions Right -->
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+
+    
+    <a href="https://github.com/ivanoats/Full-Stack-JavaScript-Engineering/stargazers" target="_blank" class="btn pull-right count-star hidden-xs"><i class="fa fa-star-o"></i> Star (<span>-</span>)</a>
+    <a href="https://github.com/ivanoats/Full-Stack-JavaScript-Engineering/watchers" target="_blank" class="btn pull-right count-watch hidden-xs"><i class="fa fa-eye"></i> Watch (<span>-</span>)</a>
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-spinner fa-spin"></i>
+        <a href="../" >Full Stack JavaScript Engineering</a>
+    </h1>
+</div>
+
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+        
+        <li>
+            <a href="https://www.codefellows.org/full-stack-javascript-development-accelerator" target="blank" class="author-link">About the author</a>
+        </li>
+        
+
+        
+        
+        <li>
+            <a href="https://github.com/ivanoats/Full-Stack-JavaScript-Engineering/issues" target="blank"class="issues-link">Questions and Issues</a>
+        </li>
+        
+
+        
+        
+        <li>
+            <a href="https://github.com/ivanoats/Full-Stack-JavaScript-Engineering/edit/master/auth_auth/basic_authentication.md" target="blank" class="contribute-link">Edit and Contribute</a>
+        </li>
+        
+
+        
+        <li class="divider"></li>
+        
+
+        <li data-level="0" data-path="index.html">
+            <a href="../"><i class="fa fa-check"></i> Introduction</a>
+        </li>
+        
+    
+        <li class="chapter " data-level="1" data-path="pre-work/README.html">
+            
+            <a href="../pre-work/README.html">
+                <i class="fa fa-check"></i> <b>1.</b> Prework
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="communication/connect_to_irc.html">
+            
+            <a href="../communication/connect_to_irc.html">
+                <i class="fa fa-check"></i> <b>2.</b> Connect to IRC
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="day1/README.html">
+            
+            <a href="../day1/README.html">
+                <i class="fa fa-check"></i> <b>3.</b> Day One
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="day1/ToolsOverview.html">
+            
+            <a href="../day1/ToolsOverview.html">
+                <i class="fa fa-check"></i> <b>3.1.</b> JavaScript Tools Overview
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="day1/pull_request_practice.html">
+            
+            <a href="../day1/pull_request_practice.html">
+                <i class="fa fa-check"></i> <b>3.2.</b> Github Pull Request Practice
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="day1/computer_setup.html">
+            
+            <a href="../day1/computer_setup.html">
+                <i class="fa fa-check"></i> <b>3.3.</b> Computer Setup
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="day1/initial_toolchain_practice.html">
+            
+            <a href="../day1/initial_toolchain_practice.html">
+                <i class="fa fa-check"></i> <b>3.4.</b> Make sure grunt works
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="day2/README.html">
+            
+            <a href="../day2/README.html">
+                <i class="fa fa-check"></i> <b>4.</b> Day Two
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="day2/async_demo.html">
+            
+            <a href="../day2/async_demo.html">
+                <i class="fa fa-check"></i> <b>4.1.</b> Async Demo
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="day2/hello_express.html">
+            
+            <a href="../day2/hello_express.html">
+                <i class="fa fa-check"></i> <b>4.2.</b> Hello Express
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="day3/README.html">
+            
+            <a href="../day3/README.html">
+                <i class="fa fa-check"></i> <b>5.</b> Day Three
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="day3/responsive.html">
+            
+            <a href="../day3/responsive.html">
+                <i class="fa fa-check"></i> <b>5.1.</b> Responsive Web Design
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="day3/Grunt.html">
+            
+            <a href="../day3/Grunt.html">
+                <i class="fa fa-check"></i> <b>5.2.</b> Grunt
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="day3/Personal_Blog_Site_Tutorial_with_Yeoman_and_Zurb.html">
+            
+            <a href="../day3/Personal_Blog_Site_Tutorial_with_Yeoman_and_Zurb.html">
+                <i class="fa fa-check"></i> <b>5.3.</b> Personal Blog Site Tutorial with Yeoman and Zurb
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="day4/README.html">
+            
+            <a href="../day4/README.html">
+                <i class="fa fa-check"></i> <b>6.</b> Day Four
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1" data-path="day4/acceptance_testing_with_casperjs.html">
+            
+            <a href="../day4/acceptance_testing_with_casperjs.html">
+                <i class="fa fa-check"></i> <b>6.1.</b> Acceptance Testing with CasperJS
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="day4/Sass.html">
+            
+            <a href="../day4/Sass.html">
+                <i class="fa fa-check"></i> <b>6.2.</b> Sass
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="day4/Heroku.html">
+            
+            <a href="../day4/Heroku.html">
+                <i class="fa fa-check"></i> <b>6.3.</b> Heroku
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="day5/README.html">
+            
+            <a href="../day5/README.html">
+                <i class="fa fa-check"></i> <b>7.</b> Day Five
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="day6/README.html">
+            
+            <a href="../day6/README.html">
+                <i class="fa fa-check"></i> <b>8.</b> Day Six
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1" data-path="day6/day6_readings.html">
+            
+            <a href="../day6/day6_readings.html">
+                <i class="fa fa-check"></i> <b>8.1.</b> Readings
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="day6/Browserify.html">
+            
+            <a href="../day6/Browserify.html">
+                <i class="fa fa-check"></i> <b>8.2.</b> Browserify
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.3" data-path="day6/Browserify_lab.html">
+            
+            <a href="../day6/Browserify_lab.html">
+                <i class="fa fa-check"></i> <b>8.3.</b> Browserify lab
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.4" data-path="day6/requirejs.html">
+            
+            <a href="../day6/requirejs.html">
+                <i class="fa fa-check"></i> <b>8.4.</b> Require.js
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="day7/README.html">
+            
+            <a href="../day7/README.html">
+                <i class="fa fa-check"></i> <b>9.</b> Day Seven
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="9.1" data-path="day7/unit_testing.html">
+            
+            <a href="../day7/unit_testing.html">
+                <i class="fa fa-check"></i> <b>9.1.</b> Unit Testing
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.2" data-path="day7/REST.html">
+            
+            <a href="../day7/REST.html">
+                <i class="fa fa-check"></i> <b>9.2.</b> REST
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="day8/README.html">
+            
+            <a href="../day8/README.html">
+                <i class="fa fa-check"></i> <b>10.</b> Day Eight
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="10.1" data-path="day8/superagent_testing.html">
+            
+            <a href="../day8/superagent_testing.html">
+                <i class="fa fa-check"></i> <b>10.1.</b> Test With Super Agent
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10.2" data-path="day8/mongo_mongoose_and_the_rest.html">
+            
+            <a href="../day8/mongo_mongoose_and_the_rest.html">
+                <i class="fa fa-check"></i> <b>10.2.</b> Mongo, Mongoose and the REST
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="11" data-path="day9/README.html">
+            
+            <a href="../day9/README.html">
+                <i class="fa fa-check"></i> <b>11.</b> Day Nine
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="11.1" data-path="day9/ajax.html">
+            
+            <a href="../day9/ajax.html">
+                <i class="fa fa-check"></i> <b>11.1.</b> AJAX
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="12" data-path="day10/README.html">
+            
+            <a href="../day10/README.html">
+                <i class="fa fa-check"></i> <b>12.</b> Day Ten
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="13" data-path="ember/README.html">
+            
+            <a href="../ember/README.html">
+                <i class="fa fa-check"></i> <b>13.</b> Ember
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="14" data-path="auth_auth/README.html">
+            
+            <a href="../auth_auth/README.html">
+                <i class="fa fa-check"></i> <b>14.</b> Auth
+            </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="14.1" data-path="auth_auth/basic_authentication.html">
+            
+            <a href="../auth_auth/basic_authentication.html">
+                <i class="fa fa-check"></i> <b>14.1.</b> Server Auth
+            </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="14.2" data-path="auth_auth/angular_jwt_basic.html">
+            
+            <a href="../auth_auth/angular_jwt_basic.html">
+                <i class="fa fa-check"></i> <b>14.2.</b> Angular Client Auth
+            </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="15" data-path="ec2/README.html">
+            
+            <a href="../ec2/README.html">
+                <i class="fa fa-check"></i> <b>15.</b> EC2
+            </a>
+            
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Generated using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="page-wrapper" tabindex="-1">
+                <div class="book-progress">
+    <div class="bar">
+        <div class="inner" style="width: 94.73684210526316%;min-width: 92.10526315789474%;"></div>
+    </div>
+    <div class="chapters">
+    
+        <a href="../index.html" title="Introduction" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
+    
+        <a href="../pre-work/README.html" title="Prework" class="chapter done new-chapter" data-progress="1" style="left: 2.6315789473684212%;"></a>
+    
+        <a href="../communication/connect_to_irc.html" title="Connect to IRC" class="chapter done new-chapter" data-progress="2" style="left: 5.2631578947368425%;"></a>
+    
+        <a href="../day1/README.html" title="Day One" class="chapter done new-chapter" data-progress="3" style="left: 7.894736842105263%;"></a>
+    
+        <a href="../day1/ToolsOverview.html" title="JavaScript Tools Overview" class="chapter done " data-progress="3.1" style="left: 10.526315789473685%;"></a>
+    
+        <a href="../day1/pull_request_practice.html" title="Github Pull Request Practice" class="chapter done " data-progress="3.2" style="left: 13.157894736842104%;"></a>
+    
+        <a href="../day1/computer_setup.html" title="Computer Setup" class="chapter done " data-progress="3.3" style="left: 15.789473684210526%;"></a>
+    
+        <a href="../day1/initial_toolchain_practice.html" title="Make sure grunt works" class="chapter done " data-progress="3.4" style="left: 18.42105263157895%;"></a>
+    
+        <a href="../day2/README.html" title="Day Two" class="chapter done new-chapter" data-progress="4" style="left: 21.05263157894737%;"></a>
+    
+        <a href="../day2/async_demo.html" title="Async Demo" class="chapter done " data-progress="4.1" style="left: 23.68421052631579%;"></a>
+    
+        <a href="../day2/hello_express.html" title="Hello Express" class="chapter done " data-progress="4.2" style="left: 26.31578947368421%;"></a>
+    
+        <a href="../day3/README.html" title="Day Three" class="chapter done new-chapter" data-progress="5" style="left: 28.94736842105263%;"></a>
+    
+        <a href="../day3/responsive.html" title="Responsive Web Design" class="chapter done " data-progress="5.1" style="left: 31.57894736842105%;"></a>
+    
+        <a href="../day3/Grunt.html" title="Grunt" class="chapter done " data-progress="5.2" style="left: 34.21052631578947%;"></a>
+    
+        <a href="../day3/Personal_Blog_Site_Tutorial_with_Yeoman_and_Zurb.html" title="Personal Blog Site Tutorial with Yeoman and Zurb" class="chapter done " data-progress="5.3" style="left: 36.8421052631579%;"></a>
+    
+        <a href="../day4/README.html" title="Day Four" class="chapter done new-chapter" data-progress="6" style="left: 39.473684210526315%;"></a>
+    
+        <a href="../day4/acceptance_testing_with_casperjs.html" title="Acceptance Testing with CasperJS" class="chapter done " data-progress="6.1" style="left: 42.10526315789474%;"></a>
+    
+        <a href="../day4/Sass.html" title="Sass" class="chapter done " data-progress="6.2" style="left: 44.73684210526316%;"></a>
+    
+        <a href="../day4/Heroku.html" title="Heroku" class="chapter done " data-progress="6.3" style="left: 47.36842105263158%;"></a>
+    
+        <a href="../day5/README.html" title="Day Five" class="chapter done new-chapter" data-progress="7" style="left: 50%;"></a>
+    
+        <a href="../day6/README.html" title="Day Six" class="chapter done new-chapter" data-progress="8" style="left: 52.63157894736842%;"></a>
+    
+        <a href="../day6/day6_readings.html" title="Readings" class="chapter done " data-progress="8.1" style="left: 55.26315789473684%;"></a>
+    
+        <a href="../day6/Browserify.html" title="Browserify" class="chapter done " data-progress="8.2" style="left: 57.89473684210526%;"></a>
+    
+        <a href="../day6/Browserify_lab.html" title="Browserify lab" class="chapter done " data-progress="8.3" style="left: 60.526315789473685%;"></a>
+    
+        <a href="../day6/requirejs.html" title="Require.js" class="chapter done " data-progress="8.4" style="left: 63.1578947368421%;"></a>
+    
+        <a href="../day7/README.html" title="Day Seven" class="chapter done new-chapter" data-progress="9" style="left: 65.78947368421052%;"></a>
+    
+        <a href="../day7/unit_testing.html" title="Unit Testing" class="chapter done " data-progress="9.1" style="left: 68.42105263157895%;"></a>
+    
+        <a href="../day7/REST.html" title="REST" class="chapter done " data-progress="9.2" style="left: 71.05263157894737%;"></a>
+    
+        <a href="../day8/README.html" title="Day Eight" class="chapter done " data-progress="10" style="left: 73.6842105263158%;"></a>
+    
+        <a href="../day8/superagent_testing.html" title="Test With Super Agent" class="chapter done " data-progress="10.1" style="left: 76.3157894736842%;"></a>
+    
+        <a href="../day8/mongo_mongoose_and_the_rest.html" title="Mongo, Mongoose and the REST" class="chapter done " data-progress="10.2" style="left: 78.94736842105263%;"></a>
+    
+        <a href="../day9/README.html" title="Day Nine" class="chapter done " data-progress="11" style="left: 81.57894736842105%;"></a>
+    
+        <a href="../day9/ajax.html" title="AJAX" class="chapter done " data-progress="11.1" style="left: 84.21052631578948%;"></a>
+    
+        <a href="../day10/README.html" title="Day Ten" class="chapter done " data-progress="12" style="left: 86.84210526315789%;"></a>
+    
+        <a href="../ember/README.html" title="Ember" class="chapter done " data-progress="13" style="left: 89.47368421052632%;"></a>
+    
+        <a href="../auth_auth/README.html" title="Auth" class="chapter done " data-progress="14" style="left: 92.10526315789474%;"></a>
+    
+        <a href="../auth_auth/basic_authentication.html" title="Server Auth" class="chapter done " data-progress="14.1" style="left: 94.73684210526316%;"></a>
+    
+        <a href="../auth_auth/angular_jwt_basic.html" title="Angular Client Auth" class="chapter  " data-progress="14.2" style="left: 97.36842105263158%;"></a>
+    
+        <a href="../ec2/README.html" title="EC2" class="chapter  " data-progress="15" style="left: 100%;"></a>
+    
+    </div>
+</div>
+
+                <div class="page-inner">
+                
+                    <section class="normal" id="section-gitbook_8">
+                    
+                        <h1 id="json-authentioncation-with-passport-and-basic-http">JSON Authentioncation with Passport and Basic HTTP</h1>
+<p>Many modern webapplications have an architecture that involves a client side
+Javascript web app talking to serverside persistence layer over JSON.
+Authentiation over a JSON api is a tricky subject, primarily due to its stateless nature.
+Although http is technically stateless, the browser is capable of storing
+cookies that can be checked by a webserver when requests are made to it. But 
+with a JSON api the server does not have direct access to the browser. Each
+request has no knowledge of any of the previous requests, meaning that each
+request that needs to be authenticated needs to transmit its credentials with 
+the request. The eventual goal is to have a piece of information that can be
+easily passed to every request that tells nothing about the user if passed in
+the clear. Most APIs (such as Twitter or Facebook) use a public/private key that
+have to be created on their site in order to use their api but asking a user to
+do this in order to use a website would be ridiculous. The goal is to have a token
+that will be created by the server and passed back to the client that can then 
+sent with every request that needs to be authenticated. Eventually this well be
+JSON Web Token that contains an encrypted set of information that allows
+the server to find the user and all their attributes. However, the server
+first needs to determine if the should sent the token the client requesting it,
+which will require a user name and password.</p>
+<p>I have found two easy ways to implement this with passport, HTTP Basic and Digest.
+The basic method of authentication sends the username and password over in
+plain text which is less than ideal but digest request that the password be
+stored in plain text in the server&#39;s database which is even less ideal. 
+Considering how easy it is to use HTTPS using node and frequently servers
+seem to get broken into my personal preference is to use http basic over a 
+secured connection. During development the server will be using a self signed 
+certificate but in production this would need be replaced with actual ssl 
+cert to avoid scary warnings in the browser. Instructions on how to generate
+a certificate can be found <a href="https://www.openssl.org/docs/HOWTO/certificates.txt">here</a>.</p>
+<p>The first step to authentication a node server with JSON api is to create a 
+node server with a JSON api. Create a new repository with a package.json file
+that looks something like this.</p>
+<pre><code class="lang-javascript">{
+  <span class="hljs-string">"name"</span> : <span class="hljs-string">"awesome-json-api"</span>,
+  <span class="hljs-string">"description"</span> : <span class="hljs-string">"my super awesome json api"</span>,
+  <span class="hljs-string">"version"</span> : <span class="hljs-string">"0.0.1"</span>,
+  <span class="hljs-string">"dependencies"</span> : {
+    <span class="hljs-string">"express"</span> : <span class="hljs-string">"^4.x"</span>,
+    <span class="hljs-string">"passport"</span> : <span class="hljs-string">"^0.2"</span>,
+    <span class="hljs-string">"passport-http"</span> : <span class="hljs-string">"^0.2"</span>
+    <span class="hljs-string">"mongoose"</span> : <span class="hljs-string">"^3.8"</span>,
+    <span class="hljs-string">"bcrypt"</span> : <span class="hljs-string">"latest"</span>,
+    <span class="hljs-string">"jwt-simple"</span> : <span class="hljs-string">"^0.2"</span>,
+    <span class="hljs-string">"moment"</span> : <span class="hljs-string">"^2.7"</span>
+  }
+}
+</code></pre>
+<p>In our package.json file we&#39;re including express 4, passport for general passportyness, 
+passport-http which provides the http-basic authentication mongoose for saving users to 
+the database and bcrypt for encrypting the passwords that will be saved in the database.
+Make sure to run <code>npm install</code> from the root directory as well as generate a self signed
+ssl cert and key and place them in a folder called config. Now create a server.js file that looks 
+something like this. </p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>);
+<span class="hljs-keyword">var</span> passport = <span class="hljs-built_in">require</span>(<span class="hljs-string">'passport'</span>);
+<span class="hljs-keyword">var</span> mongoose = <span class="hljs-built_in">require</span>(<span class="hljs-string">'mongoose'</span>);
+<span class="hljs-keyword">var</span> https = <span class="hljs-built_in">require</span>(<span class="hljs-string">'https'</span>);
+<span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);
+
+<span class="hljs-keyword">var</span> app = express();
+
+<span class="hljs-keyword">var</span> options = {
+  key: fs.readFileSync(<span class="hljs-string">'config/key.pem'</span>):
+  cert: fs.readFileSync(<span class="hljs-string">'config.cert.pem'</span>):
+};
+
+app.get(<span class="hljs-string">'/'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res)</span> {</span>
+  res.json({<span class="hljs-string">'msg'</span> : <span class="hljs-string">'hello world!'</span>});
+});
+
+<span class="hljs-keyword">var</span> server = https.createServer(options, app);
+server.listen(process.env.PORT || <span class="hljs-number">3000</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+  console.log(<span class="hljs-string">'server running on port: '</span> + process.env.PORT || <span class="hljs-number">3000</span>);
+});
+</code></pre>
+<p>This server.js file pulls in the self signed certificate and key and creates a hello world 
+https server based on those. The current version of this file also pulls in all of the libraries
+that will eventually be needed for authentication. The next step in the process is going to be 
+the creation of a User model. This particular model comes primarily from the authentication
+setup described on <a href="http://scotch.io/tutorials/javascript/easy-node-authentication-setup-and-local">the scotch.io site</a>.
+the method of authentication there is pretty awesome but it doesn&#39;t work over a JSON api as
+it requires both access to the browser through session cookies and uses redirects for success/failure.
+Create a directory called called models from the project root and add the following User.js file to that
+directory.</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">//models/User.js</span>
+
+<span class="hljs-keyword">var</span> mongoose = <span class="hljs-built_in">require</span>(<span class="hljs-string">'mongoose'</span>);
+<span class="hljs-keyword">var</span> bcrypt = <span class="hljs-built_in">require</span>(<span class="hljs-string">'bcrypt'</span>);
+<span class="hljs-keyword">var</span> jwt = reuqire(<span class="hljs-string">'jwt'</span>);
+<span class="hljs-keyword">var</span> moment = <span class="hljs-built_in">require</span>(<span class="hljs-string">'moment'</span>);
+
+<span class="hljs-keyword">var</span> userSchema = mongoose.Schema({
+  basic: {
+    email: <span class="hljs-built_in">String</span>,
+    password: <span class="hljs-built_in">String</span>
+  }
+});
+
+userSchema.methods.generateHash = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(password)</span> {</span>
+  <span class="hljs-keyword">return</span> bcrypt.hashSync(password, bcrypt.genSaltSync(<span class="hljs-number">8</span>), <span class="hljs-literal">null</span>);
+};
+
+userSchema.methods.checkHash = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(password)</span> {</span>
+  <span class="hljs-keyword">return</span> bcrypt.compareSync(password, <span class="hljs-keyword">this</span>.basic.password);
+};
+
+userSchema.methods.createJWTToken = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(app)</span> {</span>
+  <span class="hljs-keyword">var</span> expires = moment().add(<span class="hljs-string">'days'</span>, <span class="hljs-number">7</span>).valueOf();
+  <span class="hljs-keyword">var</span> that = <span class="hljs-keyword">this</span>;
+  <span class="hljs-keyword">var</span> token = jwt.encode({
+    iss: that._id,
+    expires: expires
+  }, app.get(<span class="hljs-string">'jwtTokenSecret'</span>));
+  <span class="hljs-keyword">return</span> token
+};
+
+module.exports = mongoose.model(<span class="hljs-string">'User'</span>, userSchema);
+</code></pre>
+<p>This user model contains three methods, one that will run an incoming password through a one way hash
+and one that will check an incoming password against a hash saved in the database. Bcrypt handles
+all of details of encrypting a password and adding salt through the genSaltSync command. Keep in mind that
+the higher the number passed into that function the longer it will take to save a user to the database or
+check if a user&#39;s credentials are correct. It&#39;s a synchronous function so this is less than ideal.
+The third method is used to generate a JSON Web Token after a user&#39;s credentials have been successfully
+authenticated, I will go over this function once we get to the JWT portion of this tutorial.</p>
+<p>Now that the user model has been created, passport needs to know how to use it to authenticate requests.
+I like to keep all of my authentication related js files in lib/authentication/, create both those folders
+and add the following passportBasic.js file to it.</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">//lib/authentication/passportBasic.js</span>
+<span class="hljs-keyword">var</span> BasicStrategy = <span class="hljs-built_in">require</span>(<span class="hljs-string">'passport-http'</span>).BasicStrategy;
+<span class="hljs-keyword">var</span> User = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../../models/User'</span>);
+
+module.exports = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(passport)</span> {</span>
+  passport.use(<span class="hljs-string">'basic'</span>, <span class="hljs-keyword">new</span> BasicStrategy({
+    usernameField: <span class="hljs-string">'email'</span>,
+    passwordField: <span class="hljs-string">'password'</span>
+  },
+  <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(email, passord, done)</span> {</span>
+    User.findOne({<span class="hljs-string">'basic.email'</span>: <span class="hljs-string">'email'</span>}, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, user)</span>{</span>
+      <span class="hljs-keyword">if</span>(err) {
+        <span class="hljs-keyword">return</span> done(err);
+      }
+
+      <span class="hljs-keyword">if</span>(!user) {
+        <span class="hljs-keyword">return</span> done(<span class="hljs-literal">null</span>, <span class="hljs-literal">false</span>);
+      }
+
+      <span class="hljs-keyword">if</span>(!user.validPassword(password)) {
+        <span class="hljs-keyword">return</span> done(<span class="hljs-literal">null</span>, <span class="hljs-literal">false</span>);
+      }
+
+      <span class="hljs-keyword">return</span> done(<span class="hljs-literal">null</span>, user);
+    });
+  }));
+};
+</code></pre>
+<p>This file essentially specifies what conditions mark a successful authentication. First we attempt to find the user
+if there&#39;s a error we return the error. If the user doesn&#39;t exist we return false for authentication. If the 
+password doesn&#39;t authenticate we return false. If the program makes it past those conditions it means it found a 
+valid user and we return the user to passport. Passport knows that if false is returned from this function it should send
+a 401 unauthorized to the client making the request. Something to keep in mind, this passport definition is only
+going to be used when a user signs in. When a user is created it won&#39;t need to go through an authentication process
+and every other request should be authenticated with the JWT that will be generated upon a successful sign in.
+The next step is to create the sign up/sign in routes for the application. Create a routes directory from the root directory 
+and add the following userRoutes.js file to that directory. </p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> user = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../models/userRoutes'</span>);
+
+module.exports = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(app, passport)</span> {</span>
+  app.post(<span class="hljs-string">'/api/v1/users'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res)</span> {</span>
+    User.findOne({<span class="hljs-string">'basic.email'</span>: req.body.email}, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, user)</span> {</span>
+      <span class="hljs-keyword">if</span>(err) {
+        <span class="hljs-keyword">return</span> res.json(<span class="hljs-number">500</span>, err);
+      }
+
+      <span class="hljs-keyword">if</span>(user) {
+        <span class="hljs-keyword">return</span> res.json(<span class="hljs-number">401</span>, {<span class="hljs-string">'msg'</span> : <span class="hljs-string">'email in use'</span>}):
+      }
+
+      <span class="hljs-keyword">var</span> newUser = <span class="hljs-keyword">new</span> User();
+      newUser.basic.email = req.body.email;
+      newUser.basic.password = newUser.generateHash(req.body.password);
+
+      newUser.save(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, resUser)</span> {</span>
+        <span class="hljs-keyword">if</span>(err) {
+          <span class="hljs-keyword">return</span> res.json(<span class="hljs-number">500</span>, err);
+        }
+
+        <span class="hljs-keyword">return</span> res.json(resUser):
+      });
+    });
+  });
+
+  app.get(<span class="hljs-string">'api/v1/users'</span>, passport.authenticate(<span class="hljs-string">'basic'</span>, {session: <span class="hljs-literal">false</span>}), <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res)</span> {</span>
+    <span class="hljs-keyword">return</span> res.json({<span class="hljs-string">'jwt'</span>: req.user.createToken(app)}); 
+  }); 
+};
+</code></pre>
+<p>The first function creates a user on a post request and saves it to the database if there is no other user with
+the specified email after hashing the incoming password. With the login route(a get request /api/v1/users) 
+the request will go through the authentication we specified with passport and if successful it will run
+the function that has been specified in the get route. The last step to hooking up basic authentication is to
+add it to the server.js file.</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>);
+<span class="hljs-keyword">var</span> passport = <span class="hljs-built_in">require</span>(<span class="hljs-string">'passport'</span>);
+<span class="hljs-keyword">var</span> mongoose = <span class="hljs-built_in">require</span>(<span class="hljs-string">'mongoose'</span>);
+<span class="hljs-keyword">var</span> https = <span class="hljs-built_in">require</span>(<span class="hljs-string">'https'</span>);
+<span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);
+
+<span class="hljs-keyword">var</span> app = express();
+
+app.set(<span class="hljs-string">'jwtTokenSecret'</span>, process.env.JWT_SECRET || <span class="hljs-string">'changemechangemechangeme'</span>);
+<span class="hljs-built_in">require</span>(<span class="hljs-string">'./lib/authentication/pasportBasic'</span>)(passport);
+<span class="hljs-built_in">require</span>(<span class="hljs-string">'./routes/userRoutes'</span>)(app, passport);
+
+<span class="hljs-keyword">var</span> options = {
+  key: fs.readFileSync(<span class="hljs-string">'config/key.pem'</span>):
+  cert: fs.readFileSync(<span class="hljs-string">'config.cert.pem'</span>):
+};
+
+app.get(<span class="hljs-string">'/'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res)</span> {</span>
+  res.json({<span class="hljs-string">'msg'</span> : <span class="hljs-string">'hello world!'</span>});
+});
+
+<span class="hljs-keyword">var</span> server = https.createServer(options, app);
+server.listen(process.env.PORT || <span class="hljs-number">3000</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+  console.log(<span class="hljs-string">'server running on port: '</span> + process.env.PORT || <span class="hljs-number">3000</span>);
+});
+</code></pre>
+<p>Those two require lines are all it takes to add the authentication to passport and then add the signup/signin routes
+to the app. This new server.js also sets the jwtTokenSecret that is used to encrypt the JSON web tokens that the 
+User model generates. </p>
+<p>There is only one more piece to add to this application to be able to authenticate with JSON Web Tokens, the actual
+middleware that checks if the token/user on the incoming request is valid. Create a jwtAuth.js file in lib/authentication
+with the following code:</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">//lib/authentication/jwtAuth.js</span>
+
+<span class="hljs-keyword">var</span> User = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../../models/User'</span>);
+<span class="hljs-keyword">var</span> jwt = <span class="hljs-built_in">require</span>(<span class="hljs-string">'jwt-simple'</span>);
+
+module.exports = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(app)</span> {</span>
+  <span class="hljs-keyword">var</span> jwtauth = {};
+
+  jwtauth.auth = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res, next)</span> {</span>
+    <span class="hljs-keyword">var</span> token = req.body.jwt;
+
+    <span class="hljs-keyword">if</span>(!token) {
+      <span class="hljs-keyword">return</span> res.send(<span class="hljs-number">401</span>, {<span class="hljs-string">'msg'</span>: <span class="hljs-string">'no token specified'</span>});
+    }
+
+    <span class="hljs-keyword">var</span> decoded = jwt.decode(token, app.get(<span class="hljs-string">'jwtTokenSecret'</span>));
+    User.findOne({<span class="hljs-string">'_id'</span>: decoded.iss}, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, user)</span> {</span>
+      <span class="hljs-keyword">if</span>(err) {
+        <span class="hljs-keyword">return</span> res.send(<span class="hljs-number">500</span>, err);
+      }
+
+      <span class="hljs-keyword">if</span>(!user) {
+        <span class="hljs-keyword">return</span> res.send(<span class="hljs-number">401</span>);
+      }
+
+      req.user = user;
+      <span class="hljs-keyword">return</span> next();
+    });
+  };
+};
+</code></pre>
+<p>In this function we create a jwtauth object with an auth function. This is due to the need to use a function as middleware
+which request a specific format a specific format but the app needs to passed in to the exported function in order to access the token secret.
+This function attempts to decode the token if one is specified. After the token is decoded this function attempts to find
+a user with the specified id and if one exists it calls the next function. If any of these conditions are not met the 
+app sends a 401. This function can be placed within the call chain of a route. For instance to use it in our server.js
+hello world route we just add it before the function that sends hello world.</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>);
+<span class="hljs-keyword">var</span> passport = <span class="hljs-built_in">require</span>(<span class="hljs-string">'passport'</span>);
+<span class="hljs-keyword">var</span> mongoose = <span class="hljs-built_in">require</span>(<span class="hljs-string">'mongoose'</span>);
+<span class="hljs-keyword">var</span> https = <span class="hljs-built_in">require</span>(<span class="hljs-string">'https'</span>);
+<span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);
+
+<span class="hljs-keyword">var</span> app = express();
+
+<span class="hljs-keyword">var</span> jwtauth = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./lib/authentication/jwtAuth'</span>)(app);
+
+app.set(<span class="hljs-string">'jwtTokenSecret'</span>, process.env.JWT_SECRET || <span class="hljs-string">'changemechangemechangeme'</span>);
+<span class="hljs-built_in">require</span>(<span class="hljs-string">'./lib/authentication/pasportBasic'</span>)(passport);
+<span class="hljs-built_in">require</span>(<span class="hljs-string">'./routes/userRoutes'</span>)(app, passport);
+
+<span class="hljs-keyword">var</span> options = {
+  key: fs.readFileSync(<span class="hljs-string">'config/key.pem'</span>):
+  cert: fs.readFileSync(<span class="hljs-string">'config.cert.pem'</span>):
+};
+
+app.get(<span class="hljs-string">'/'</span>, jwtauth.auth, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res)</span> {</span>
+  res.json({<span class="hljs-string">'msg'</span> : <span class="hljs-string">'hello world!'</span>});
+});
+
+<span class="hljs-keyword">var</span> server = https.createServer(options, app);
+server.listen(process.env.PORT || <span class="hljs-number">3000</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+  console.log(<span class="hljs-string">'server running on port: '</span> + process.env.PORT || <span class="hljs-number">3000</span>);
+});
+</code></pre>
+<p>To use the jwt authentication middleware just require it into the app and place it in the function chain for a route.</p>
+
+                    
+                    </section>
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../auth_auth/README.html" class="navigation navigation-prev " aria-label="Previous page: Auth"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../auth_auth/angular_jwt_basic.html" class="navigation navigation-next " aria-label="Next page: Angular Client Auth"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

@@ -4,7 +4,7 @@
     <head>
         
         <meta charset="UTF-8">
-        <title>Day Ten | Full Stack JavaScript Engineering</title>
+        <title>Angular Client Auth | Full Stack JavaScript Engineering</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 0.5.2">
@@ -19,10 +19,10 @@
     <meta name="author" content="ivanoats">
     
     
-    <link rel="next" href="../ember/README.html" />
+    <link rel="next" href="../ec2/README.html" />
     
     
-    <link rel="prev" href="../day9/ajax.html" />
+    <link rel="prev" href="../auth_auth/basic_authentication.html" />
     
 
         
@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-github="ivanoats/Full-Stack-JavaScript-Engineering" data-level="12" data-basepath=".." data-revision="1403537617260">
+    <div class="book" data-github="ivanoats/Full-Stack-JavaScript-Engineering" data-level="14.2" data-basepath=".." data-revision="1403537617260">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -118,7 +118,7 @@
         
         
         <li>
-            <a href="https://github.com/ivanoats/Full-Stack-JavaScript-Engineering/edit/master/day10/README.md" target="blank" class="contribute-link">Edit and Contribute</a>
+            <a href="https://github.com/ivanoats/Full-Stack-JavaScript-Engineering/edit/master/auth_auth/angular_jwt_basic.md" target="blank" class="contribute-link">Edit and Contribute</a>
         </li>
         
 
@@ -543,7 +543,7 @@
             <div class="page-wrapper" tabindex="-1">
                 <div class="book-progress">
     <div class="bar">
-        <div class="inner" style="width: 86.84210526315789%;min-width: 84.21052631578948%;"></div>
+        <div class="inner" style="width: 97.36842105263158%;min-width: 94.73684210526316%;"></div>
     </div>
     <div class="chapters">
     
@@ -615,13 +615,13 @@
     
         <a href="../day10/README.html" title="Day Ten" class="chapter done " data-progress="12" style="left: 86.84210526315789%;"></a>
     
-        <a href="../ember/README.html" title="Ember" class="chapter  " data-progress="13" style="left: 89.47368421052632%;"></a>
+        <a href="../ember/README.html" title="Ember" class="chapter done " data-progress="13" style="left: 89.47368421052632%;"></a>
     
-        <a href="../auth_auth/README.html" title="Auth" class="chapter  " data-progress="14" style="left: 92.10526315789474%;"></a>
+        <a href="../auth_auth/README.html" title="Auth" class="chapter done " data-progress="14" style="left: 92.10526315789474%;"></a>
     
-        <a href="../auth_auth/basic_authentication.html" title="Server Auth" class="chapter  " data-progress="14.1" style="left: 94.73684210526316%;"></a>
+        <a href="../auth_auth/basic_authentication.html" title="Server Auth" class="chapter done " data-progress="14.1" style="left: 94.73684210526316%;"></a>
     
-        <a href="../auth_auth/angular_jwt_basic.html" title="Angular Client Auth" class="chapter  " data-progress="14.2" style="left: 97.36842105263158%;"></a>
+        <a href="../auth_auth/angular_jwt_basic.html" title="Angular Client Auth" class="chapter done " data-progress="14.2" style="left: 97.36842105263158%;"></a>
     
         <a href="../ec2/README.html" title="EC2" class="chapter  " data-progress="15" style="left: 100%;"></a>
     
@@ -630,11 +630,131 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_15">
+                    <section class="normal" id="section-gitbook_7">
                     
-                        <h1 id="guest-speakers">Guest Speakers</h1>
-<h2 id="aws-ec2">AWS EC2</h2>
-<h2 id="functional-programming">Functional Programming</h2>
+                        <p>Getting angular to talk to the basic/jwt authentication scheme described 
+<a href="#">here</a> is fairly simple. It essentially involves two parts: first,
+getting the JSON Web Token from the signin route and two, adding the jwt
+response as a browser cookie. Assuming a bower/browserify setup, run the following
+from the root of the app directory. <code>bower install angular angular-route angular-base64 angular-cookies --save</code></p>
+<p>The angular package provides the angular base, the angular route provides
+angular routing, the angular-base64 allows base64 encryption of the basic auth
+auth(which passport expects) and angular-cookies allows browser cookies to be set.</p>
+<p>This app is oging to assume that all the angular client side code will reside in
+/app and will be run through browserify into a /dist or /build directory. The app
+folder will have the following folders: views, js, js/controllers and possibly a
+bower_components folder as well. All of the controllers and other components
+will be drawn into a file named app.js in app/js. The browserify &#39;compiled&#39; file will be 
+called client.js and this will included into an index.html that gets copied over
+by the grunt build task. The index.js file should look something like this:</p>
+<pre><code>&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;title&gt;Notes Angular&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div ng-app=&quot;notesApp&quot;&gt;
+      &lt;div ng-view&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script src=&quot;client.js&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>The index.html is pretty simple, all it does is load the client.js file and provide a 
+a div for the app and one for the view. The app.js that browserify uses to create the
+client.js will look like this:</p>
+<pre><code>require(&#39;angular/angular&#39;);
+require(&#39;angular-route&#39;);
+require(&#39;angular-cookies&#39;);
+require(&#39;angular-base64&#39;);
+
+var notesApp = angular.module(&#39;notesApp&#39;, [&#39;ngRoute&#39;, &#39;base64&#39;, &#39;ngCookies&#39;]);
+
+require(&#39;./controllers/notesController&#39;)(notesApp);
+require(&#39;./controllers/usersController&#39;)(notesApp);
+
+notesApp.config([&#39;$routeProvider&#39;, function($routeProvider) {
+  $routeProvider
+    .when(&#39;/notes&#39;, {
+      templateUrl: &#39;views/notes.html&#39;,
+      controller: &#39;NotesController&#39;
+    })
+    .when(&#39;/signin&#39;, {
+      templateUrl: &#39;views/signin.html&#39;,
+      controller: &#39;SigninController&#39;
+    })
+    .otherwise({
+      redirectTo: &#39;/signin&#39;
+    });
+}]);
+</code></pre><p>This code won&#39;t actually run as is, the controllers and the view have yet to be added but
+this is the overall structure of the app. It creates our notesApp object and then passes
+the notesApp object to the controller files to add the users and notes controllers. Then 
+the /notes and /signin route are added to the notesApp with signin as the default.</p>
+<p>The next step is to create the signin controller and view. First the view which should be located
+in app/views/signin.html and should look something like this:</p>
+<pre><code>&lt;div ng-controller=&quot;SigninController&quot;&gt;
+  &lt;h3&gt;Sign In&lt;/h3&gt;
+  &lt;label&gt;Email&lt;/label&gt;
+  &lt;input type=&quot;text&quot; ng-model=&quot;user.email&quot;&gt;
+  &lt;label&gt;Password&lt;/label?
+  &lt;input type=&quot;password&quot; ng-model=&quot;user.password&quot;&gt;
+  &lt;button ng-click=&quot;signin()&quot;&gt;Sign In&lt;/button&gt;
+&lt;/div&gt;
+</code></pre><p>This view is bound to the SigninController controller. This view contains an email field and
+a password field and a button that when clicked runs the signin method of the controller.
+Pretty simple as far as views go. Now, it&#39;s time to create the SigninController, which
+will be located at app/controllers/signinController.js and should contain the following code:</p>
+<pre><code>module.exports = function(app) {
+  app.controller(&#39;SigninController&#39;, function($scope, $http, $base64, $cookies, $location) {
+    $scope.signin = function() {
+      $http.defaults.headers.common[&#39;Authentication&#39;] = &#39;Basic &#39; + $base64($scope.user.email + &#39;:&#39; + $scope.user.password);
+      $http({
+        method: &#39;GET&#39;,
+        url: &#39;/api/v1/users&#39;,
+      }).success(function(data) {
+        $cookies.jwt = data.jwt;
+        $location.path(&#39;/notes&#39;);
+      }).error(function(data) {
+        console.log(data):
+      });
+    }
+  });
+}
+</code></pre><p>This controller really only contains the singin function which has two parts. First the controller
+sets the authentication header for the request. Of note is that passport basic authentication actually
+expects the basic auth to be base64 encoded. While this doesn&#39;t actually provide a secure means of
+transportation and isn&#39;t a replacement for https, it does prevent the password from being transported
+in the clear. The next portion of the signin function sends the request to the singin url and 
+on success will set the response jwt to a browser cookie using the $cookie library. After setting
+the cookie it redirects to the /notes path. Which means, that the next file to create is the notesView.html
+in app/views/notesView.html</p>
+<pre><code>&lt;div ng-controller=&quot;NotesController&quot;&gt; 
+  &lt;h3&gt;Notes&lt;/h3&gt;
+  &lt;div ng-repeat=&quot;note in notes&quot;&gt;
+    &lt;p&gt;{{note.noteBody}}&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre><p>The notes view is simple, all it does is display the note body for each note. The next step is to
+add the note controller in app/controllers/notesController.js</p>
+<pre><code>module.exports = function(app) {
+  app.controller(&#39;NotesController&#39;, function($scope, $http, $cookies) {
+    $http.defaults.headers.common[&#39;jwt&#39;] = $cookies.jwt;
+    $http({
+      method: &#39;GET&#39;,
+      url: &#39;/api/v1/notes&#39;
+    }).success(function(data) {
+      $scope.notes = data;
+    }).error(function(data) {
+      console.log(data);
+    });
+  });
+}
+</code></pre><p>This controller once again sets a header but this time it is the JWT that was received after successfully
+authenticating and saved to a browser cookie. This does assume that the server side api can read the
+jwt from the headers and not the body of the request. Which should be as simple as changing the line 
+in jwtauth from <code>var token = req.body.jwt_token</code> to <code>var token = (req.body &amp;&amp; req.body.jwt_token) || req.headers.jwt</code>
+and then it should authenticate and send back an array of notes.</p>
 
                     
                     </section>
@@ -644,10 +764,10 @@
         </div>
 
         
-        <a href="../day9/ajax.html" class="navigation navigation-prev " aria-label="Previous page: AJAX"><i class="fa fa-angle-left"></i></a>
+        <a href="../auth_auth/basic_authentication.html" class="navigation navigation-prev " aria-label="Previous page: Server Auth"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../ember/README.html" class="navigation navigation-next " aria-label="Next page: Ember"><i class="fa fa-angle-right"></i></a>
+        <a href="../ec2/README.html" class="navigation navigation-next " aria-label="Next page: EC2"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
