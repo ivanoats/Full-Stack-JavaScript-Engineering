@@ -37,3 +37,4 @@
 * [Auth](auth_auth/README.md)
     * [Server Auth](auth_auth/basic_authentication.md)
     * [Angular Client Auth](auth_auth/angular_jwt_basic.md)
+* [EC2](ec2/README.md)
