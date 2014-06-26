@@ -15,7 +15,7 @@ bower_components folder as well. All of the controllers and other components
 will be drawn into a file named app.js in app/js. The browserify 'compiled' file will be 
 called client.js and this will included into an index.html that gets copied over
 by the grunt build task. The index.js file should look something like this:
-```
+```html
 <!doctype html>
 <html lang="en">
   <head>
@@ -33,7 +33,7 @@ by the grunt build task. The index.js file should look something like this:
 The index.html is pretty simple, all it does is load the client.js file and provide a 
 a div for the app and one for the view. The app.js that browserify uses to create the
 client.js will look like this:
-```
+```javascript
 require('angular/angular');
 require('angular-route');
 require('angular-cookies');
@@ -66,7 +66,7 @@ the /notes and /signin route are added to the notesApp with signin as the defaul
 
 The next step is to create the signin controller and view. First the view which should be located
 in app/views/signin.html and should look something like this:
-```
+```html
 <div ng-controller="SigninController">
   <h3>Sign In</h3>
   <label>Email</label>
@@ -80,11 +80,11 @@ This view is bound to the SigninController controller. This view contains an ema
 a password field and a button that when clicked runs the signin method of the controller.
 Pretty simple as far as views go. Now, it's time to create the SigninController, which
 will be located at app/controllers/signinController.js and should contain the following code:
-```
+```javascript
 module.exports = function(app) {
   app.controller('SigninController', function($scope, $http, $base64, $cookies, $location) {
     $scope.signin = function() {
-      $http.defaults.headers.common['Authentication'] = 'Basic ' + $base64($scope.user.email + ':' + $scope.user.password);
+      $http.defaults.headers.common['Authentication'] = 'Basic ' + $base64.encode($scope.user.email + ':' + $scope.user.password);
       $http({
         method: 'GET',
         url: '/api/v1/users',
@@ -106,7 +106,7 @@ in the clear. The next portion of the signin function sends the request to the s
 on success will set the response jwt to a browser cookie using the $cookie library. After setting
 the cookie it redirects to the /notes path. Which means, that the next file to create is the notesView.html
 in app/views/notesView.html
-```
+```javascript
 <div ng-controller="NotesController"> 
   <h3>Notes</h3>
   <div ng-repeat="note in notes">
@@ -116,7 +116,7 @@ in app/views/notesView.html
 ```
 The notes view is simple, all it does is display the note body for each note. The next step is to
 add the note controller in app/controllers/notesController.js
-```
+```javascript
 module.exports = function(app) {
   app.controller('NotesController', function($scope, $http, $cookies) {
     $http.defaults.headers.common['jwt'] = $cookies.jwt;
