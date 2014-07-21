@@ -1,11 +1,7 @@
 CACHE MANIFEST
-# Revision 1403537617260
+# Revision 1405982415659
 
 CACHE:
-day3/Grunt.html
-day3/Personal_Blog_Site_Tutorial_with_Yeoman_and_Zurb.html
-day3/README.html
-day3/responsive.html
 index.html
 auth_auth/README.html
 auth_auth/angular_jwt_basic.html
@@ -20,6 +16,10 @@ day10/README.html
 day2/README.html
 day2/async_demo.html
 day2/hello_express.html
+day3/Grunt.html
+day3/Personal_Blog_Site_Tutorial_with_Yeoman_and_Zurb.html
+day3/README.html
+day3/responsive.html
 day4/Heroku.html
 day4/README.html
 day4/Sass.html
