@@ -24,7 +24,7 @@ There is no submission for this assignment. We'll see you on the #codefellows
 channel in class, and on Gitter.IM. They are very useful for sending links to
 everyone during class, asking questions in the evening, or just socializing.
 
-We also use [Gitter.IM](https://badges.gitter.im/codefellows/sea-b15-javascript.png)
+We also use [Gitter.IM](https://gitter.im/codefellows/sea-b20-javascript)
 as a chatroom just for our class. Click on this button to join.
 
-[![Gitter chat](https://badges.gitter.im/codefellows/sea-b15-javascript.png)](https://gitter.im/codefellows/sea-b15-javascript)
+[![Gitter chat](https://badges.gitter.im/codefellows/sea-b20-javascript.png)](https://gitter.im/codefellows/sea-b20-javascript)
