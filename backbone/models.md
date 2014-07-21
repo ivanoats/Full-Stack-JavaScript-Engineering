@@ -14,16 +14,16 @@ their information into our html doccument, which will be covered in the views
 section. 
 
 After installing Backbone create a models direcotor under the client side app
-directory `mkdir app/js/models`. Now create a FirstModel.js file in that 
+directory `mkdir -p app/js/notes/models`. Now create a Note.js file in that 
 directory and add the following code.
 ```javascript
-//FirstModel
+//Note
 
 var Backbone = require('backbone');
 
 moduled.exports = Backbone.Model.extend({
   defaults: {
-    greeting: 'hello world'
+    noteBody: 'hello world'
   }
 });
 ```
@@ -35,10 +35,10 @@ actually be used in browser. Modify your cleint.js file to look something like
 this:
 ```javascript
 var Backbone = require('backbone');
-var FirstModel = require('./js/models/FirstModel');
+var Note = require('./js/notes/Note');
 
-var firstModel = new FirstModel();
-console.log(firstModel.get('greeting'));
+var note = new Note();
+console.log(note.get('noteBody'));
 ```
 If you build using browserify and open this up in a browser the dev console should
 have the string 'hello world' printed in it. The get and set methods are the one of
@@ -53,15 +53,15 @@ Now, that console.log line is looking a little long and I need a flimsy excuse
 to demonstrate Backbone model methods. Change your FristModel.js file to contain
 something like this:
 ```javascript
-//FirstModel
+//Note
 var Backbone = require('backbone');
 
 module.exports = Backbone.Model.extend({
   defaults: {
-    greeting: 'hello world'
+    noteBody: 'hello world'
   },
-  greet: function() {
-    window.console.log(this.get(greeting));
+  displayNote: function() {
+    window.console.log(this.get('noteBody'));
   }
 });
 ```
@@ -73,4 +73,3 @@ have to refer to window.console.log. This is due to Backbone scoping which doesn
 give access to globals unless it's explicitly told to. In many cases you can
 actually just call console.log but getting in the habbit of calling window.console.log
 will save a lot of headache in the future.
-
