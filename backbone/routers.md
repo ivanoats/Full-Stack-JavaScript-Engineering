@@ -18,7 +18,7 @@ var NotesCollectionView = require('../views/NotesCollectionView');
 
 module.exports = Backbone.Router.extend({
   routes: {
-    "/": "index"
+    "notes": "index"
   },
 
   index: function() {
