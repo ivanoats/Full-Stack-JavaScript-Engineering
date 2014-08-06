@@ -2,11 +2,12 @@
 
 Set up your computer with the following tools:
 
-Latest version of Ruby (for Sass, and other tools) Node.js, PostgreSQL,
-MongoDB, Redis,
+Latest version of Ruby (for Sass, and other tools) Node.js,
+MongoDB, Redis
 
-Editors: We use [Atom.io](http://atom.io) or Sublime Text 3 in class, and I'm betting you already do too
-(unless you rock Vim or Emacs). Sublime Text has a fully-featured, unlimited time Trial mode.
+Editors: We use [Atom.io](http://atom.io) or Sublime Text 3 in class, and I'm 
+betting you already do too (unless you rock Vim or Emacs). Sublime Text has a
+fully-featured, unlimited time Trial mode.
 
 _Optional_: if you are coming from an IDE like Visual Studio or Eclipse, you
 may like [WebStorm](http://www.jetbrains.com/webstorm/) (trial version) better
@@ -20,7 +21,6 @@ customize your editor in JavaScript, there are two great free editors:
 #### Sign up for these free web services:
 
   * GitHub (you may have this already but there is also <https://education.github.com/discount_requests/new> try it while you're here)
-  * Pivotal Tracker <https://www.pivotaltracker.com/faq#istrackerreallyfreeforpublicprojectsindividualusenonprofitsandeducators>
 
 #### Mac OS:
 
@@ -36,7 +36,9 @@ customize your editor in JavaScript, there are two great free editors:
     * `rbenv global 2.1.1`
     * `gem install sass`
     * NOT use sudo to install ruby or gems
-    * if you get a permissions error when installing sass, somehow system ruby is still active. Try restarting your terminal, or if it persists, check for the items above in your .bash_profile file
+    * if you get a permissions error when installing sass, somehow system ruby 
+      is still active. Try restarting your terminal, or if it persists, check 
+      for the items above in your .bash_profile file
 
 * Node.js
     * `brew install nvm`
@@ -46,9 +48,8 @@ customize your editor in JavaScript, there are two great free editors:
     * Install some commonly used packages with npm: `npm -g install grunt-cli jshint`
 	* Reference the [NVM README](https://github.com/creationix/nvm/blob/master/README.markdown) if you get stuck
 
-* PostgreSQL
+* Totally Optional, but you may want a relational database. Only do this if you have time. I choose PostgreSQL:
     * Follow Ivan's blog post: <https://www.codefellows.org/blogs/how-to-install-postgresql>
-
 
 * Pick a programmer's editor:
     * Try out http://atom.io and ask around for an invite.
@@ -56,7 +57,8 @@ customize your editor in JavaScript, there are two great free editors:
       * <http://www.sublimetext.com/3>
       * Package Control: <https://sublime.wbond.net/installation>
     * Or, try Adobe's open source http://brackets.io
-    * Which one to choose? I like Atom.io and Brackets because you can customize them with JavaScript. Customizing Sublime requires knowledge of Python.
+    * Which one to choose? I like Atom.io and Brackets because you can customize 
+      them with JavaScript. Customizing Sublime requires knowledge of Python.
 
 * MongoDB
     * `brew install mongodb`
@@ -82,9 +84,9 @@ customize your editor in JavaScript, there are two great free editors:
     * NOTE replace 1.9.3 with the latest version of ruby: 2.1.1
     * Another alternative way to install rbenv: https://github.com/sstephenson/rbenv#basic-github-checkout
   * gem install sass // DO NOT use sudo to install gems
-  * node.js: compile node from source, following the directions here: <https://gist.github.com/tylermorgan86/e1c9df76cb71a0a007d3>
+  * node.js: compile node from source, following the directions [here](install_node_from_source.md).
   * Install Grunt-CLI (command line interface)  `npm -g install grunt-cli`
-  * PostgreSQL
+  * PostgreSQL (again, totally optional and only do if you have time)
     * Follow Ivan's blog post: <https://www.codefellows.org/blogs/how-to-install-postgresql>
     * no need to install the pg gem - you won't be connecting to Postgres from ruby here.
   * Sublime Text 3
