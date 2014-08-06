@@ -1,7 +1,6 @@
 # Full Stack JavaScript Engineering
 
 This is Code Fellows' textbook for The Full-Stack JavaScript Development Accelerator.
-Yo!
 
 It's a [GitBook](http://gitbook.io) project.
 
