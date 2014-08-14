@@ -8,7 +8,7 @@ Let's modify our [Hello World Express]() server to use Browserify and friends.
 
 ## GRUNT ALL THE THINGS
 
-`npm install grunt-contrib-copy grunt-contrib-clean grunt-contrib-jshint grunt-contrib-watch grunt-browserify matchdep globule --save-dev`
+`npm install grunt-contrib-copy grunt-contrib-clean grunt-contrib-connect grunt-contrib-jshint grunt-contrib-watch grunt-browserify matchdep globule --save-dev`
 
 These tools will help clean and build our files
 
