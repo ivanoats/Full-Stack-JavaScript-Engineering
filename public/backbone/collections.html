@@ -19,7 +19,7 @@
     <meta name="author" content="ivanoats">
     
     
-    <link rel="next" href="../backbone/routes.html" />
+    <link rel="next" href="../backbone/routers.html" />
     
     
     <link rel="prev" href="../backbone/views.html" />
@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-github="ivanoats/Full-Stack-JavaScript-Engineering" data-level="16.4" data-basepath=".." data-revision="1408485980159">
+    <div class="book" data-github="ivanoats/Full-Stack-JavaScript-Engineering" data-level="16.4" data-basepath=".." data-revision="1408487917545">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -900,10 +900,10 @@
         </li>
     
         
-        <li class="chapter " data-level="16.5" data-path="backbone/routes.html">
+        <li class="chapter " data-level="16.5" data-path="backbone/routers.html">
             
                 
-                    <a href="../backbone/routes.html">
+                    <a href="../backbone/routers.html">
                         <i class="fa fa-check"></i>
                         
                             <b>16.5.</b>
@@ -1046,7 +1046,7 @@
     
         <a href="../backbone/collections.html" title="Backbone Collections" class="chapter done " data-progress="16.4" style="left: 95.65217391304348%;"></a>
     
-        <a href="../backbone/routes.html" title="Backbone Routes" class="chapter  " data-progress="16.5" style="left: 97.82608695652173%;"></a>
+        <a href="../backbone/routers.html" title="Backbone Routes" class="chapter  " data-progress="16.5" style="left: 97.82608695652173%;"></a>
     
         <a href="../backbone/crud.html" title="Backbone CRUD" class="chapter  " data-progress="16.6" style="left: 100%;"></a>
     
@@ -1078,10 +1078,10 @@ model has a fetch method that actually goes and retrieves the data
 from our REST api. To use it, modify your client.js to look something
 like this:</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> Note = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./notes/models/Note'</span>);
-<span class="hljs-keyword">var</span> NoteCollection = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./notes/collections/NotesCollection'</span>);
+<span class="hljs-keyword">var</span> NotesCollection = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./notes/collections/NotesCollection'</span>);
 <span class="hljs-keyword">var</span> SimpleView = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./notes/views/SimpleView'</span>);
 
-<span class="hljs-keyword">var</span> notes = <span class="hljs-keyword">new</span> NoteColleciton();
+<span class="hljs-keyword">var</span> notes = <span class="hljs-keyword">new</span> NotesColleciton();
 notes.fetch({
   success: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
     console.log(notes);
@@ -1155,7 +1155,7 @@ in the collection and all the render function does is call the add all.</p>
 notesView.render();
 
 notes.fetch({
-  succes: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+  success: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
     $(<span class="hljs-string">'#content'</span>).append(noteView);
   }
 });
@@ -1175,7 +1175,7 @@ document is index.html and after a rebuild we should see all of our notes on the
         <a href="../backbone/views.html" class="navigation navigation-prev " aria-label="Previous page: Backbone Views"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../backbone/routes.html" class="navigation navigation-next " aria-label="Next page: Backbone Routes"><i class="fa fa-angle-right"></i></a>
+        <a href="../backbone/routers.html" class="navigation navigation-next " aria-label="Next page: Backbone Routes"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

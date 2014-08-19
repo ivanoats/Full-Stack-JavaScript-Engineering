@@ -44,5 +44,5 @@
     * [Backbone Models](backbone/models.md) 
     * [Backbone Views](backbone/views.md)
     * [Backbone Collections](backbone/collections.md)
-    * [Backbone Routes](backbone/routes.md)
+    * [Backbone Routes](backbone/routers.md)
     * [Backbone CRUD](backbone/crud.md) 

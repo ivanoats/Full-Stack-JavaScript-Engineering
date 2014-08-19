@@ -22,10 +22,10 @@ from our REST api. To use it, modify your client.js to look something
 like this:
 ```javascript
 var Note = require('./notes/models/Note');
-var NoteCollection = require('./notes/collections/NotesCollection');
+var NotesCollection = require('./notes/collections/NotesCollection');
 var SimpleView = require('./notes/views/SimpleView');
 
-var notes = new NoteColleciton();
+var notes = new NotesColleciton();
 notes.fetch({
   success: function() {
     console.log(notes);
@@ -103,7 +103,7 @@ var notesView = new NotesView({collection: notes});
 notesView.render();
 
 notes.fetch({
-  succes: function() {
+  success: function() {
     $('#content').append(noteView);
   }
 });
