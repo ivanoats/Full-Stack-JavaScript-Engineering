@@ -4,7 +4,7 @@
     <head>
         
         <meta charset="UTF-8">
-        <title>EC2 | Full Stack JavaScript Engineering</title>
+        <title>Backbone Collections | Full Stack JavaScript Engineering</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 0.7.1">
@@ -19,10 +19,10 @@
     <meta name="author" content="ivanoats">
     
     
-    <link rel="next" href="../backbone/README.html" />
+    <link rel="next" href="../backbone/routes.html" />
     
     
-    <link rel="prev" href="../auth_auth/angular_jwt_basic.html" />
+    <link rel="prev" href="../backbone/views.html" />
     
 
         
@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-github="ivanoats/Full-Stack-JavaScript-Engineering" data-level="15" data-basepath=".." data-revision="1408485980159">
+    <div class="book" data-github="ivanoats/Full-Stack-JavaScript-Engineering" data-level="16.4" data-basepath=".." data-revision="1408485980159">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -114,7 +114,7 @@
         
         
         <li>
-            <a href="https://github.com/ivanoats/Full-Stack-JavaScript-Engineering/edit/master/ec2/README.md" target="blank" class="contribute-link">Edit and Contribute</a>
+            <a href="https://github.com/ivanoats/Full-Stack-JavaScript-Engineering/edit/master/backbone/collections.md" target="blank" class="contribute-link">Edit and Contribute</a>
         </li>
         
 
@@ -803,7 +803,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="15" data-path="ec2/README.html">
+        <li class="chapter " data-level="15" data-path="ec2/README.html">
             
                 
                     <a href="../ec2/README.html">
@@ -884,7 +884,7 @@
         </li>
     
         
-        <li class="chapter " data-level="16.4" data-path="backbone/collections.html">
+        <li class="chapter active" data-level="16.4" data-path="backbone/collections.html">
             
                 
                     <a href="../backbone/collections.html">
@@ -952,7 +952,7 @@
             <div class="page-wrapper" tabindex="-1">
                 <div class="book-progress">
     <div class="bar">
-        <div class="inner" style="width: 84.78260869565217%;min-width: 82.6086956521739%;"></div>
+        <div class="inner" style="width: 95.65217391304348%;min-width: 93.47826086956522%;"></div>
     </div>
     <div class="chapters">
     
@@ -1036,15 +1036,15 @@
     
         <a href="../ec2/README.html" title="EC2" class="chapter done " data-progress="15" style="left: 84.78260869565217%;"></a>
     
-        <a href="../backbone/README.html" title="Backbone" class="chapter  " data-progress="16" style="left: 86.95652173913044%;"></a>
+        <a href="../backbone/README.html" title="Backbone" class="chapter done " data-progress="16" style="left: 86.95652173913044%;"></a>
     
-        <a href="../backbone/overview.html" title="Backbone Overview" class="chapter  " data-progress="16.1" style="left: 89.1304347826087%;"></a>
+        <a href="../backbone/overview.html" title="Backbone Overview" class="chapter done " data-progress="16.1" style="left: 89.1304347826087%;"></a>
     
-        <a href="../backbone/models.html" title="Backbone Models" class="chapter  " data-progress="16.2" style="left: 91.30434782608695%;"></a>
+        <a href="../backbone/models.html" title="Backbone Models" class="chapter done " data-progress="16.2" style="left: 91.30434782608695%;"></a>
     
-        <a href="../backbone/views.html" title="Backbone Views" class="chapter  " data-progress="16.3" style="left: 93.47826086956522%;"></a>
+        <a href="../backbone/views.html" title="Backbone Views" class="chapter done " data-progress="16.3" style="left: 93.47826086956522%;"></a>
     
-        <a href="../backbone/collections.html" title="Backbone Collections" class="chapter  " data-progress="16.4" style="left: 95.65217391304348%;"></a>
+        <a href="../backbone/collections.html" title="Backbone Collections" class="chapter done " data-progress="16.4" style="left: 95.65217391304348%;"></a>
     
         <a href="../backbone/routes.html" title="Backbone Routes" class="chapter  " data-progress="16.5" style="left: 97.82608695652173%;"></a>
     
@@ -1055,142 +1055,114 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_43">
+                    <section class="normal" id="section-gitbook_6">
                     
-                        <h1 id="how-to-host-a-nodejs-app-on-an-ec2-ubuntu-server">How to host a NodeJS app on an EC2 Ubuntu Server</h1>
-<p>I will take you through the process of setting up your first server on an Amazon
-Elastic Compute Cloud (EC2) Ubuntu Server.</p>
-<h2 id="sign-up-for-amazon-web-services-free-tier">Sign up for Amazon Web Services Free Tier</h2>
-<ul>
-<li>Tip: sign up with a new email if your account is older than a year</li>
-</ul>
-<h2 id="create-a-new-key-pair-or-upload-an-ssh-public-key">Create a New Key Pair or Upload an SSH Public Key</h2>
-<ul>
-<li>Visit <a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#KeyPairs:" target="_blank">aws ssh key pairs</a></li>
-<li>I have found it&#39;s easier to upload a public key that you&#39;ve created on your own
-machine. Visit <a href="https://help.github.com/articles/generating-ssh-keys" target="_blank">Github Help</a>
-if you need help creating your own public/private key pair.</li>
-</ul>
-<h2 id="find-and-launch-an-ami">Find and launch an AMI</h2>
-<ul>
-<li>Google AWS Marketplace</li>
-<li>Search for Ubuntu</li>
-<li><a href="https://aws.amazon.com/marketplace/pp/B00JV9JBDS/ref=srh_res_product_title?ie=UTF8&amp;sr=0-3&amp;qid=1402960705314" target="_blank">I chose this 64 bit image</a>,  you should too for this tutorial.</li>
-<li>click the big yellow continue button</li>
-<li>accept default options, except:<ul>
-<li>make sure <strong>t1-micro</strong> is selected in EC2 Instance Type</li>
-</ul>
-</li>
-<li>Launch with 1-Click</li>
-</ul>
-<h2 id="connect-to-your-ec2-machine-instance">Connect to your EC2 Machine Instance</h2>
-<ul>
-<li>Visit your <a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:" target="_blank">EC2 Dashboard</a></li>
-<li>instance state will be &#39;running&#39; eventually</li>
-<li>find Public IP column and note address</li>
-<li><code>ssh ubuntu@PUBLIC-IP-ADDRESS</code><ul>
-<li>make an A record on your domain in <a href="http://aws.amazon.com/route53/" target="_blank">Route 53</a>
-for convenience</li>
-</ul>
-</li>
-</ul>
-<h2 id="install-prerequisites-and-common-packages">Install Prerequisites and Common Packages</h2>
-<p>The <code>-y</code> option is helpful because apt won&#39;t for wait for you to press &#39;y&#39;, it
-will just install the packages. Very helpful for when you&#39;re trying to script
-this entire process.</p>
-<pre><code>sudo apt-get update &amp;&amp; sudo apt-get install -y build-essential g++ tmux
-</code></pre><h2 id="install-node-build-from-source">Install Node, Build from Source</h2>
-<pre><code>curl -O http://nodejs.org/dist/v0.10.29/node-v0.10.29.tar.gz
-tar -xvzf node-v0.10.29.tar.gz
-cd node-v0.10.29
-./configure --prefix=/opt/node
-make
-sudo mkdir -p /opt/node
-sudo chown -R ubuntu.ubuntu /opt/node
-make install
-</code></pre><p>Add node to your path in <code>~/.bashrc</code>:</p>
-<p><code>echo &quot;export PATH=/opt/node/bin:$PATH&quot; &gt;&gt; ~/.bashrc</code></p>
-<p>Then reload <code>.bashrc</code></p>
-<p><code>source ~/.bashrc</code></p>
-<p>Double check to see that node is in your path:</p>
-<p><code>which node</code> =&gt; should be <code>/opt/node/bin/node</code></p>
-<p>Now, we need to add node to root&#39;s path too. To do this, we will need to use the
-<code>visudo</code> command to edit the secure path.</p>
-<p><code>sudo visudo</code></p>
-<p>edit your <code>Defaults  secure_path=</code> line, around the thrird line, to look like:</p>
-<p><code>Defaults        secure_path=&quot;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/node/bin&quot;</code></p>
-<p>The key here is to put the path to node at the end of the secure path.</p>
-<p>Go ahead and save the file.</p>
-<h2 id="install-the-latest-mongodb">Install the Latest MongoDB</h2>
-<p>Follow the directions here:
-<a href="http://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/" target="_blank">http://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/</a></p>
-<p>To summarize:</p>
-<pre><code>sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
-echo &#39;deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen&#39; | sudo tee /etc/apt/sources.list.d/mongodb.list
-sudo apt-get update
-sudo apt-get install mongodb-org
-</code></pre><h2 id="install-the-latest-redis">Install the Latest Redis</h2>
-<p>Luckily, Chris Lea keeps an up-to-date ubuntu ppa available.</p>
-<pre><code>sudo add-apt-repository ppa:chris-lea/redis-server
-sudo apt-get update
-sudo apt-get install redis-server -y
-</code></pre><h2 id="install-the-latest-git">Install the Latest Git</h2>
-<pre><code>sudo add-apt-repository ppa:git-core/ppa
-sudo apt-get update
-sudo apt-get install git -y
-</code></pre><h3 id="test-mongodb-is-running">Test MongoDB is running</h3>
-<pre><code>mongo
-show dbs
-</code></pre><ul>
-<li>ctrl-d to exit</li>
-</ul>
-<h3 id="test-redis-is-running">Test Redis is running</h3>
-<ul>
-<li><code>redis-cli ping</code> --&gt; should see  <code>PONG</code></li>
-</ul>
-<h2 id="a-neat-trick-to-find-the-external-ip">A Neat Trick to Find the External IP</h2>
-<p>You can always find the External IP address of your server in the EC2 Dashboard,
-but I frequently use this shortcut from the command line:</p>
-<p><code>curl icanhazip.com</code></p>
-<h2 id="bower-all-the-things">Bower ALL THE THINGS</h2>
-<p>I mean, install bower and any other global npm packages you use frequently.</p>
-<p><code>npm -g install bower grunt-cli</code></p>
-<h2 id="clone-your-app-and-install-npm-and-bower-packages">Clone Your App and Install NPM and Bower Packages</h2>
-<p>I&#39;ll use one of our example apps. </p>
-<p>Make sure you&#39;re in the ubuntu home directory: <code>/home/ubuntu</code> </p>
-<pre><code>cd
-git clone https://github.com/codefellows/javascript-b15-notes.git notes
-cd notes
-npm install &amp;&amp; bower install
-</code></pre><h2 id="launch-the-server-on-port-80">Launch the server on Port 80</h2>
-<p>To launch your app, and bind on any port under 1000, you need to use <code>sudo</code> to 
-escalate to root privelege.</p>
-<pre><code>sudo -i
-PORT=80 node server.js
-</code></pre><p>visit the site <a href="http://YOUR-IP-HERE" target="_blank">http://YOUR-IP-HERE</a></p>
-<p>This will do in a pinch, but it&#39;s not a professional setup. What happens if your
-server reboots? You want something to re-start the server automatically.</p>
-<h2 id="install-the-forever-npm-package">Install the Forever NPM Package</h2>
-<p><code>npm -g install forever</code>. Forever is a simple CLI tool for ensuring that a given script runs continuously.</p>
-<p>Create <code>/etc/init/notes.conf</code>. This is an <a href="http://en.wikipedia.org/wiki/Upstart" target="_blank">Ubuntu Upstart</a> script.</p>
-<p>You can always use <code>nano</code> if you are <a href="http://vim-adventures.com" target="_blank">afraid of Vim&hellip;</a></p>
-<p><code>/etc/init/notes.conf</code>:</p>
-<pre><code>start on startup
-stop on shutdown
+                        <h1 id="backbone-collections-">Backbone Collections </h1>
+<p>Backbone collections are a container for multiple Backbone models.
+The represent the primary way that we will be communicating with our
+Node/Express REST api. Create a collection directory under app/js/notes
+and then create a NotesCollection.js file with the following code:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> backbone = <span class="hljs-built_in">require</span>(<span class="hljs-string">'backbone'</span>);
+<span class="hljs-keyword">var</span> Note = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../models/Note'</span>);
 
-expect fork
+module.exports = Backbone.Collection.extend({
+  model: Note,
+  url: <span class="hljs-string">'api/v1_0/notes'</span>
+});
+</code></pre>
+<p>The single Note model has to be required into the collection and set to
+the model parameter. This lets Backbone know what the collection is 
+comprised of. The url parameter tells Backbone where to make REST
+requests to in order to retrieve the data that we need. The collection
+model has a fetch method that actually goes and retrieves the data
+from our REST api. To use it, modify your client.js to look something
+like this:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> Note = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./notes/models/Note'</span>);
+<span class="hljs-keyword">var</span> NoteCollection = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./notes/collections/NotesCollection'</span>);
+<span class="hljs-keyword">var</span> SimpleView = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./notes/views/SimpleView'</span>);
 
-script
-  PATH=/opt/node/bin:$PATH
-  exec forever start /home/ubuntu/notes/server.js
-end script
+<span class="hljs-keyword">var</span> notes = <span class="hljs-keyword">new</span> NoteColleciton();
+notes.fetch({
+  success: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+    console.log(notes);
+  },
+  error: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err)</span> {</span>
+    console.log(err);
+  }
+});
+</code></pre>
+<p>The fetch method takes a promise that has a success parameter and an error
+parameter. If you include a promise to fetch this will almost always both
+of these parameters will almost always be a function that will perform an
+action on success or error. Later, we will actually set up a listener to 
+reload our view when the data inside of our collection is updated. But 
+before that we need to actually have a collection view. Create a Collection.hbs
+file inside of app/js/notes/templates with the following:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">h3</span>&gt;</span>Notes:<span class="hljs-tag">&lt;/<span class="hljs-title">h3</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"notesCollection"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+</code></pre>
+<p>All we need in this template is a title that will be displayed at the top of the
+page and an element to place all of our individual note views into. Now,
+we need the actual view. Create a CollectionView.js file inside of app/js/notes/views
+with the following code:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> Backbone = <span class="hljs-built_in">require</span>(<span class="hljs-string">'backbone'</span>);
+<span class="hljs-keyword">var</span> $ = <span class="hljs-built_in">require</span>(<span class="hljs-string">'jquery'</span>);
+Backbone.$ = $;
 
-pre-stop script
-  PATH=/opt/node/bin:$PATH
-  exec forever stop /home/ubuntu/notes/server.js
-end script
-</code></pre><p>Then <code>sudo start notes</code> to start the app</p>
-<p>You can use use <code>sudo status notes</code> to see the status of the service.</p>
+<span class="hljs-keyword">var</span> Note = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../models/Note.js'</span>);
+<span class="hljs-keyword">var</span> NotesCollection = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../collections/NotesCollection.js'</span>);
+<span class="hljs-keyword">var</span> NoteView = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../views/SimpleView.js'</span>);
+
+module.exports = Backbone.View.extend({
+  tagName: <span class="hljs-string">'div'</span>,
+
+  initialize: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+    <span class="hljs-keyword">this</span>.collection.on(<span class="hljs-string">'add'</span>, <span class="hljs-keyword">this</span>.addNote, <span class="hljs-keyword">this</span>);
+    <span class="hljs-keyword">this</span>.collection.on(<span class="hljs-string">'reset'</span>, <span class="hljs-keyword">this</span>.addAll, <span class="hljs-keyword">this</span>);
+  },
+
+  addNote: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(note)</span> {</span>
+    <span class="hljs-keyword">var</span> noteView = <span class="hljs-keyword">new</span> NoteView({mode: note});
+    <span class="hljs-keyword">this</span>.$el.append(noteView.el);
+  },
+
+  addAll: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+    <span class="hljs-keyword">this</span>.collection.forEach(<span class="hljs-keyword">this</span>.addNote);
+  },
+
+  render: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+    <span class="hljs-keyword">this</span>.addAll();
+  }
+});
+</code></pre>
+<p>You will notice that the collection view extends the same backbone view as
+our regular view. The only difference is the code that we put inside the 
+view. The initialize function actually registers two listeners on the collection
+object that is passed to the view. The add listener is called when a new 
+model is added to the collection and the &#39;reset&#39; function will be called when
+a fetch is successfully called on the collection. The addNote function creates a
+new view the model that passed to the function. If you remember when a single
+view is created it gets rendered immediately. After the view is rendered it is
+appended into our collection view. The add function does this for every note model
+in the collection and all the render function does is call the add all.</p>
+<p>Now, we need to modify our client.js file to reflect the new collection view.</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> $ = <span class="hljs-built_in">require</span>(<span class="hljs-string">'jquery'</span>);
+<span class="hljs-keyword">var</span> Notes = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./notes/collections/NotesCollection'</span>);
+<span class="hljs-keyword">var</span> NotesView = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./notes/views/CollectionView'</span>);
+
+<span class="hljs-keyword">var</span> notes = <span class="hljs-keyword">new</span> Notes();
+<span class="hljs-keyword">var</span> notesView = <span class="hljs-keyword">new</span> NotesView({collection: notes});
+notesView.render();
+
+notes.fetch({
+  succes: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+    $(<span class="hljs-string">'#content'</span>).append(noteView);
+  }
+});
+</code></pre>
+<p>This code first create a new collection and collection view then calls fetch on
+the notes collection and on success appends the view to the document. In our case this 
+document is index.html and after a rebuild we should see all of our notes on the page.</p>
 
                     
                     </section>
@@ -1200,10 +1172,10 @@ end script
         </div>
 
         
-        <a href="../auth_auth/angular_jwt_basic.html" class="navigation navigation-prev " aria-label="Previous page: Angular Client Auth"><i class="fa fa-angle-left"></i></a>
+        <a href="../backbone/views.html" class="navigation navigation-prev " aria-label="Previous page: Backbone Views"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../backbone/README.html" class="navigation navigation-next " aria-label="Next page: Backbone"><i class="fa fa-angle-right"></i></a>
+        <a href="../backbone/routes.html" class="navigation navigation-next " aria-label="Next page: Backbone Routes"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

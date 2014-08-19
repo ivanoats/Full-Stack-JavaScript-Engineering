@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# Revision 1408223871528
+# Revision 1408485980159
 
 CACHE:
 index.html
@@ -7,6 +7,7 @@ auth_auth/README.html
 auth_auth/angular_jwt_basic.html
 auth_auth/basic_authentication.html
 backbone/README.html
+backbone/collections.html
 backbone/models.html
 backbone/overview.html
 backbone/views.html
