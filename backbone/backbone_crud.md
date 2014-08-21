@@ -17,9 +17,9 @@ the data from the form and save it to our database using the rest api.
 
 Create a NoteForm.hbs file under `app/js/notes/templates` with the following
 code:
-```javascript
+```html
 <form class="noteForm" action="">
-  <input type="textarea" name="noteBody" placeholder="new note"></input>
+  <input type="text" name="noteBody" placeholder="new note"></input>
   <button>Submit</button>
 </form>
 ```
@@ -29,6 +29,9 @@ this noteBody, which will contain the actual logic for creating the
 note and saving it. Add a file called NoteFormView.js to `app/js/notes/views`
 with the following code:
 ```javascript
+// app/js/notes/views/NoteFormView.js
+
+'use strict';
 var Backbone = require('backbone');
 var $ = require('jquery');
 Backbone.$ = $;
@@ -63,14 +66,15 @@ module.exports = Backbone.View.extend({
     });
   }
 });
-There is a lot of new functionality in this view. The first thing to notice is the
-events object, which is a lot like the routes object in our router. The left side
-of each entry is the action that we're listening for and the right side is the 
-function to call when that action happens. In our case we're waiting for the notes
-form to be submitting and when that happens we call the save function. Notice that we don't require
-note model into this view. Instead we rely on the router to place the note model into
-our view as the model parameter and use the mode.save function with our new data specified
-in the first object argument. We could instead do something like this:
+There is a lot of new functionality in this view. The first thing to notice is 
+the events object, which is a lot like the routes object in our router. The left
+side of each entry is the action that we're listening for and the right side is
+the function to call when that action happens. In our case we're waiting for the
+notes form to be submitting and when that happens we call the save function.
+Notice that we don't require note model into this view. Instead we rely on the
+router to place the note model into our view as the model parameter and use the
+mode.save function with our new data specified in the first object argument
+We could instead do something like this:
 ```javascript
 save: function(e) {
   var newNoteBody = this.$('input[name=noteBody]').val();
@@ -86,20 +90,23 @@ save: function(e) {
   });
 }
 ```
-And that would accomplish the same task but it would require that we pull in the Note model
-at the top of our view code. On a successful save you'll notice another new method 
-`Backbone.history.navigate('index', {trigger: true})` which will send us to the index
-action of our router. The {trigger: true} options tells navigate to go to that page now.
+And that would accomplish the same task but it would require that we pull in the
+Note model at the top of our view code. On a successful save you'll notice 
+another new method `Backbone.history.navigate('index', {trigger: true})` 
+which will send us to the index action of our router. The {trigger: true} 
+options tells navigate to go to that page now.
 
 The main benefit of using the generic model.save form rather than creating a new model
 in our view and setting the parameters is that we can use the same functionality for 
 updating our note. Instead of passing a new not into the model in the router, we can just pass
 a preexisting model. The next step, it would seem, is to exit our notes router.
 ```javascript
-//NotesRouter.js
+// NotesRouter.js
+
+'use strict';
 var Backbone = require('backbone');
 var $ = require('jquery');
-Backboe.$ = $;
+Backbone.$ = $;
 var Note = require('../models/Note');
 var SimpleNoteView = require('../views/SimpleView');
 var NotesCollection = require('../collections/NotesCollection');
@@ -155,10 +162,12 @@ Before we create links to all of these new routes we need to create a delete rou
 We can actually do this without creating a new view and just place it as an action
 in our router.
 ```javascript
-//NotesRouter.js
+// NotesRouter.js
+
+'use strict';
 var Backbone = require('backbone');
 var $ = require('jquery');
-Backboe.$ = $;
+Backbone.$ = $;
 var Note = require('../models/Note');
 var SimpleNoteView = require('../views/SimpleView');
 var NotesCollection = require('../collections/NotesCollection');

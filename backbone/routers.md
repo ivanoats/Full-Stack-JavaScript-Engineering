@@ -8,6 +8,9 @@ and really define what actions a user can perform in our application.
 Create the folder `app/js/notes/routers` then place a NotesRouter.js
 file in that folder with the following code:
 ```javascript
+//app/js/notes/routes/NotesRouter.js
+'use strict';
+
 var Backbone = require('backbone');
 var $ = require('jquery');
 Backbone.$ = $;
@@ -25,9 +28,9 @@ module.exports = Backbone.Router.extend({
     var self = this;
     this.notes = new NotesCollection();
     this.notes.fetch();
-    this.notesView = new NotesCollectionView({collection: self.notes});
-    this.notesView.render();
-    $('#content').html(self.notesView.el);
+    var notesView = new NotesCollectionView({collection: self.notes});
+    notesView.render();
+    $('#content').html(notesView.el);
   }
 });
 ```
