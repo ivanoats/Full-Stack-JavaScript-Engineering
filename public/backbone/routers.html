@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="16.5" data-basepath=".." data-revision="1408654689294">
+    <div class="book"  data-level="16.5" data-basepath=".." data-revision="1408660541897">
     
 
 <div class="book-summary">
@@ -958,9 +958,12 @@ on user actions. Backbone routers tie all the other pieces together
 and really define what actions a user can perform in our application.</p>
 <p>Create the folder <code>app/js/notes/routers</code> then place a NotesRouter.js
 file in that folder with the following code:</p>
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> Backbone = <span class="hljs-built_in">require</span>(<span class="hljs-string">'backbone'</span>);
+<pre><code class="lang-javascript"><span class="hljs-comment">//app/js/notes/routes/NotesRouter.js</span>
+<span class="hljs-pi">'use strict'</span>;
+
+<span class="hljs-keyword">var</span> Backbone = <span class="hljs-built_in">require</span>(<span class="hljs-string">'backbone'</span>);
 <span class="hljs-keyword">var</span> $ = <span class="hljs-built_in">require</span>(<span class="hljs-string">'jquery'</span>);
-Backboe.$ = $;
+Backbone.$ = $;
 <span class="hljs-keyword">var</span> Note = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../models/Note'</span>);
 <span class="hljs-keyword">var</span> SimpleNoteView = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../views/SimpleView'</span>);
 <span class="hljs-keyword">var</span> NotesCollection = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../collections/NotesCollection'</span>);
@@ -975,9 +978,9 @@ Backboe.$ = $;
     <span class="hljs-keyword">var</span> self = <span class="hljs-keyword">this</span>;
     <span class="hljs-keyword">this</span>.notes = <span class="hljs-keyword">new</span> NotesCollection();
     <span class="hljs-keyword">this</span>.notes.fetch();
-    <span class="hljs-keyword">this</span>.notesView = <span class="hljs-keyword">new</span> NotesCollectionView({collection: self.notes});
-    <span class="hljs-keyword">this</span>.notesView.render();
-    $(<span class="hljs-string">'#content'</span>).html(self.notesView.el);
+    <span class="hljs-keyword">var</span> notesView = <span class="hljs-keyword">new</span> NotesCollectionView({collection: self.notes});
+    notesView.render();
+    $(<span class="hljs-string">'#content'</span>).html(notesView.el);
   }
 });
 </code></pre>

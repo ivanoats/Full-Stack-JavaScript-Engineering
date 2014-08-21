@@ -31,7 +31,7 @@
 
 
         
-    <div class="book"  data-level="16.6" data-basepath=".." data-revision="1408654689294">
+    <div class="book"  data-level="16.6" data-basepath=".." data-revision="1408660541897">
     
 
 <div class="book-summary">
@@ -965,17 +965,20 @@ view to be able to render the form. Finally, we need an action can get
 the data from the form and save it to our database using the rest api.</p>
 <p>Create a NoteForm.hbs file under <code>app/js/notes/templates</code> with the following
 code:</p>
-<pre><code class="lang-javascript">&lt;form <span class="hljs-keyword">class</span>=<span class="hljs-string">"noteForm"</span> action=<span class="hljs-string">""</span>&gt;
-  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"textarea"</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"noteBody"</span> <span class="hljs-attribute">placeholder</span>=<span class="hljs-value">"new note"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">input</span>&gt;</span>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">form</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"noteForm"</span> <span class="hljs-attribute">action</span>=<span class="hljs-value">""</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text"</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"noteBody"</span> <span class="hljs-attribute">placeholder</span>=<span class="hljs-value">"new note"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">input</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">button</span>&gt;</span>Submit<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-title">form</span>&gt;</span></span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">form</span>&gt;</span>
 </code></pre>
 <p>All this template contains is a text form for our note which really
 is just the noteBody. The next step is to create the view to contain
 this noteBody, which will contain the actual logic for creating the
 note and saving it. Add a file called NoteFormView.js to <code>app/js/notes/views</code>
 with the following code:</p>
-<pre><code class="lang-javascript">var Backbone = require(&#39;backbone&#39;);
+<pre><code class="lang-javascript">// app/js/notes/views/NoteFormView.js
+
+&#39;use strict&#39;;
+var Backbone = require(&#39;backbone&#39;);
 var $ = require(&#39;jquery&#39;);
 Backbone.$ = $;
 
@@ -1009,14 +1012,15 @@ module.exports = Backbone.View.extend({
     });
   }
 });
-There is a lot of new functionality in this view. The first thing to notice is the
-events object, which is a lot like the routes object in our router. The left side
-of each entry is the action that we&#39;re listening for and the right side is the 
-function to call when that action happens. In our case we&#39;re waiting for the notes
-form to be submitting and when that happens we call the save function. Notice that we don&#39;t require
-note model into this view. Instead we rely on the router to place the note model into
-our view as the model parameter and use the mode.save function with our new data specified
-in the first object argument. We could instead do something like this:
+There is a lot of new functionality in this view. The first thing to notice is 
+the events object, which is a lot like the routes object in our router. The left
+side of each entry is the action that we&#39;re listening for and the right side is
+the function to call when that action happens. In our case we&#39;re waiting for the
+notes form to be submitting and when that happens we call the save function.
+Notice that we don&#39;t require note model into this view. Instead we rely on the
+router to place the note model into our view as the model parameter and use the
+mode.save function with our new data specified in the first object argument
+We could instead do something like this:
 ```javascript
 save: function(e) {
   var newNoteBody = this.$(&#39;input[name=noteBody]&#39;).val();
@@ -1032,18 +1036,21 @@ save: function(e) {
   });
 }
 </code></pre>
-<p>And that would accomplish the same task but it would require that we pull in the Note model
-at the top of our view code. On a successful save you&#39;ll notice another new method 
-<code>Backbone.history.navigate(&#39;index&#39;, {trigger: true})</code> which will send us to the index
-action of our router. The {trigger: true} options tells navigate to go to that page now.</p>
+<p>And that would accomplish the same task but it would require that we pull in the
+Note model at the top of our view code. On a successful save you&#39;ll notice 
+another new method <code>Backbone.history.navigate(&#39;index&#39;, {trigger: true})</code> 
+which will send us to the index action of our router. The {trigger: true} 
+options tells navigate to go to that page now.</p>
 <p>The main benefit of using the generic model.save form rather than creating a new model
 in our view and setting the parameters is that we can use the same functionality for 
 updating our note. Instead of passing a new not into the model in the router, we can just pass
 a preexisting model. The next step, it would seem, is to exit our notes router.</p>
-<pre><code class="lang-javascript">//NotesRouter.js
+<pre><code class="lang-javascript">// NotesRouter.js
+
+&#39;use strict&#39;;
 var Backbone = require(&#39;backbone&#39;);
 var $ = require(&#39;jquery&#39;);
-Backboe.$ = $;
+Backbone.$ = $;
 var Note = require(&#39;../models/Note&#39;);
 var SimpleNoteView = require(&#39;../views/SimpleView&#39;);
 var NotesCollection = require(&#39;../collections/NotesCollection&#39;);
@@ -1097,10 +1104,12 @@ to the index route.</p>
 <p>Before we create links to all of these new routes we need to create a delete route.
 We can actually do this without creating a new view and just place it as an action
 in our router.</p>
-<pre><code class="lang-javascript">//NotesRouter.js
+<pre><code class="lang-javascript">// NotesRouter.js
+
+&#39;use strict&#39;;
 var Backbone = require(&#39;backbone&#39;);
 var $ = require(&#39;jquery&#39;);
-Backboe.$ = $;
+Backbone.$ = $;
 var Note = require(&#39;../models/Note&#39;);
 var SimpleNoteView = require(&#39;../views/SimpleView&#39;);
 var NotesCollection = require(&#39;../collections/NotesCollection&#39;);
