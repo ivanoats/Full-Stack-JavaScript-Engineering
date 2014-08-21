@@ -17,17 +17,20 @@ the data from the form and save it to our database using the rest api.
 
 Create a NoteForm.hbs file under `app/js/notes/templates` with the following
 code:
+
 ```html
 <form class="noteForm" action="">
   <input type="text" name="noteBody" placeholder="new note"></input>
   <button>Submit</button>
 </form>
 ```
+
 All this template contains is a text form for our note which really
 is just the noteBody. The next step is to create the view to contain
 this noteBody, which will contain the actual logic for creating the
 note and saving it. Add a file called NoteFormView.js to `app/js/notes/views`
 with the following code:
+
 ```javascript
 // app/js/notes/views/NoteFormView.js
 
@@ -66,6 +69,8 @@ module.exports = Backbone.View.extend({
     });
   }
 });
+```
+
 There is a lot of new functionality in this view. The first thing to notice is 
 the events object, which is a lot like the routes object in our router. The left
 side of each entry is the action that we're listening for and the right side is
@@ -75,6 +80,7 @@ Notice that we don't require note model into this view. Instead we rely on the
 router to place the note model into our view as the model parameter and use the
 mode.save function with our new data specified in the first object argument
 We could instead do something like this:
+
 ```javascript
 save: function(e) {
   var newNoteBody = this.$('input[name=noteBody]').val();
@@ -90,6 +96,7 @@ save: function(e) {
   });
 }
 ```
+
 And that would accomplish the same task but it would require that we pull in the
 Note model at the top of our view code. On a successful save you'll notice 
 another new method `Backbone.history.navigate('index', {trigger: true})` 
@@ -100,6 +107,7 @@ The main benefit of using the generic model.save form rather than creating a new
 in our view and setting the parameters is that we can use the same functionality for 
 updating our note. Instead of passing a new not into the model in the router, we can just pass
 a preexisting model. The next step, it would seem, is to exit our notes router.
+
 ```javascript
 // NotesRouter.js
 
@@ -151,6 +159,7 @@ module.exports = Backbone.Router.extend({
   }
 });
 ```
+
 Notice in the `:id` in the update route for, this tells backbone that any text
 following the `notes/edit` should be saved into the id variable which you'll notice
 is a parameter for the update function. We then use this variable to find the note
@@ -161,6 +170,7 @@ to the index route.
 Before we create links to all of these new routes we need to create a delete route.
 We can actually do this without creating a new view and just place it as an action
 in our router.
+
 ```javascript
 // NotesRouter.js
 
@@ -225,6 +235,7 @@ module.exports = Backbone.Router.extend({
   }
 });
 ```
+
 All we do is create a new not with the id of the note that we're trying to delete
 and then calling the destroy function on that note. Backbone takes care of sending
 the proper request to our rest api. We don't need to add the redirect as this action
@@ -234,18 +245,22 @@ Now we need to add link to all of these functions. We really only have to do thi
 in two places: the note simple view and the collection view. We'll add the update
 and destroy actions to the simple view and the new action to the collection view.
 Update the simple view template to look like this:
+
 ```html
 <p>{{noteBody}}</p>
 <a href="{{'#/notes/edit/' + _id}}">Edit Note</a>
 <a href="{{'#/notes/delete/' + _id}}">Delete Note</a>
 ```
+
 We use href link in this case as I find them easier to work with than the backbone
 navigate feature. Although if you change your routing they will all have to be
 update, tradeoffs. Next update the collection view to look like this:
+
 ```html
 <a href="#/notes/new">New Note</a>
 <h3>Notes:</h3>
 <div class="notesCollection"></div>
 ```
+
 With that, we should now have a working crud interface that allows us to successfully
 CRUD notes.
