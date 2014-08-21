@@ -4,7 +4,7 @@
     <head>
         
         <meta charset="UTF-8">
-        <title>Day Two | Full Stack JavaScript Engineering</title>
+        <title>Backbone CRUD | Full Stack JavaScript Engineering</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.0.2">
@@ -18,10 +18,8 @@
     
     
     
-    <link rel="next" href="../day2/async_demo.html" />
     
-    
-    <link rel="prev" href="../day1/install_node_from_source.html" />
+    <link rel="prev" href="../backbone/routers.html" />
     
 
         
@@ -33,7 +31,7 @@
 
 
         
-    <div class="book"  data-level="4" data-basepath=".." data-revision="1408654689294">
+    <div class="book"  data-level="16.6" data-basepath=".." data-revision="1408654689294">
     
 
 <div class="book-summary">
@@ -199,7 +197,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="4" data-path="day2/README.html">
+        <li class="chapter " data-level="4" data-path="day2/README.html">
             
                 
                     <a href="../day2/README.html">
@@ -840,7 +838,7 @@
         </li>
     
         
-        <li class="chapter " data-level="16.6" data-path="backbone/backbone_crud.html">
+        <li class="chapter active" data-level="16.6" data-path="backbone/backbone_crud.html">
             
                 
                     <a href="../backbone/backbone_crud.html">
@@ -949,18 +947,238 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_20">
+                    <section class="normal" id="section-gitbook_6">
                     
-                        <h1 id="day-two">Day Two</h1>
-<ul>
-<li>Class Structure</li>
-<li>Instructor Availability in the Mornings</li>
-<li>Open Questions</li>
-<li>Demo: Making a branch and pull request to your own repo</li>
-<li>Node Slides</li>
-<li>Node Beginner Book</li>
-<li>NodeSchool.io</li>
-</ul>
+                        <h1 id="backbone-crud">Backbone CRUD</h1>
+<p>The final step in our backbone application is to make a CRUD interface
+for our Backbone app. CRUD stands for Create, Read, Update, Destroy
+and represents the basic functionality you need to have a working app.
+In the case of our Notes application we need to be able to create
+a new note, see that note, edit that note and remove that note from our
+notes list. We already have this CRUD setup on our express app, now 
+we just a way for the average user to be able to do the same thing.</p>
+<p>We already have two different methods of &#39;reading&#39; our notes. Both the
+simple view and the notes collection view. The next step is going to be
+the creation of new notes. There are three main pieces to this functionality.
+First, we need a template that contains a form for the note. Then, we need a
+view to be able to render the form. Finally, we need an action can get
+the data from the form and save it to our database using the rest api.</p>
+<p>Create a NoteForm.hbs file under <code>app/js/notes/templates</code> with the following
+code:</p>
+<pre><code class="lang-javascript">&lt;form <span class="hljs-keyword">class</span>=<span class="hljs-string">"noteForm"</span> action=<span class="hljs-string">""</span>&gt;
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"textarea"</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"noteBody"</span> <span class="hljs-attribute">placeholder</span>=<span class="hljs-value">"new note"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">input</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">button</span>&gt;</span>Submit<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">form</span>&gt;</span></span>
+</code></pre>
+<p>All this template contains is a text form for our note which really
+is just the noteBody. The next step is to create the view to contain
+this noteBody, which will contain the actual logic for creating the
+note and saving it. Add a file called NoteFormView.js to <code>app/js/notes/views</code>
+with the following code:</p>
+<pre><code class="lang-javascript">var Backbone = require(&#39;backbone&#39;);
+var $ = require(&#39;jquery&#39;);
+Backbone.$ = $;
+
+module.exports = Backbone.View.extend({
+  tagName: &#39;div&#39;
+
+  intialize: function() {
+    this.render();
+  },
+
+  events: {
+    submit: &quot;save&quot;
+  },
+
+  render: function() {
+    var template = require(&#39;../templates/NoteForm.hbs&#39;);
+    this.$el.html(template(this.model.toJSON()));
+    return this;
+  },
+
+  save: function(e) {
+    e.preventDefault();
+    var newNoteBody = this.$(&#39;input[name=noteBody]&#39;).val();
+    this.model.save({noteBody: newNoteBody}, {
+      success: function() {
+        Backbone.history.navigate(&#39;index&#39;, {trigger: true});
+      },
+      error: function() {
+        console.log(&#39;could not save note&#39;);
+      }
+    });
+  }
+});
+There is a lot of new functionality in this view. The first thing to notice is the
+events object, which is a lot like the routes object in our router. The left side
+of each entry is the action that we&#39;re listening for and the right side is the 
+function to call when that action happens. In our case we&#39;re waiting for the notes
+form to be submitting and when that happens we call the save function. Notice that we don&#39;t require
+note model into this view. Instead we rely on the router to place the note model into
+our view as the model parameter and use the mode.save function with our new data specified
+in the first object argument. We could instead do something like this:
+```javascript
+save: function(e) {
+  var newNoteBody = this.$(&#39;input[name=noteBody]&#39;).val();
+  var newNote = new Note();
+  newNote.set(&#39;noteBody&#39;, newNoteBody);
+  newNote.save({}, {
+    success: function() {
+      Backbone.history.navigate(&#39;index&#39;, {trigger: true});
+    },
+    error: function() {
+      console.log(&#39;could not save note&#39;);
+    }
+  });
+}
+</code></pre>
+<p>And that would accomplish the same task but it would require that we pull in the Note model
+at the top of our view code. On a successful save you&#39;ll notice another new method 
+<code>Backbone.history.navigate(&#39;index&#39;, {trigger: true})</code> which will send us to the index
+action of our router. The {trigger: true} options tells navigate to go to that page now.</p>
+<p>The main benefit of using the generic model.save form rather than creating a new model
+in our view and setting the parameters is that we can use the same functionality for 
+updating our note. Instead of passing a new not into the model in the router, we can just pass
+a preexisting model. The next step, it would seem, is to exit our notes router.</p>
+<pre><code class="lang-javascript">//NotesRouter.js
+var Backbone = require(&#39;backbone&#39;);
+var $ = require(&#39;jquery&#39;);
+Backboe.$ = $;
+var Note = require(&#39;../models/Note&#39;);
+var SimpleNoteView = require(&#39;../views/SimpleView&#39;);
+var NotesCollection = require(&#39;../collections/NotesCollection&#39;);
+var NotesCollectionView = require(&#39;../views/NotesCollectionView&#39;);
+var NoteFormView = require(&#39;../views/NoteFormView&#39;);
+
+module.exports = Backbone.Router.extend({
+  routes: {
+    &quot;notes&quot;: &quot;index&quot;,
+    &quot;notes/new&quot;: &quot;create&quot;,
+    &quot;notes/edit/:id&quot;: &quot;update&quot;
+  },
+
+  index: function() {
+    var self = this;
+    this.notes = new NotesCollection();
+    this.notes.fetch();
+    this.notesView = new NotesCollectionView({collection: self.notes});
+    this.notesView.render();
+    $(&#39;#content&#39;).html(self.notesView.el);
+  },
+
+  create: function() {
+    var note = new Note();
+    var noteFormView = new NoteFormView({model: note});
+    $(&#39;#content&#39;).html(noteFormView.el);
+  },
+
+  update: function(id) {
+    var note = new Note({&#39;_id&#39;: &#39;id&#39;});
+    var noteFormView = new NoteFormView({model: note});
+    note.fetch({
+      success: function() {
+        noteFormView.render();
+        $(&#39;#content&#39;).html(noteFormView.el);
+      },
+      error: function() {
+        cosole.log(&#39;couldn&#39;t find note&#39;);
+        Backbone.history.navigate(&#39;index&#39;, {trigger: true});
+      }
+    })
+  }
+});
+</code></pre>
+<p>Notice in the <code>:id</code> in the update route for, this tells backbone that any text
+following the <code>notes/edit</code> should be saved into the id variable which you&#39;ll notice
+is a parameter for the update function. We then use this variable to find the note
+that we&#39;re looking for and send it in as the model for the form model. If we find
+the model we render the form and set our content to that view. If not, we got back
+to the index route.</p>
+<p>Before we create links to all of these new routes we need to create a delete route.
+We can actually do this without creating a new view and just place it as an action
+in our router.</p>
+<pre><code class="lang-javascript">//NotesRouter.js
+var Backbone = require(&#39;backbone&#39;);
+var $ = require(&#39;jquery&#39;);
+Backboe.$ = $;
+var Note = require(&#39;../models/Note&#39;);
+var SimpleNoteView = require(&#39;../views/SimpleView&#39;);
+var NotesCollection = require(&#39;../collections/NotesCollection&#39;);
+var NotesCollectionView = require(&#39;../views/NotesCollectionView&#39;);
+var NoteFormView = require(&#39;../views/NoteFormView&#39;);
+
+module.exports = Backbone.Router.extend({
+  routes: {
+    &quot;notes&quot;: &quot;index&quot;,
+    &quot;notes/new&quot;: &quot;create&quot;,
+    &quot;notes/edit/:id&quot;: &quot;update&quot;,
+    &quot;notes/delete/:id&quot;: &quot;destroy&quot; 
+  },
+
+  index: function() {
+    var self = this;
+    this.notes = new NotesCollection();
+    this.notes.fetch();
+    this.notesView = new NotesCollectionView({collection: self.notes});
+    this.notesView.render();
+    $(&#39;#content&#39;).html(self.notesView.el);
+  },
+
+  create: function() {
+    var note = new Note();
+    var noteFormView = new NoteFormView({model: note});
+    $(&#39;#content&#39;).html(noteFormView.el);
+  },
+
+  update: function(id) {
+    var note = new Note({&#39;_id&#39;: id});
+    var noteFormView = new NoteFormView({model: note});
+    note.fetch({
+      success: function() {
+        noteFormView.render();
+        $(&#39;#content&#39;).html(noteFormView.el);
+      },
+      error: function() {
+        cosole.log(&#39;couldn&#39;t find note&#39;);
+        Backbone.history.navigate(&#39;index&#39;, {trigger: true});
+      }
+    })
+  },
+
+  destroy: function(id) {
+    var note = new Note({&#39;_id&#39;: id});
+    note.destroy({
+      success: function() {
+        console.log(&#39;note deleted&#39;);
+      },
+      error: function() {
+        console.log(&#39;note could not be deleted&#39;);
+      }
+    });
+  }
+});
+</code></pre>
+<p>All we do is create a new not with the id of the note that we&#39;re trying to delete
+and then calling the destroy function on that note. Backbone takes care of sending
+the proper request to our rest api. We don&#39;t need to add the redirect as this action
+won&#39;t have a view rendered for it, so we should already be on the index page.</p>
+<p>Now we need to add link to all of these functions. We really only have to do this
+in two places: the note simple view and the collection view. We&#39;ll add the update
+and destroy actions to the simple view and the new action to the collection view.
+Update the simple view template to look like this:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>{{noteBody}}<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"{{'#/notes/edit/' + _id}}"</span>&gt;</span>Edit Note<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"{{'#/notes/delete/' + _id}}"</span>&gt;</span>Delete Note<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+</code></pre>
+<p>We use href link in this case as I find them easier to work with than the backbone
+navigate feature. Although if you change your routing they will all have to be
+update, tradeoffs. Next update the collection view to look like this:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"#/notes/new"</span>&gt;</span>New Note<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">h3</span>&gt;</span>Notes:<span class="hljs-tag">&lt;/<span class="hljs-title">h3</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"notesCollection"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+</code></pre>
+<p>With that, we should now have a working crud interface that allows us to successfully
+CRUD notes.</p>
 
                     
                     </section>
@@ -971,10 +1189,8 @@
         </div>
 
         
-        <a href="../day1/install_node_from_source.html" class="navigation navigation-prev " aria-label="Previous page: For Linux: Compile Node from Source"><i class="fa fa-angle-left"></i></a>
+        <a href="../backbone/routers.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Backbone Routes"><i class="fa fa-angle-left"></i></a>
         
-        
-        <a href="../day2/async_demo.html" class="navigation navigation-next " aria-label="Next page: Async Demo"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

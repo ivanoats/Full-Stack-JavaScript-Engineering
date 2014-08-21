@@ -9,7 +9,7 @@ SPAs have these benefits (over server generated pages):
 
 - Better User Experience. Code running in the browser is more responsive than waiting for a server generated page.
 
-- Models "get your truth out of the DOM"
+- Models "get your truth out of the DOM". There should only ever be a single source of truth for any given item of information in your code.
 
 
 Why do we still teach Backbone over newer, more trendy frameworks?
