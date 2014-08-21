@@ -31,7 +31,7 @@
 
 
         
-    <div class="book"  data-level="16.6" data-basepath=".." data-revision="1408660541897">
+    <div class="book"  data-level="16.6" data-basepath=".." data-revision="1408661333198">
     
 
 <div class="book-summary">
@@ -975,44 +975,45 @@ is just the noteBody. The next step is to create the view to contain
 this noteBody, which will contain the actual logic for creating the
 note and saving it. Add a file called NoteFormView.js to <code>app/js/notes/views</code>
 with the following code:</p>
-<pre><code class="lang-javascript">// app/js/notes/views/NoteFormView.js
-
-&#39;use strict&#39;;
-var Backbone = require(&#39;backbone&#39;);
-var $ = require(&#39;jquery&#39;);
+<pre><code class="lang-javascript"><span class="hljs-comment">// app/js/notes/views/NoteFormView.js</span>
+<span class="hljs-pi">
+'use strict'</span>;
+<span class="hljs-keyword">var</span> Backbone = <span class="hljs-built_in">require</span>(<span class="hljs-string">'backbone'</span>);
+<span class="hljs-keyword">var</span> $ = <span class="hljs-built_in">require</span>(<span class="hljs-string">'jquery'</span>);
 Backbone.$ = $;
 
-module.exports = Backbone.View.extend({
-  tagName: &#39;div&#39;
+<span class="hljs-built_in">module</span>.exports = Backbone.View.extend({
+  tagName: <span class="hljs-string">'div'</span>
 
-  intialize: function() {
-    this.render();
+  intialize: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">this</span>.render();
   },
 
   events: {
-    submit: &quot;save&quot;
+    submit: <span class="hljs-string">"save"</span>
   },
 
-  render: function() {
-    var template = require(&#39;../templates/NoteForm.hbs&#39;);
-    this.$el.html(template(this.model.toJSON()));
-    return this;
+  render: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">var</span> template = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../templates/NoteForm.hbs'</span>);
+    <span class="hljs-keyword">this</span>.$el.html(template(<span class="hljs-keyword">this</span>.model.toJSON()));
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
   },
 
-  save: function(e) {
+  save: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(e)</span> </span>{
     e.preventDefault();
-    var newNoteBody = this.$(&#39;input[name=noteBody]&#39;).val();
-    this.model.save({noteBody: newNoteBody}, {
-      success: function() {
-        Backbone.history.navigate(&#39;index&#39;, {trigger: true});
+    <span class="hljs-keyword">var</span> newNoteBody = <span class="hljs-keyword">this</span>.$(<span class="hljs-string">'input[name=noteBody]'</span>).val();
+    <span class="hljs-keyword">this</span>.model.save({noteBody: newNoteBody}, {
+      success: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+        Backbone.history.navigate(<span class="hljs-string">'index'</span>, {trigger: <span class="hljs-literal">true</span>});
       },
-      error: function() {
-        console.log(&#39;could not save note&#39;);
+      error: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'could not save note'</span>);
       }
     });
   }
 });
-There is a lot of new functionality in this view. The first thing to notice is 
+</code></pre>
+<p>There is a lot of new functionality in this view. The first thing to notice is 
 the events object, which is a lot like the routes object in our router. The left
 side of each entry is the action that we&#39;re listening for and the right side is
 the function to call when that action happens. In our case we&#39;re waiting for the
@@ -1020,18 +1021,17 @@ notes form to be submitting and when that happens we call the save function.
 Notice that we don&#39;t require note model into this view. Instead we rely on the
 router to place the note model into our view as the model parameter and use the
 mode.save function with our new data specified in the first object argument
-We could instead do something like this:
-```javascript
-save: function(e) {
-  var newNoteBody = this.$(&#39;input[name=noteBody]&#39;).val();
-  var newNote = new Note();
-  newNote.set(&#39;noteBody&#39;, newNoteBody);
+We could instead do something like this:</p>
+<pre><code class="lang-javascript">save: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(e)</span> </span>{
+  <span class="hljs-keyword">var</span> newNoteBody = <span class="hljs-keyword">this</span>.$(<span class="hljs-string">'input[name=noteBody]'</span>).val();
+  <span class="hljs-keyword">var</span> newNote = <span class="hljs-keyword">new</span> Note();
+  newNote.set(<span class="hljs-string">'noteBody'</span>, newNoteBody);
   newNote.save({}, {
-    success: function() {
-      Backbone.history.navigate(&#39;index&#39;, {trigger: true});
+    success: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+      Backbone.history.navigate(<span class="hljs-string">'index'</span>, {trigger: <span class="hljs-literal">true</span>});
     },
-    error: function() {
-      console.log(&#39;could not save note&#39;);
+    error: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'could not save note'</span>);
     }
   });
 }
