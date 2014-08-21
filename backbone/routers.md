@@ -10,7 +10,7 @@ file in that folder with the following code:
 ```javascript
 var Backbone = require('backbone');
 var $ = require('jquery');
-Backboe.$ = $;
+Backbone.$ = $;
 var Note = require('../models/Note');
 var SimpleNoteView = require('../views/SimpleView');
 var NotesCollection = require('../collections/NotesCollection');
