@@ -10,7 +10,7 @@ file in that folder with the following code:
 ```javascript
 var Backbone = require('backbone');
 var $ = require('jquery');
-Backboe.$ = $;
+Backbone.$ = $;
 var Note = require('../models/Note');
 var SimpleNoteView = require('../views/SimpleView');
 var NotesCollection = require('../collections/NotesCollection');
@@ -35,7 +35,7 @@ module.exports = Backbone.Router.extend({
 Alright, there are a lot of new concepts in this short segment of code.
 The Router always has a routes parameter that actually sets up the routes
 that are available to our application. This routes parameter is a json object
-that takes the url to hit from our base and the name of a function to call when 
+that takes the url to hit from our base and the name of a function to call when
 that base in navigated to. In the index function we create both the notes
 collection and the notes collection view and save them to the router.
 We will eventually change this to occur on initialize but for now we only have
