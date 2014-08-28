@@ -178,6 +178,7 @@ in our router.
 var Backbone = require('backbone');
 var $ = require('jquery');
 Backbone.$ = $;
+
 var Note = require('../models/Note');
 var SimpleNoteView = require('../views/SimpleView');
 var NotesCollection = require('../collections/NotesCollection');

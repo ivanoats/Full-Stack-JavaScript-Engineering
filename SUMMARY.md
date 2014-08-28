@@ -46,3 +46,7 @@
     * [Backbone Collections](backbone/collections.md)
     * [Backbone Routes](backbone/routers.md)
     * [Backbone CRUD](backbone/backbone_crud.md) 
+* [Angular](angular/angular_part_1.md)
+    * [Angular Part 2](angular/angular_part_2.md)
+    * [Angular Part 3](Angular/angular_part_3.md)
+    * [Angular JWT](auth_auth/angular_jwt_basic.md)

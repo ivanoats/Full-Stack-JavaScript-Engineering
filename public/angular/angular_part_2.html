@@ -4,7 +4,7 @@
     <head>
         
         <meta charset="UTF-8">
-        <title>EC2 | Full Stack JavaScript Engineering</title>
+        <title>Angular Part 2 | Full Stack JavaScript Engineering</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.0.2">
@@ -18,10 +18,10 @@
     
     
     
-    <link rel="next" href="../backbone/README.html" />
+    <link rel="next" href="../Angular/angular_part_3.html" />
     
     
-    <link rel="prev" href="../auth_auth/angular_jwt_basic.html" />
+    <link rel="prev" href="../angular/angular_part_1.html" />
     
 
         
@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="15" data-basepath=".." data-revision="1409249698071">
+    <div class="book"  data-level="17.1" data-basepath=".." data-revision="1409249698071">
     
 
 <div class="book-summary">
@@ -727,7 +727,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="15" data-path="ec2/README.html">
+        <li class="chapter " data-level="15" data-path="ec2/README.html">
             
                 
                     <a href="../ec2/README.html">
@@ -878,7 +878,7 @@
                 
     
         
-        <li class="chapter " data-level="17.1" data-path="angular/angular_part_2.html">
+        <li class="chapter active" data-level="17.1" data-path="angular/angular_part_2.html">
             
                 
                     <a href="../angular/angular_part_2.html">
@@ -1019,142 +1019,49 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_47">
+                    <section class="normal" id="section-gitbook_3">
                     
-                        <h1 id="how-to-host-a-nodejs-app-on-an-ec2-ubuntu-server">How to host a NodeJS app on an EC2 Ubuntu Server</h1>
-<p>I will take you through the process of setting up your first server on an Amazon
-Elastic Compute Cloud (EC2) Ubuntu Server.</p>
-<h2 id="sign-up-for-amazon-web-services-free-tier">Sign up for Amazon Web Services Free Tier</h2>
-<ul>
-<li>Tip: sign up with a new email if your account is older than a year</li>
-</ul>
-<h2 id="create-a-new-key-pair-or-upload-an-ssh-public-key">Create a New Key Pair or Upload an SSH Public Key</h2>
-<ul>
-<li>Visit <a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#KeyPairs:" target="_blank">aws ssh key pairs</a></li>
-<li>I have found it&#39;s easier to upload a public key that you&#39;ve created on your own
-machine. Visit <a href="https://help.github.com/articles/generating-ssh-keys" target="_blank">Github Help</a>
-if you need help creating your own public/private key pair.</li>
-</ul>
-<h2 id="find-and-launch-an-ami">Find and launch an AMI</h2>
-<ul>
-<li>Google AWS Marketplace</li>
-<li>Search for Ubuntu</li>
-<li><a href="https://aws.amazon.com/marketplace/pp/B00JV9JBDS/ref=srh_res_product_title?ie=UTF8&amp;sr=0-3&amp;qid=1402960705314" target="_blank">I chose this 64 bit image</a>,  you should too for this tutorial.</li>
-<li>click the big yellow continue button</li>
-<li>accept default options, except:<ul>
-<li>make sure <strong>t1-micro</strong> is selected in EC2 Instance Type</li>
-</ul>
-</li>
-<li>Launch with 1-Click</li>
-</ul>
-<h2 id="connect-to-your-ec2-machine-instance">Connect to your EC2 Machine Instance</h2>
-<ul>
-<li>Visit your <a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:" target="_blank">EC2 Dashboard</a></li>
-<li>instance state will be &#39;running&#39; eventually</li>
-<li>find Public IP column and note address</li>
-<li><code>ssh ubuntu@PUBLIC-IP-ADDRESS</code><ul>
-<li>make an A record on your domain in <a href="http://aws.amazon.com/route53/" target="_blank">Route 53</a>
-for convenience</li>
-</ul>
-</li>
-</ul>
-<h2 id="install-prerequisites-and-common-packages">Install Prerequisites and Common Packages</h2>
-<p>The <code>-y</code> option is helpful because apt won&#39;t for wait for you to press &#39;y&#39;, it
-will just install the packages. Very helpful for when you&#39;re trying to script
-this entire process.</p>
-<pre><code>sudo apt-get update &amp;&amp; sudo apt-get install -y build-essential g++ tmux
-</code></pre><h2 id="install-node-build-from-source">Install Node, Build from Source</h2>
-<pre><code>curl -O http://nodejs.org/dist/v0.10.29/node-v0.10.29.tar.gz
-tar -xvzf node-v0.10.29.tar.gz
-cd node-v0.10.29
-./configure --prefix=/opt/node
-make
-sudo mkdir -p /opt/node
-sudo chown -R ubuntu.ubuntu /opt/node
-make install
-</code></pre><p>Add node to your path in <code>~/.bashrc</code>:</p>
-<p><code>echo &quot;export PATH=/opt/node/bin:$PATH&quot; &gt;&gt; ~/.bashrc</code></p>
-<p>Then reload <code>.bashrc</code></p>
-<p><code>source ~/.bashrc</code></p>
-<p>Double check to see that node is in your path:</p>
-<p><code>which node</code> =&gt; should be <code>/opt/node/bin/node</code></p>
-<p>Now, we need to add node to root&#39;s path too. To do this, we will need to use the
-<code>visudo</code> command to edit the secure path.</p>
-<p><code>sudo visudo</code></p>
-<p>edit your <code>Defaults  secure_path=</code> line, around the thrird line, to look like:</p>
-<p><code>Defaults        secure_path=&quot;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/node/bin&quot;</code></p>
-<p>The key here is to put the path to node at the end of the secure path.</p>
-<p>Go ahead and save the file.</p>
-<h2 id="install-the-latest-mongodb">Install the Latest MongoDB</h2>
-<p>Follow the directions here:
-<a href="http://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/" target="_blank">http://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/</a></p>
-<p>To summarize:</p>
-<pre><code>sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
-echo &#39;deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen&#39; | sudo tee /etc/apt/sources.list.d/mongodb.list
-sudo apt-get update
-sudo apt-get install mongodb-org
-</code></pre><h2 id="install-the-latest-redis">Install the Latest Redis</h2>
-<p>Luckily, Chris Lea keeps an up-to-date ubuntu ppa available.</p>
-<pre><code>sudo add-apt-repository ppa:chris-lea/redis-server
-sudo apt-get update
-sudo apt-get install redis-server -y
-</code></pre><h2 id="install-the-latest-git">Install the Latest Git</h2>
-<pre><code>sudo add-apt-repository ppa:git-core/ppa
-sudo apt-get update
-sudo apt-get install git -y
-</code></pre><h3 id="test-mongodb-is-running">Test MongoDB is running</h3>
-<pre><code>mongo
-show dbs
-</code></pre><ul>
-<li>ctrl-d to exit</li>
-</ul>
-<h3 id="test-redis-is-running">Test Redis is running</h3>
-<ul>
-<li><code>redis-cli ping</code> --&gt; should see  <code>PONG</code></li>
-</ul>
-<h2 id="a-neat-trick-to-find-the-external-ip">A Neat Trick to Find the External IP</h2>
-<p>You can always find the External IP address of your server in the EC2 Dashboard,
-but I frequently use this shortcut from the command line:</p>
-<p><code>curl icanhazip.com</code></p>
-<h2 id="bower-all-the-things">Bower ALL THE THINGS</h2>
-<p>I mean, install bower and any other global npm packages you use frequently.</p>
-<p><code>npm -g install bower grunt-cli</code></p>
-<h2 id="clone-your-app-and-install-npm-and-bower-packages">Clone Your App and Install NPM and Bower Packages</h2>
-<p>I&#39;ll use one of our example apps. </p>
-<p>Make sure you&#39;re in the ubuntu home directory: <code>/home/ubuntu</code> </p>
-<pre><code>cd
-git clone https://github.com/codefellows/javascript-b15-notes.git notes
-cd notes
-npm install &amp;&amp; bower install
-</code></pre><h2 id="launch-the-server-on-port-80">Launch the server on Port 80</h2>
-<p>To launch your app, and bind on any port under 1000, you need to use <code>sudo</code> to 
-escalate to root privelege.</p>
-<pre><code>sudo -i
-PORT=80 node server.js
-</code></pre><p>visit the site <a href="http://YOUR-IP-HERE" target="_blank">http://YOUR-IP-HERE</a></p>
-<p>This will do in a pinch, but it&#39;s not a professional setup. What happens if your
-server reboots? You want something to re-start the server automatically.</p>
-<h2 id="install-the-forever-npm-package">Install the Forever NPM Package</h2>
-<p><code>npm -g install forever</code>. Forever is a simple CLI tool for ensuring that a given script runs continuously.</p>
-<p>Create <code>/etc/init/notes.conf</code>. This is an <a href="http://en.wikipedia.org/wiki/Upstart" target="_blank">Ubuntu Upstart</a> script.</p>
-<p>You can always use <code>nano</code> if you are <a href="http://vim-adventures.com" target="_blank">afraid of Vim&hellip;</a></p>
-<p><code>/etc/init/notes.conf</code>:</p>
-<pre><code>start on startup
-stop on shutdown
-
-expect fork
-
-script
-  PATH=/opt/node/bin:$PATH
-  exec forever start /home/ubuntu/notes/server.js
-end script
-
-pre-stop script
-  PATH=/opt/node/bin:$PATH
-  exec forever stop /home/ubuntu/notes/server.js
-end script
-</code></pre><p>Then <code>sudo start notes</code> to start the app</p>
-<p>You can use use <code>sudo status notes</code> to see the status of the service.</p>
+                        <h1 id="angular-part-2-getting-started-with-angular">Angular Part 2, Getting Started With Angular</h1>
+<p>The easiest way to get started with Angular is to use a <a href="http://yeoman.io/">Yeoman generator</a>. The
+code and doccumentation for the Angular generator can be found <a href="https://github.com/yeoman/generator-angular">Here</a>.
+While I usually don&#39;t reccommend using generators it is a good way to see how the 
+moving pieces of Angular interact without having to worry about the file structure
+or naming conventions of the app. If you don&#39;t have npm and node installed look for 
+instructions for your operating system <a href="http://nodejs.org/">on their website</a></p>
+<p>The first step is to install Yeoman and the angular generator globally, along with
+bower and the grunt cli which are used for front end dependencies and build tools respectively:
+<code>npm install -g yo generator-angular bower grunt-cli</code>. Next create an empty directory and
+change into it. Then run <code>yo angular</code>, which will ask you a series of questions.
+When first starting out I would answer no to using sass/compass unless you already
+have it installed and have used it before. Answer no the bootstrap, primarily because
+Angular already adds a lot of classes and html bits and having the bootstrap classes
+in there as well will only make it more difficult to learn. The last question
+asks what other angular parts should be installed, get rid of everything except routes.</p>
+<p>The generator will then create a full working Angular app. To run the app, use the command
+<code>grunt serve</code> which will build all of the assets, start the app and if possible will open the
+index page in your browser.</p>
+<p>There are three major moving parts to pay attention to in this generated app. First, 
+there&#39;s the app, located in app/scripts/app.js. This file contains the base level app
+and the routing information using $routeProvider. Each .when statement contains the
+url to watch for, and the view and controller to render when a user navigates to that
+url. The next parts to look for are the views and controllers. The view are located
+app/views and the controllers are located in app/controllers. To create a new view use the
+command <code>yo angular:view &lt;name of your view&gt;</code> this will create a .html file in app/views
+with the specified name. To create a new controller just use <code>yo angular:controller &lt;name of controller&gt;</code>.
+This will create a basic controller in app/controllers with the specified name.</p>
+<p>These are the minimum three pieces needed to create a single page web application. A router, some views 
+and some controllers. Angular doesn&#39;t have a specific model construct as it just uses
+plain old javascript objects. Beyond these basics Anuglar has a host of features
+designed to increase the modularity and reusability of your code. The most important
+of these features include filters for transforming data or information in views (such as displaying 5.2 as $5.20).
+There are services for performing tasks across controllers, views and any other place that
+needs some reusable code. Finally, there are directives, which allow programmers to write portable
+code that interacts directly with the DOM. Documentation on each of these mentioned
+pieces of code can be found at the <a href="https://angularjs.org/">official Angular website</a>
+and there are Yeoman generators for each.</p>
+<p>That should get you started with Angular, obviously this doesn&#39;t inlcude everything or how
+to actually build full web application. Part 3 will be on how to find more information about
+Angular and how to stay up to date on the latest Angular trends and developments.</p>
 
                     
                     </section>
@@ -1165,10 +1072,10 @@ end script
         </div>
 
         
-        <a href="../auth_auth/angular_jwt_basic.html" class="navigation navigation-prev " aria-label="Previous page: Angular Client Auth"><i class="fa fa-angle-left"></i></a>
+        <a href="../angular/angular_part_1.html" class="navigation navigation-prev " aria-label="Previous page: Angular"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../backbone/README.html" class="navigation navigation-next " aria-label="Next page: Backbone"><i class="fa fa-angle-right"></i></a>
+        <a href="../Angular/angular_part_3.html" class="navigation navigation-next " aria-label="Next page: Angular Part 3"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
