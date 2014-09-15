@@ -1,4 +1,4 @@
-Getting angular to talk to the basic/jwt authentication scheme described 
+Getting angular to talk to the basic/jwt authentication scheme described
 <a href="#">here</a> is fairly simple. It essentially involves two parts: first,
 getting the JSON Web Token from the signin route and two, adding the jwt
 response as a browser cookie. Assuming a bower/browserify setup, run the following
@@ -12,7 +12,7 @@ This app is oging to assume that all the angular client side code will reside in
 /app and will be run through browserify into a /dist or /build directory. The app
 folder will have the following folders: views, js, js/controllers and possibly a
 bower_components folder as well. All of the controllers and other components
-will be drawn into a file named app.js in app/js. The browserify 'compiled' file will be 
+will be drawn into a file named app.js in app/js. The browserify 'compiled' file will be
 called client.js and this will included into an index.html that gets copied over
 by the grunt build task. The index.js file should look something like this:
 ```html
@@ -30,7 +30,7 @@ by the grunt build task. The index.js file should look something like this:
   </body>
 </html>
 ```
-The index.html is pretty simple, all it does is load the client.js file and provide a 
+The index.html is pretty simple, all it does is load the client.js file and provide a
 a div for the app and one for the view. The app.js that browserify uses to create the
 client.js will look like this:
 ```javascript
@@ -61,7 +61,7 @@ notesApp.config(['$routeProvider', function($routeProvider) {
 ```
 This code won't actually run as is, the controllers and the view have yet to be added but
 this is the overall structure of the app. It creates our notesApp object and then passes
-the notesApp object to the controller files to add the users and notes controllers. Then 
+the notesApp object to the controller files to add the users and notes controllers. Then
 the /notes and /signin route are added to the notesApp with signin as the default.
 
 The next step is to create the signin controller and view. First the view which should be located
@@ -102,12 +102,12 @@ This controller really only contains the singin function which has two parts. Fi
 sets the authentication header for the request. Of note is that passport basic authentication actually
 expects the basic auth to be base64 encoded. While this doesn't actually provide a secure means of
 transportation and isn't a replacement for https, it does prevent the password from being transported
-in the clear. The next portion of the signin function sends the request to the singin url and 
+in the clear. The next portion of the signin function sends the request to the singin url and
 on success will set the response jwt to a browser cookie using the $cookie library. After setting
 the cookie it redirects to the /notes path. Which means, that the next file to create is the notesView.html
 in app/views/notesView.html
 ```javascript
-<div ng-controller="NotesController"> 
+<div ng-controller="NotesController">
   <h3>Notes</h3>
   <div ng-repeat="note in notes">
     <p>{{note.noteBody}}</p>
@@ -133,6 +133,6 @@ module.exports = function(app) {
 ```
 This controller once again sets a header but this time it is the JWT that was received after successfully
 authenticating and saved to a browser cookie. This does assume that the server side api can read the
-jwt from the headers and not the body of the request. Which should be as simple as changing the line 
+jwt from the headers and not the body of the request. Which should be as simple as changing the line
 in jwtauth from `var token = req.body.jwt_token` to `var token = (req.body && req.body.jwt_token) || req.headers.jwt`
 and then it should authenticate and send back an array of notes.
