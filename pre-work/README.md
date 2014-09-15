@@ -12,7 +12,7 @@ before the Development Acellorator.
 * [Try jQuery](http://try.jquery.com)
 * [JavaScript Road Trip, Parts 1](https://www.codeschool.com/courses/javascript-road-trip-part-1)
   [and 2](https://www.codeschool.com/courses/javascript-road-trip-part-2)
-  
+
   These cover the basics of JavaScript, you may already know this stuff,
   especially if you did a JavaScript Code Fellows foundations course. It's o.k.
   Skip to [JS Road Trip part 3](https://www.codeschool.com/courses/javascript-road-trip-part-3)
@@ -26,23 +26,14 @@ Watch the first [Crockford on JS](https://www.youtube.com/watch?v=JxAXlJEmNMg) a
 other lectures in the series. The whole series is 8+ hours long, so this will be
 something that will take some time.
 
-## Asana
-
-We use the Asana project management / TODO list system to keep track of assignments
-in class. Watch the [Intro Video]( https://asana.com/guide/explore/videos/get-started)
-and any other videos or help documents necessary there.
-
-The only thing that's different about the way we use Asana is that an instructor
-will check off when you are done with an assignment. You can always comment
-"DONE" if you need us to review the work.
 
 ## Required State Paperwork
 Code Fellows LLC is licensed as a technical training school by the State of
 Washington and we follow all state laws and regulations. All students are
-required to fill out two important forms: 
+required to fill out two important forms:
 
 1: the demographic survey, and
-2: Acknowledge receipt of the course catalog and honor code. 
+2: Acknowledge receipt of the course catalog and honor code.
 
 Please print out these forms, fill them out and sign them, and bring them to the
 first class meeting.
