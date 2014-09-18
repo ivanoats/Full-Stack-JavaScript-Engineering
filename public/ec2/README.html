@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="15" data-basepath=".." data-revision="1411063077471">
+    <div class="book"  data-level="15" data-basepath=".." data-revision="1411067080815">
     
 
 <div class="book-summary">
@@ -1037,26 +1037,34 @@ if you need help creating your own public/private key pair.</li>
 </ul>
 <h2 id="find-and-launch-an-ami">Find and launch an AMI</h2>
 <ul>
-<li>Google AWS Marketplace</li>
-<li>Search for Ubuntu</li>
-<li><a href="https://aws.amazon.com/marketplace/pp/B00JV9JBDS/ref=srh_res_product_title?ie=UTF8&amp;sr=0-3&amp;qid=1402960705314" target="_blank">I chose this 64 bit image</a>,  you should too for this tutorial.</li>
-<li>click the big yellow continue button</li>
-<li>accept default options, except:<ul>
-<li>make sure <strong>t1-micro</strong> is selected in EC2 Instance Type</li>
-</ul>
-</li>
-<li>Launch with 1-Click</li>
+<li>Sign in to <a href="http://aws.amazon.com/console/" target="_blank">AWS Management Console</a></li>
+<li>Select EC2</li>
+<li>Click on the blue &quot;Launch Instance&quot; button</li>
+<li>Choose an AMI: Choose Ubuntu 14.04 LTS</li>
+<li>Choose an Instance Type: t2.micro (make sure it says free tier eligible)</li>
+<li>Click &quot;Next: Configure Intsance Details&quot;</li>
+<li>We can just use the defaults here: Click &quot;Next: Add Storage&quot;</li>
+<li>We can just use the defaults again here: Click &quot;Next: Tag Instance&quot;</li>
+<li>Add a tag, for example a key of &quot;Class&quot; and a Value of &quot;B20&quot;</li>
+<li>Click &quot;Next: Configure Security Group&quot;</li>
+<li>Create a new security group should be selected. It will default to ssh access
+only. Add two more types of rules for access to ports 80 and 443 (HTTP and HTTPS)</li>
+<li>Click &quot;Review and Launch&quot;</li>
 </ul>
 <h2 id="connect-to-your-ec2-machine-instance">Connect to your EC2 Machine Instance</h2>
 <ul>
-<li>Visit your <a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:" target="_blank">EC2 Dashboard</a></li>
-<li>instance state will be &#39;running&#39; eventually</li>
-<li>find Public IP column and note address</li>
-<li><code>ssh ubuntu@PUBLIC-IP-ADDRESS</code><ul>
-<li>make an A record on your domain in <a href="http://aws.amazon.com/route53/" target="_blank">Route 53</a>
-for convenience</li>
+<li>Click on View Instances or visit your <a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:" target="_blank">EC2 Dashboard</a></li>
+<li>instance state will be &#39;initializing&#39; then &#39;running&#39; eventually</li>
+<li>find &quot;Public IP&quot; column and note address</li>
+<li>or find the &quot;Public DNS&quot; for the full hostname. This is useful as your IP address might change</li>
+<li><code>ssh ubuntu@hostname</code></li>
+<li>if you created a new key and it&#39;s not in your ssh keychain you may need to:</li>
 </ul>
-</li>
+<p><code>ssh ubuntu@hostname -I ~/.ssh/path-to-keyfile</code></p>
+<p> replace path-to-keyfile with the actual path of your key file</p>
+<ul>
+<li>make an A record on your domain in <a href="http://aws.amazon.com/route53/" target="_blank">Route 53</a>
+   for convenience</li>
 </ul>
 <h2 id="install-prerequisites-and-common-packages">Install Prerequisites and Common Packages</h2>
 <p>The <code>-y</code> option is helpful because apt won&#39;t for wait for you to press &#39;y&#39;, it
