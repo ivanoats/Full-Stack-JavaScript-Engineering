@@ -13,20 +13,33 @@ machine. Visit [Github Help](https://help.github.com/articles/generating-ssh-key
 if you need help creating your own public/private key pair.
 
 ## Find and launch an AMI
-- Google AWS Marketplace
-- Search for Ubuntu
-- [I chose this 64 bit image](https://aws.amazon.com/marketplace/pp/B00JV9JBDS/ref=srh_res_product_title?ie=UTF8&sr=0-3&qid=1402960705314),  you should too for this tutorial.
-- click the big yellow continue button
-- accept default options, except:
-	- make sure **t1-micro** is selected in EC2 Instance Type
-- Launch with 1-Click
+- Sign in to [AWS Management Console](http://aws.amazon.com/console/)
+- Select EC2
+- Click on the blue "Launch Instance" button
+- Choose an AMI: Choose Ubuntu 14.04 LTS
+- Choose an Instance Type: t2.micro (make sure it says free tier eligible)
+- Click "Next: Configure Intsance Details"
+- We can just use the defaults here: Click "Next: Add Storage"
+- We can just use the defaults again here: Click "Next: Tag Instance"
+- Add a tag, for example a key of "Class" and a Value of "B20"
+- Click "Next: Configure Security Group"
+- Create a new security group should be selected. It will default to ssh access
+only. Add two more types of rules for access to ports 80 and 443 (HTTP and HTTPS)
+- Click "Review and Launch"
 
 ## Connect to your EC2 Machine Instance
-- Visit your [EC2 Dashboard](https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:)
-- instance state will be 'running' eventually
-- find Public IP column and note address
-- `ssh ubuntu@PUBLIC-IP-ADDRESS`
-	- make an A record on your domain in [Route 53](http://aws.amazon.com/route53/)
+- Click on View Instances or visit your [EC2 Dashboard](https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:)
+- instance state will be 'initializing' then 'running' eventually
+- find "Public IP" column and note address
+- or find the "Public DNS" for the full hostname. This is useful as your IP address might change
+- `ssh ubuntu@hostname`
+- if you created a new key and it's not in your ssh keychain you may need to:
+
+`ssh ubuntu@hostname -I ~/.ssh/path-to-keyfile`
+
+ replace path-to-keyfile with the actual path of your key file
+
+- make an A record on your domain in [Route 53](http://aws.amazon.com/route53/)
 	 for convenience
 
 ## Install Prerequisites and Common Packages
