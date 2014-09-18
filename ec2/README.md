@@ -42,9 +42,9 @@ sudo apt-get update && sudo apt-get install -y build-essential g++ tmux
 ## Install Node, Build from Source
 
 ```
-curl -O http://nodejs.org/dist/v0.10.29/node-v0.10.29.tar.gz
-tar -xvzf node-v0.10.29.tar.gz
-cd node-v0.10.29
+curl -O http://nodejs.org/dist/v0.10.32/node-v0.10.32.tar.gz
+tar -xvzf node-v0.10.32.tar.gz
+cd node-v0.10.32
 ./configure --prefix=/opt/node
 make
 sudo mkdir -p /opt/node

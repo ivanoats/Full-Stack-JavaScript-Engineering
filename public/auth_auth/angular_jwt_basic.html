@@ -7,7 +7,7 @@
         <title>Angular JWT | Full Stack JavaScript Engineering</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 1.0.2">
+        <meta name="generator" content="GitBook 1.0.3">
         <meta name="HandheldFriendly" content="true"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <meta name="apple-mobile-web-app-capable" content="yes">
@@ -31,7 +31,7 @@
 
 
         
-    <div class="book"  data-level="17.3" data-basepath=".." data-revision="1409249698071">
+    <div class="book"  data-level="17.3" data-basepath=".." data-revision="1411063077471">
     
 
 <div class="book-summary">
@@ -1019,7 +1019,7 @@
                 
                     <section class="normal" id="section-gitbook_5">
                     
-                        <p>Getting angular to talk to the basic/jwt authentication scheme described 
+                        <p>Getting angular to talk to the basic/jwt authentication scheme described
 <a href="#">here</a> is fairly simple. It essentially involves two parts: first,
 getting the JSON Web Token from the signin route and two, adding the jwt
 response as a browser cookie. Assuming a bower/browserify setup, run the following
@@ -1031,7 +1031,7 @@ auth(which passport expects) and angular-cookies allows browser cookies to be se
 /app and will be run through browserify into a /dist or /build directory. The app
 folder will have the following folders: views, js, js/controllers and possibly a
 bower_components folder as well. All of the controllers and other components
-will be drawn into a file named app.js in app/js. The browserify &#39;compiled&#39; file will be 
+will be drawn into a file named app.js in app/js. The browserify &#39;compiled&#39; file will be
 called client.js and this will included into an index.html that gets copied over
 by the grunt build task. The index.js file should look something like this:</p>
 <pre><code class="lang-html"><span class="hljs-doctype">&lt;!doctype html&gt;</span>
@@ -1048,7 +1048,7 @@ by the grunt build task. The index.js file should look something like this:</p>
   <span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span>
 </code></pre>
-<p>The index.html is pretty simple, all it does is load the client.js file and provide a 
+<p>The index.html is pretty simple, all it does is load the client.js file and provide a
 a div for the app and one for the view. The app.js that browserify uses to create the
 client.js will look like this:</p>
 <pre><code class="lang-javascript"><span class="hljs-built_in">require</span>(<span class="hljs-string">'angular/angular'</span>);
@@ -1078,7 +1078,7 @@ notesApp.config([<span class="hljs-string">'$routeProvider'</span>, <span class=
 </code></pre>
 <p>This code won&#39;t actually run as is, the controllers and the view have yet to be added but
 this is the overall structure of the app. It creates our notesApp object and then passes
-the notesApp object to the controller files to add the users and notes controllers. Then 
+the notesApp object to the controller files to add the users and notes controllers. Then
 the /notes and /signin route are added to the notesApp with signin as the default.</p>
 <p>The next step is to create the signin controller and view. First the view which should be located
 in app/views/signin.html and should look something like this:</p>
@@ -1116,11 +1116,11 @@ will be located at app/controllers/signinController.js and should contain the fo
 sets the authentication header for the request. Of note is that passport basic authentication actually
 expects the basic auth to be base64 encoded. While this doesn&#39;t actually provide a secure means of
 transportation and isn&#39;t a replacement for https, it does prevent the password from being transported
-in the clear. The next portion of the signin function sends the request to the singin url and 
+in the clear. The next portion of the signin function sends the request to the singin url and
 on success will set the response jwt to a browser cookie using the $cookie library. After setting
 the cookie it redirects to the /notes path. Which means, that the next file to create is the notesView.html
 in app/views/notesView.html</p>
-<pre><code class="lang-javascript">&lt;div ng-controller=<span class="hljs-string">"NotesController"</span>&gt; 
+<pre><code class="lang-javascript">&lt;div ng-controller=<span class="hljs-string">"NotesController"</span>&gt;
   <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">h3</span>&gt;</span>Notes<span class="hljs-tag">&lt;/<span class="hljs-title">h3</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">ng-repeat</span>=<span class="hljs-value">"note in notes"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>{{note.noteBody}}<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
@@ -1145,7 +1145,7 @@ add the note controller in app/controllers/notesController.js</p>
 </code></pre>
 <p>This controller once again sets a header but this time it is the JWT that was received after successfully
 authenticating and saved to a browser cookie. This does assume that the server side api can read the
-jwt from the headers and not the body of the request. Which should be as simple as changing the line 
+jwt from the headers and not the body of the request. Which should be as simple as changing the line
 in jwtauth from <code>var token = req.body.jwt_token</code> to <code>var token = (req.body &amp;&amp; req.body.jwt_token) || req.headers.jwt</code>
 and then it should authenticate and send back an array of notes.</p>
 
@@ -1168,7 +1168,7 @@ and then it should authenticate and send back an array of notes.</p>
 <script src="../gitbook/app.js"></script>
 
     
-    <script src="https://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://cdn.mathjax.org/mathjax/2.4-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
 
     
