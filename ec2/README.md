@@ -197,3 +197,8 @@ end script
 Then `sudo start notes` to start the app
 
 You can use use `sudo status notes` to see the status of the service.
+
+# Install an SSL Certificate
+
+You can get a [free SSL certificate](https://www.startssl.com), or for development,
+you can generate a self-signed certificate. Follow this [Heroku Tutorial](https://devcenter.heroku.com/articles/ssl-certificate-self)
