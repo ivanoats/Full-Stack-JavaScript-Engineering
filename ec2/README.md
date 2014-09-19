@@ -143,9 +143,9 @@ I mean, install bower and any other global npm packages you use frequently.
 
 ## Clone Your App and Install NPM and Bower Packages
 
-I'll use one of our example apps. 
+I'll use one of our example apps.
 
-Make sure you're in the ubuntu home directory: `/home/ubuntu` 
+Make sure you're in the ubuntu home directory: `/home/ubuntu`
 
 ```
 cd
@@ -156,7 +156,7 @@ npm install && bower install
 
 ## Launch the server on Port 80
 
-To launch your app, and bind on any port under 1000, you need to use `sudo` to 
+To test out launching your app, and bind on any port under 1000, you need to use `sudo` to
 escalate to root privelege.
 
 ```
@@ -185,6 +185,7 @@ expect fork
 
 script
   PATH=/opt/node/bin:$PATH
+  export PORT=80
   exec forever start /home/ubuntu/notes/server.js
 end script
 

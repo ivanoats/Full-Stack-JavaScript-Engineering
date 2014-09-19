@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="15" data-basepath=".." data-revision="1411071815716">
+    <div class="book"  data-level="15" data-basepath=".." data-revision="1411089886067">
     
 
 <div class="book-summary">
@@ -1128,14 +1128,14 @@ but I frequently use this shortcut from the command line:</p>
 <p>I mean, install bower and any other global npm packages you use frequently.</p>
 <p><code>npm -g install bower grunt-cli</code></p>
 <h2 id="clone-your-app-and-install-npm-and-bower-packages">Clone Your App and Install NPM and Bower Packages</h2>
-<p>I&#39;ll use one of our example apps. </p>
-<p>Make sure you&#39;re in the ubuntu home directory: <code>/home/ubuntu</code> </p>
+<p>I&#39;ll use one of our example apps.</p>
+<p>Make sure you&#39;re in the ubuntu home directory: <code>/home/ubuntu</code></p>
 <pre><code>cd
 git clone https://github.com/codefellows/javascript-b15-notes.git notes
 cd notes
 npm install &amp;&amp; bower install
 </code></pre><h2 id="launch-the-server-on-port-80">Launch the server on Port 80</h2>
-<p>To launch your app, and bind on any port under 1000, you need to use <code>sudo</code> to 
+<p>To test out launching your app, and bind on any port under 1000, you need to use <code>sudo</code> to
 escalate to root privelege.</p>
 <pre><code>sudo -i
 PORT=80 node server.js
@@ -1154,6 +1154,7 @@ expect fork
 
 script
   PATH=/opt/node/bin:$PATH
+  export PORT=80
   exec forever start /home/ubuntu/notes/server.js
 end script
 
