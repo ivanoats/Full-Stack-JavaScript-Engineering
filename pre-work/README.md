@@ -1,6 +1,6 @@
 # Pre-work
 
-These pre-work tasks are optional, but recommended if you have any knowledge
+These pre-work tasks are recommended if you have any knowledge
 gaps. They are here to make sure you have a good foundational knowledge of
 JavaScript, jQuery, Git, and HTML/CSS
 
@@ -22,18 +22,6 @@ before the Development Acellorator.
 
 ## Crockford on JS Lecture Series
 
-Watch the first [Crockford on JS](https://www.youtube.com/watch?v=JxAXlJEmNMg) and any
+Watch the first three [Crockford on JS](https://www.youtube.com/watch?v=JxAXlJEmNMg) and any
 other lectures in the series. The whole series is 8+ hours long, so this will be
 something that will take some time.
-
-
-## Required State Paperwork
-Code Fellows LLC is licensed as a technical training school by the State of
-Washington and we follow all state laws and regulations. All students are
-required to fill out two important forms:
-
-1: the demographic survey, and
-2: Acknowledge receipt of the course catalog and honor code.
-
-Please print out these forms, fill them out and sign them, and bring them to the
-first class meeting.
