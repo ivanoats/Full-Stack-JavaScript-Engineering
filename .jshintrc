@@ -1,0 +1,22 @@
+{
+  "globals": {
+    "describe"   : false,
+    "it"         : false,
+    "to"         : false,
+    "ok"         : false,
+    "be"         : false,
+    "before"     : false,
+    "beforeEach" : false,
+    "after"      : false,
+    "afterEach"  : false,
+    "equal"      : false
+  },
+  "globalstrict": true,
+  "quotmark": true,
+  "smarttabs": true,
+  "trailing": true,
+  "undef": true,
+  "unused": true,
+  "indent": 2,
+  "node": true
+}

@@ -3,11 +3,14 @@
 This is only if you need to, generally just on Linux systems.
 
 - Goto the node website
-- Click download
-- Click the source download
+- Click [downloads](http://nodejs.org/download/)
+- Click the **Source Code** download. Usually the last row. It will be a file like `http://nodejs.org/dist/v0.10.32/node-v0.10.32.tar.gz`
+
+  The version # may be greater.
+
 - Go to the directory where you downloaded the source and do:
 ```
-tar -xzvf <the node tar.gz you downloaded>
+tar -xvf <the node tar.gz you downloaded>
 cd <node directory>
 ./configure --prefix=~/.node
 make && make install
