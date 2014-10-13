@@ -165,6 +165,8 @@ PORT=80 node server.js
 ```
 visit the site http://YOUR-IP-HERE
 
+(NOTE: At this point, after executing `sudo -i`, you are logged in as the root user.  If you try to update your repository, e.g. with `git pull origin master`, your credentials will be rejected by github.  Your key is specific to the ubuntu user.  You need to be logged in regularly as `ubuntu`.  Type `ctrl + c` to logout of root and it will log you back in as ubuntu.)
+
 This will do in a pinch, but it's not a professional setup. What happens if your
 server reboots? You want something to re-start the server automatically.
 
