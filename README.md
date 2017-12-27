@@ -31,6 +31,6 @@ git push heroku master # must be a contributor
 ```
 
 ## Contributing
-Send us a pull request here on Github.
+Send us a [pull request here](https://github.com/codefellows/Full-Stack-JavaScript-Engineering/pulls) on Github.
 
 More info, see the [GitBook README](https://github.com/GitbookIO/gitbook/blob/master/README.md)
